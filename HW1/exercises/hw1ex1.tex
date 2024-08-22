@@ -1,6 +1,36 @@
+% chktex-file 18
 \section*{Exercise 1.}
 Let $U\subseteq \C$ be an open set. Prove that $U$ is connected if and only if it is path connected.
 
 \textbf{Solution:} 
 
-$\implies$:  
+$\boldsymbol{\impliedby}$: The following claims are basic results from topology. Assume that $U$ is path connected, and for the sake of contradiction assume that $U$ is not connected. Thus, there exists a separation $A,B$ of the set $U$.
+
+Now, let $z\in A, w\in B$ and $f: [0,1] \to U$ be a continuous path such that $f(0) = z$ and $f(1) = w$. 
+
+\textbf{Claim 1:} The interval $[0,1]$ is connected.
+
+\textbf{Claim 2:} If $I$ is connected and $f$ is a continuous function, then $f(I)$ is connected.
+
+With the first 2 claims we're saying that $f([0,1])$ is a connected set.
+
+\textbf{Claim 3:} If the sets $A,B$ form a separation of $U$ and if $Y$ is a connected set, then $Y$ lies entirely within either $A$ or $B$. 
+
+With this last claim we'll reach a contradiction, because if $Y = f([0,1])$, then either $z,w \in A$ or $z,w \in B$. This cannot be possible since $A,B$ is a separation.
+
+\vspace*{2em}
+
+$\boldsymbol{\implies}$: Now assume that $U$ is connected. The goal here is to prove that every path-connected component is both an open and a closed set, and thus, if there exists more than 1 path-connected component, there would exist a separation for $U$.
+
+For this purpose fix $x \in U$, and define the relationship $y_1 \sim y_2$ for when there exists a continuous path that connects $y_1$ and $y_2$.
+
+\textbf{Claim 1:} "$\sim$" defines an equivalence relationship, and thus, the set $U_x = \{y \in U \;:\; y\sim x\}$ is a well defined equivalence class set.
+
+\textbf{Claim 2:} The open ball $B_\varepsilon(z)$ is convex for every $z \in \C$ and $\varepsilon > 0$. Thus, it's path connected since every convex combination of 2 elements is within the ball.
+
+\textbf{$\boldsymbol{U_x}$ is open:} Let $z \in U_x \subset U$ and let $\varepsilon > 0$ such that $B_\varepsilon(z) \subset U$ (it does exists because $U$ is open). With the previous claim, we know that for any $y\in B_\varepsilon(z)$, $y\sim z$, and since $z\sim x$, we conclude from the transitivity of "$\sim$" that $y\sim x$. Thus, $B_\varepsilon(z) \subset U_x$.
+
+\textbf{$\boldsymbol{U_x}$ is closed:} Finally, for a similar reason, note that $U\backslash U_x$ is open. Let $z\in U\backslash U_x$ and let $\varepsilon > 0$ such that $B_\varepsilon(z) \subset U$. Since $z \not\sim x$ and $y\sim z$ for every $y\in B_\varepsilon(z)$, it follows that $y \not\sim x$. Therefore, $B_\varepsilon(z) \subset U\backslash U_x$.
+
+If $U_x \subsetneq U$, then $U_x$ and $U\backslash U_x$ would form a separation for $U$.
+

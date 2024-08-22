@@ -1,0 +1,42 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 2.}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Let $u(x,y) = x^3-3xy^2$. Find all the entire functions $f$ such that $u = \re(f)$.
+    \item Let $v(x,y) = x^2 + y^2$. Find all the entire functions $f$ such that $v = \im(f)$.
+    \item Let $U\subseteq \C$ be a region and let $f,g : U \to \C$ be holomorphic functions such that $f(U) \subset \R$ and $g(U) \subset \S^1 := \{z \in\C \;:\; |z| = 1\}$. Prove that $f$ and $g$ are constant. 
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+\[ \frac{\d v}{\d y}(x,y) = \frac{\d u}{\d x}(x,y) = 3x^2-3y^2, \]
+\[ -\frac{\d v}{\d x}(x,y) = \frac{\d u}{\d y}(x,y) = -6xy. \]
+The solutions for these partial equations are
+\[ v(x,y) = \int 3x^2-3y^2\; dy = 3x^2y-y^3 + K_1(x),\]
+\[ v(x,y) = \int 6xy\; dx = 3x^2 y + K_2(y). \]
+Therefore,
+\[ v(x,y) = 3x^2y-y^3 + K_1(y) = 3x^2 y + K_2(x) \]
+\[ \implies K_1(y) = y^3 + K_2(x) \]
+This can only happen if $K_1$ is a constant $K \in \C$ and $K_2(y) = y^3 + K$. Thus,
+\[ v(x,y) = 3x^2 y - y^3 + K. \]
+Finally, the family of entire functions that satisfy the initial condition are:
+\[ f_K(x,y) = x^3-3xy^2 + i(3x^2 y - y^3 + K),\hspace{1em} K\in \C \]
+\[ = (x+iy)^3 + iK. \]
+
+\subsection*{Solution Part (b)}
+
+\[ -\frac{\d u}{\d y}(x,y) = \frac{\d v}{\d x}(x,y) = 2x, \]
+\[ \frac{\d u}{\d x}(x,y) = \frac{\d v}{\d y}(x,y) = 2y. \]
+The solutions for these partial equations are
+\[ u(x,y) = \int -2x\; dy = -2xy + K_1(x),\]
+\[ u(x,y) = \int 2y\; dx = 2xy + K_2(y). \]
+Therefore,
+\[ u(x,y) = -2xy + K_1(y) = 2xy + K_2(x) \]
+\[ \implies K_1(y)-K_2(x) = 4xy. \]
+However, this cannot be possible for any entire 
+function because the previous would imply that the functions $K_1,K_2$ are not well defined:
+\[ \frac{\d K_1}{\d y}(y) = 4x, \]
+\[ \frac{\d K_2}{\d y}(x) = -4y. \]
+Thus, there doesn't exist any entire function with the initial conditions.
+
+\subsection*{Solution Part (c)}

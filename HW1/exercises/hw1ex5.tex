@@ -1,4 +1,96 @@
 %chktex-file 36
 \section*{Exercise 5.}
 
-Prove that $\ol{\frac{\d f}{\d z}} = \frac{\d \ol{f}}{\d z}$. Formulate and prove the chain rule for the Wirtinger derivatives.
+Prove that $\ol{\frac{\d f}{\d z}} = \frac{\d \ol{f}}{\d \ol{z}}$. Formulate and prove the chain rule for the Wirtinger derivatives.
+
+\textbf{Solution:}
+
+Let $z = x + i y$ and $f(z) = u(z) + i v(z)$, where $u,v$ are real functions, using the definition of the Wirtinger derivative,
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rcl}
+    \frac{\d f}{\d z} & = & \frac{1}{2} \left( \frac{\d f}{\d x} - i \frac{\d f}{\d y} \right)\\
+    & = & \frac{1}{2} \left( \frac{\d u}{\d x} + i \frac{\d v}{\d x} - i \frac{\d u}{\d y} + \frac{\d v}{\d y} \right)\\
+    & = & \frac{1}{2} \left( \frac{\d u}{\d x} + \frac{\d v}{\d y} \right) + \frac{i}{2} \left( \frac{\d v}{\d x} - \frac{\d u}{\d y} \right)
+\end{array} \]
+\[ \implies \ol{\frac{\d f}{\d z}} = \frac{1}{2} \left( \frac{\d u}{\d x} + \frac{\d v}{\d y} \right) - \frac{i}{2} \left( \frac{\d v}{\d x} - \frac{\d u}{\d y} \right) \]
+
+On the other hand, 
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rcl}
+    \frac{\d f}{\d \ol{z}} & = & \frac{1}{2} \left( \frac{\d f}{\d x} + i \frac{\d f}{\d y} \right)\\
+    & = & \frac{1}{2} \left( \frac{\d u}{\d x} + i \frac{\d v}{\d x} + i \frac{\d u}{\d y} - \frac{\d v}{\d y} \right)\\
+    & = & \frac{1}{2} \left( \frac{\d u}{\d x} - \frac{\d v}{\d y} \right) + \frac{i}{2} \left( \frac{\d v}{\d x} + \frac{\d u}{\d y} \right)
+\end{array} \]
+
+Additionally, $\ol{f}(z) = u(z)+i(-v(z))$. Thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \frac{\d \ol{f}}{\d \ol{z}} & = & \frac{1}{2} \left( \frac{\d u}{\d x} - \frac{\d (-v)}{\d y} \right) + \frac{i}{2} \left( \frac{\d (-v)}{\d x} + \frac{\d u}{\d y} \right) \\
+    & = & \frac{1}{2} \left( \frac{\d u}{\d x} + \frac{\d v}{\d y} \right) + \frac{i}{2} \left( \frac{\d v}{\d x} - \frac{\d u}{\d y} \right)\\
+    & = & \ol{\frac{\d f}{\d z}}
+\end{array}\]
+
+\subsection*{Chain Rule}
+
+In order to simplify the following expressions, call $F_x = \frac{\d f}{\d x}\circ g$, $F_y = \frac{\d f}{\d y}\circ g$, $g_x = \frac{\d g}{\d x}$ and $g_y = \frac{\d g}{\d y}$. 
+
+For the chain rule, the formulation is:
+
+\[ \frac{\d f\circ g}{\d z} = \frac{\d g}{\d z}\cdot\left( \frac{\d f}{\d z} \circ g \right) + \frac{\d \ol{g}}{\d z}\cdot \left( \frac{\d f}{\d \ol{z}} \circ g \right)  \]
+
+To prove this, note that
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.6}
+\begin{array}{rcl}
+    \frac{\d f\circ g}{\d z} & = & \frac{1}{2} \left( \frac{\d f\circ g}{\d x}(z) - i \frac{\d f\circ g}{\d y} \right)\\
+    & = & \frac{1}{2} \left( \frac{\d g}{\d x}\cdot\frac{\d f}{\d x}\circ g - i \frac{\d g}{\d y}\cdot\frac{\d f}{\d y}\circ g \right)\\
+    (\star) & = & \frac{1}{2} \left( g_x F_x - i g_y F_y  \right)
+\end{array} \]
+
+and on the other hand, Also, note that
+\[ \frac{\d \ol{g}}{\d z} = \ol{\frac{\d g}{\d \ol{z}}} = \ol{(g_x + i g_y)} = \ol{g_x} - i \ol{g_y} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.8}
+\begin{array}{rcl}
+    \frac{\d g}{\d z}\cdot\left( \frac{\d f}{\d z} \circ g \right) + \frac{\d \ol{g}}{\d z}\cdot \left( \frac{\d f}{\d \ol{z}} \circ g \right) & = & \frac{1}{4} (g_x - i g_y) \cdot (F_x - i F_y) + \frac{1}{4} (\ol{g_x} - i \ol{g_y} )\cdot \left( F_x + i F_y \right)\\[1.5em]
+
+    & = & \frac{1}{4}\left[ g_x F_x - i g_x F_y - i g_y F_x +g_y F_y \right]\\
+    & + & \frac{1}{4}\left[ \ol{g_x} F_x + i \ol{g_x} F_y - i \ol{g_y} F_x - \ol{g_y} F_y \right]\\[1.5em]
+
+    & = & \frac{1}{4}\left[ g_x + \ol{g_x} - i g_y - i \ol{g_y} \right]F_x\\
+    & + & \frac{1}{4}\left[ -ig_x + i \ol{g_x} + g_y - \ol{g_y} \right]F_y\\[1.5em]
+
+    & = & \frac{1}{4}\left[ 2\re(g_x) - 2i \re(g_y)  \right]F_x\\
+    & + & \frac{1}{4}\left[ 2\im(g_x) + 2i \im(g_y)  \right]F_y\\[1.5em]
+
+    \mbox{\tiny{(Cauchy-Riemann)}} & = & \frac{1}{4}\left[ 2\re(g_x) + 2i\im(g_x)  \right]F_x\\
+    & + & \frac{1}{4}\left[ 2\im(g_x) - 2i \re(g_y)  \right]F_y\\[1.5em]
+
+    & = & \frac{1}{2}g_x F_x - \frac{i}{2} g_y F_y\\
+    (\star) & = & \frac{\d f\circ g}{\d z}
+
+\end{array} \]
+
+
+% Also, we know that $\frac{\d }{\d x} = \frac{\d }{\d z} + \frac{\d }{\d \ol{z}}$ and $\frac{\d }{\d y} = i \frac{\d }{\d z} - i \frac{\d }{\d \ol{z}}$. Therefore,
+
+% \[ \everymath{\displaystyle}
+% \arraycolsep=1.8pt\def\arraystretch{1.6}
+% \begin{array}{rcl}
+%      & = & \frac{1}{2}\Bigg[ \left( \frac{\d g }{\d z} + \frac{\d g}{\d \ol{z}} \right) \left( \frac{\d f }{\d z}\circ g + \frac{\d f}{\d \ol{z}}\circ g \right)\\
+%       &  & - i \left( i \frac{\d g}{\d z} - i \frac{\d g}{\d \ol{z}} \right) \left( i \frac{\d f}{\d z}\circ g - i \frac{\d f}{\d \ol{z}}\circ g \right)\Bigg]\\[1.5 em]
+
+%       & = & \frac{1}{2}\Bigg[ \left( \frac{\d g }{\d z} + \frac{\d g}{\d \ol{z}} \right) \left( \frac{\d f }{\d z}\circ g + \frac{\d f}{\d \ol{z}}\circ g \right)\\
+%       &  & + \left( i \frac{\d g}{\d z} - i \frac{\d g}{\d \ol{z}} \right) \left( \frac{\d f}{\d z}\circ g - \frac{\d f}{\d \ol{z}}\circ g \right)\Bigg]\\[1.5 em]
+
+%       & = & \frac{1}{2}\Bigg[ \frac{\d g }{\d z}\frac{\d f }{\d z}\circ g + \frac{\d g }{\d z}\frac{\d f}{\d \ol{z}}\circ g + \frac{\d g}{\d \ol{z}}\frac{\d f }{\d z}\circ g + \frac{\d g}{\d \ol{z}}\frac{\d f}{\d \ol{z}}\circ g \\
+%       &  & + i\frac{\d g}{\d z}\frac{\d f}{\d z}\circ g - i\frac{\d g}{\d z}\frac{\d f}{\d \ol{z}}\circ g - i\frac{\d g}{\d \ol{z}}\frac{\d f}{\d z}\circ g + i\frac{\d g}{\d \ol{z}}\frac{\d f}{\d \ol{z}}\circ g\Bigg]\\[1.5 em]
+
+%       & = & \frac{1+i}{2} \left[ \frac{\d g }{\d z}\frac{\d f }{\d z}\circ g +  \right]
+% \end{array} \]

@@ -1,9 +1,51 @@
-%chktex-file 36
+%chktex-file 36 chktex-file 3 chktex-file 18
 \section*{Exercise 2.}
 \subsection*{Part (a)}
 Let $z,w \in \C$ with $\ol{z} w \neq 1$, and $|z| \leq 1$ and $|w| \leq 1$. Prove that
 \[ \left| \frac{w-z}{1-\ol{w}z} \right| \leq 1\]
 with equality if and only if $|z| = 1$ or $|w| = 1$.
+
+\textbf{Solution:}
+
+In the first place, let $z = a+ib$, $w = x+iy$ and note that 
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    |w-z|^2  & = & \ol{(w-z)} (w-z) \\
+    & = & (\ol{w}-\ol{z})(w-z)\\
+    & = & \ol{w}w - \ol{w}z - \ol{z}w + \ol{z}z\\
+    & = & |w|^2 + |z|^2 - [(x-iy)(a+ib) + (x+iy)(a-ib) ]\\
+    & = & |w|^2 + |z|^2 - [(2ax+2by) + i\cdot 0 ]\\
+    & = & |w|^2 + |z|^2 - 2 \re(\ol{w} z),
+\end{array}
+\]
+and similarly, 
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    |1-\ol{w}z|^2  & = & \ol{(1-\ol{w}z)} (1-\ol{w}z) \\
+    & = & (1-\ol{z}w)(1-\ol{w}z)\\
+    & = & 1 - \ol{w}z - \ol{z}w + |wz|^2\\
+    & = & 1 + |w|^2|z|^2 - 2 \re(\ol{w} z)
+\end{array}
+\]
+Then, note that since $|z| \leq 1$, $|w| \leq 1$
+\[ 1+ |w|^2|z|^2 - |w|^2 - |z|^2 = (1 - |w|^2)(1 - |z|^2) \geq 0. \]
+Thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.2}
+\begin{array}{rrcl}
+    & 1+ |w|^2|z|^2 - |w|^2 - |z|^2 & \geq & 0\\
+    \iff &|w|^2 + |z|^2 & \leq & 1+ |w|^2|z|^2\\
+    \iff & |w|^2 + |z|^2 - 2 \re(\ol{w} z) & \leq & 1+ |w|^2|z|^2 - 2 \re(\ol{w} z)\\
+    \iff & \frac{|w|^2 + |z|^2 - 2 \re(\ol{w} z)}{1+ |w|^2|z|^2 - 2 \re(\ol{w} z)} & \leq & 1\\
+    \iff & \left| \frac{w-z}{1-\ol{w}z} \right|^2 & \leq & 1\\
+    \iff & \left| \frac{w-z}{1-\ol{w}z} \right| & \leq & 1.\\
+\end{array} \]
+
+From the previous chain of equations, note that we can change "$\leq$" for "$=$" without changing the implications. Therefore, 
+    \[ \left| \frac{w-z}{1-\ol{w}z} \right| = 1 \iff (1 - |w|^2)(1 - |z|^2) = 0.\]
+The right side is also equivalent to $|z| = 1$ or $|w| = 1$.
 
 \subsection*{Part (b)}
 Let $\D = \{ z \in \C \;:\; |z| < 1\}$ be the open unit disc in $\C$. For a fixed $w\in \D$ define
@@ -15,3 +57,55 @@ Prove that
     \item $|F(z)| = 1$ for $|z| = 1$.
     \item $F: \D \to \D$ is bijective.
 \end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $F$ is a rational function of order 1. According to the Ahlfors' book, the derivative of a rational function is
+    \[ F'(z) = \left( \frac{P(z)}{Q(z)} \right)' = \frac{P'(z)Q(z)-Q'(z)P(z)}{Q(z)^2} = \frac{-(1-\ol{w}z) + \ol{w}(w-z) }{(1-\ol{w}z)^2}, \]
+    and it only exists when $Q(z) \neq 0$ which, by hypothesis, never occurs because $\ol{w}z \neq 1$. To prove $F(\D) \subseteq \D$ use the previous part of this exercise:
+
+    Since $|z| < 1$ and $|w| < 1$, it follows that (using the equivalences from part (a)):
+    \[ |F(z)| = \left| \frac{w-z}{1-\ol{w}z} \right| < 1 \]
+    \[ \implies F(z) \in \D. \]
+    \item $F(0) = \dfrac{w-0}{1-\ol{w}0} = \dfrac{w}{1} = w$, and since $\ol{w}z \neq 1$, it follows that $1-\ol{w}w \neq 0$. Therefore,
+    \[ F(w) = \frac{w-w}{1-\ol{w}w} = 0. \]
+    \item It's explicitly given by part (a).
+    \item Let $z_1 \neq z_2$, but assume for the sake of contradiction that $F(z_1) = F(z_2)$
+    \[  \]
+    \[ 
+    \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2}
+    \begin{array}{rrcl}
+        & \frac{w-z_1}{1-\ol{w}z_1} & = & \frac{w-z_2}{1-\ol{w}z_2}\\
+        \iff & (w-z_1)(1-\ol{w}z_2) & = & (w-z_2)(1-\ol{w}z_1) \\
+        \iff & w-|w|^2z_2 - z_1 + \ol{w}z_1z_2 & = & w-|w|^2z_1 - z_2 + \ol{w}z_1z_2 \\
+        \iff & |w|^2z_2 + z_1 & = & |w|^2z_1 + z_2\\
+        \iff & (|w|^2 -1) z_2  & = & (|w|^2 -1) z_1\\
+    \end{array}
+    \]
+    Since $|w| < 1$, the last part can only happen if $z_1 = z_2$. Thus, $F$ is injective. On the other hand, in order to prove that $F$ is surjective, we must find for every $v \in \D$, a complex number $z\in \D$ such that $v = F(z)$:
+    \[ 
+    \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2}
+    \begin{array}{rrcl}
+        & v & = & \frac{w-z}{1-\ol{w}z}\\
+        \iff & v(1-\ol{w}z) & = & w-z\\
+        \iff & z-v\ol{w}z & = & w-v\\
+        \iff & z & = & \frac{w-v}{1-\ol{w}v} = F(v)
+    \end{array}
+    \]
+    This surprisingly implies that $F^{-1}(z) = F(z)$. Note that, from the fact $F(\D) \subset \D$, we can finally conclude that $z \in \D$ as we intended. Thus, $F$ is also surjective.
+\end{enumerate}
+
+
+
+% \[ z := x+iy, \hspace*{2em} w := a+ib. \]
+% \[  \everymath{\displaystyle}
+% \arraycolsep=1.8pt\def\arraystretch{2.5}
+% \begin{array}{rcl}
+%     \frac{w-z}{1-\ol{w}z} & = & \frac{(a+x) + i(b+y)}{(1-ax-by) + i(ay - bx)}\\
+%     & = & \frac{(a+x) + i(b+y)}{(1-ax-by) + i(ay - bx)} \cdot \frac{(1-ax-by) - i(ay - bx)}{(1-ax-by) - i(ay - bx)}\\
+% \end{array}\]
+
+% \[ =  \frac{(a-x)(1-ax-by) - (b-y)(ay-bx)}{(1-ax-by)^{2}+(bx-ay)^{2}} + i \cdot \frac{(a-x)(ay-bx) + (b-y)(1-ax-by)}{(1-ax-by)^{2}+(bx-ay)^{2}} \]

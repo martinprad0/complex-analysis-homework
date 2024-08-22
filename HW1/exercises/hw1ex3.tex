@@ -1,2 +1,47 @@
+%chktex-file 36 %chktex-file 3
 \section*{Exercise 3.}
-Let $U := \{ z \in\C \;:\; \mbox{Im}(z) > 0\}$. Prove that $\Phi: \D \to U$, $\Phi(z) = i \frac{1-z}{1+z}$ is a bijection and calculate its inverse.
+Let $U := \{ z \in\C \;:\; \mbox{Im}(z) > 0\}$. Prove that $\Phi: \D \to U$, $\Phi(z) = i \dfrac{1-z}{1+z}$ is a bijection and calculate its inverse.
+
+\textbf{Solution:} First, we are going to prove that $\Phi$ is injective. Let $z_1 \neq z_2 \in \D$, and assume for the sake of contradiction that $\Phi(z_1) = \Phi(z_2)$. Then,
+\[ 
+\everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rrcl}
+    & i\frac{1-z_1}{1+z_1} & = & i\frac{1-z_2}{1+z_2}\\
+    \iff & (1-z_1)(1+z_2) & = & (1+z_1)(1-z_2) \\
+    \iff & 1-z_1+z_2-z_1z_2 & = & 1+z_1-z_2-z_1z_2\\
+    \iff & 2z_1 & = & 2z_2.
+\end{array}
+ \]
+Which proves that $\Phi$ is injective.
+
+Now, in order to prove that $\Phi$ is surjective, let $w = x+iy \in U$. The goal is to find $z \in \D$ such that $w = f(z)$:
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rrcl}
+    \iff & w & = & i \frac{1 - z}{1 + z}\\
+    \iff & w(1+z) & = & i-iz \\
+    \iff & iz+wz & = & i-w \\
+    \iff & z & = & \frac{i-w}{i+w} 
+\end{array} \]
+
+Now, it is left to prove that $z \in \D$, or equivalently, that $\im(z) > 0$:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    z = \frac{-x+i(1-y)}{x+i(1+y)} & = &  \frac{-x+i(1-y)}{x+i(1+y)} \cdot \frac{x-i(1+y)}{x-i(1+y)}\\
+    & = & \frac{(1-x^2-y^2) + i(2x)}{x^2 + (1+y)^2}.
+\end{array}\]
+So it follows that,
+\[ \re(z) = \frac{1-x^2-y^2}{x^2 + y^2 + 2y + 1}, \]
+\[ \im(z) = \frac{2x}{x^2 + y^2 + 2y + 1}. \]
+I'm supposed to prove that $\im(z) > 0$. However, from the previous steps, I made more clear that $\re(z) = \frac{1-|w|^2}{x^2 + (1+y)^2} > 0$, because $|w|^2 < 1$ and the denominator is a positive real number. I have reviewed the previous steps and I cannot see the mistake. I'm completely sure that the inverse function is
+\[ \Phi^{-1}(w) = \dfrac{i-w}{i+w}, \]
+and with computational brute force I can prove it (for $w \in \C\backslash\{-i\}$):
+
+\begin{center}
+    \includegraphics*[width = 0.9\textwidth]{../pictures/hw1ex3pic1.png}
+\end{center}
+
+In an ideal world I'd have gotten $\im(z) = \frac{1-x^2-y^2}{x^2 + y^2 + 2y + 1} = \frac{1-|w|^2}{x^2 + (1+y)^2} > 0$. But I honestly don't know what's wrong with my procedure.

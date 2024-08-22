@@ -1,0 +1,25 @@
+% chktex-file 18 chktex-file 36
+\section*{Exercise 1.}
+
+Find all the points $z\in\C$ where the following functions are differentiable and find the largest open set $U$ where they are holomorphic.
+\begin{enumerate}[label=(\alph*)]
+    \item $f(z) = \ol{z}$
+    \item $ f(x+iy) = x^2 + y^2 + i(x^2 - y^2)$
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+\[ f(x+iy) = x-iy = u(x,y) + i v(x,y) \]
+Then,
+\[ \frac{\d u}{\d x}(x,y) = 1,\hspace{2em} \frac{\d v}{\d x}(x,y) = 0, \]
+\[ \frac{\d u}{\d y}(x,y) = 0,\hspace{2em} \frac{\d v}{\d y}(x,y) = -1, \]
+All the partial derivatives exists and are continuous on any $(x,y)\in\R^2$, and thus, the function is differentiable. However, the Cauchy-Riemann equations are a requirement for $f$ to be complex-differentiable. Therefore, since $\d u/\d x \neq \d v/\d y$ on all points, the largest open set where it's holomorphic is $U = \emptyset$.
+
+\subsection*{Solution Part (b)}
+
+In this case,
+\[ u(x,y) = x^2 + y^2,\hspace{1em} v(x,y) = x^2-y^2, \]
+and the respective partial derivatives are
+\[ \frac{\d u}{\d x} = 2x, \hspace{1em} \frac{\d v}{\d x} = 2x \]
+\[ \frac{\d u}{\d y} = 2y, \hspace{1em} \frac{\d v}{\d y} = -2y. \]
+For differentiability in $\R^2$, the argument is again that the partial derivatives exist and are continuous. For complex-differentiability, the function is holomorphic only when $2x = -2y$. Thus, the largest open set is again $U = \emptyset$.

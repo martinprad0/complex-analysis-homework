@@ -1,8 +1,74 @@
-%chktex-file 36
+%chktex-file 36 %chktex-file 3
 \section*{Exercise 4.}
 Let $U := \{ z \in\C \;:\; \mbox{Im}(z) > 0\}$ and let $\Psi(z) = \frac{\alpha z + \beta}{\gamma z + \delta}$ for fixed $\alpha,\beta,\gamma,\delta \in \C$.
 
 \begin{enumerate}[label=(\alph*)]
     \item Suppose that $\alpha,\beta,\gamma,\delta \in \R$ with $\alpha\delta - \beta\gamma > 0$. Prove that $\Psi : U\to U$ is a bijection.
-    \item Suppose that $\Psi: U \to U$ is a bijection. Prove tat the numbers $\alpha, \beta, \gamma,\delta$ can be chosen from $\R$.
+    \item Suppose that $\Psi: U \to U$ is a bijection. Prove that the numbers $\alpha, \beta, \gamma,\delta$ can be chosen from $\R$.
 \end{enumerate}
+
+\subsection*{Solution Part (a)}
+To prove it's injective, assume for the sake of contradiction that there exists $z_1 \neq z_2 \in \C$ such that $\Psi(z_1) = \Psi(z_2)$. Then, 
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rrcl}
+     & \frac{\alpha z_1 + \beta}{\gamma z_1 + \delta} & = & \frac{\alpha z_2 + \beta}{\gamma z_2 + \delta}\\
+     \iff & (\alpha z_1 + \beta)(\gamma z_2 + \delta) & = & (\alpha z_2 + \beta)(\gamma z_1 + \delta)\\
+     \iff & \alpha\gamma z_1z_2  + \alpha\delta z_1 + \beta\gamma z_2 + \beta \delta & = & \alpha\gamma z_1z_2  + \alpha\delta z_2 + \beta\gamma z_1 + \beta \delta\\
+     \iff & \alpha\delta z_1 + \beta\gamma z_2 & = & \alpha\delta z_2 + \beta\gamma z_1\\
+     \iff & (\alpha\delta - \beta \gamma) z_1 & = & (\alpha\delta - \beta \gamma) z_2
+\end{array} \]
+
+Since, by hypothesis, $\alpha\delta - \beta\gamma > 0$ it would follow that $z_1 = z_2$. Therefore, $\Psi$ is injective.
+
+To prove it's surjective, we are going to prove that for any $w \in U$, there exists $z \in U$ such that $w = \Psi(z)$:
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rrcl}
+    \iff & w & = & \frac{\alpha z + \beta}{\gamma z + \delta}\\
+    \iff & w (\gamma z + \delta) & = & \alpha z + \beta\\
+    \iff & \gamma wz + \delta w & = & \alpha z + \beta\\
+    \iff & \gamma wz - \alpha z & = & \beta - \delta w\\
+    \iff & z & = & \frac{\beta-\delta w}{\gamma w - \alpha}
+\end{array} \]
+
+It's left to prove that $\im(z) > 0$. Let $w = x+iy$, where, by hypothesis $y > 0$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    z & = & \frac{\beta - \delta x - \delta i y}{\gamma x + \gamma i y - \alpha}\\
+    & = & \frac{\beta - \delta x - i \delta  y}{\gamma x - \alpha + i \gamma y} \cdot \frac{\gamma x - \alpha - i \gamma y}{\gamma x - \alpha - i \gamma y}\\
+    & = & \frac{(\beta - \delta x - i \delta  y)(\gamma x - \alpha - i \gamma y)}{(\gamma x - \alpha)^2 + (\gamma y)^2 }
+\end{array} \]
+
+Thus, by letting $R = (\gamma x - \alpha)^2 + (\gamma y)^2 \in \R^{\geq 0}$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    R \cdot \im(z) & = & (\alpha - \gamma x)\delta y - (\beta - \delta x)\gamma y\\
+    & = & (\alpha\delta - \gamma \delta x - \beta \gamma + \gamma \delta x) y\\
+    & = & (\alpha\delta - \beta \gamma) y\\
+    & > & 0. 
+\end{array} \]
+
+
+\subsection*{Solution Part (b)}
+
+If $\Psi: \; z \mapsto \dfrac{\alpha z + \beta}{\gamma z + \delta}$ is bijective, then, from the previous part we know that
+\[ \Psi^{-1}(w) = \frac{\beta - \delta w}{\gamma w - \alpha} \]
+
+By hypothesis $\Psi$ is defined for any $z \in U$, and $\Psi^{-1}$ is also defined for any $w \in U$. However, both functions have complex poles in $-\delta/\gamma$ and $\alpha/\gamma$ respectively. Therefore,
+\[ \frac{-\delta}{\gamma}, \frac{\alpha}{\gamma} \not\in U.\]
+
+On the other hand, by evaluating at 0 (which is not in $U$):
+\[ \Psi(0) = \frac{\beta}{\delta},\; \Psi^{-1}(0) = \frac{-\beta}{\alpha}, \]
+so it follows that
+\[ \frac{\beta}{\delta}, \frac{-\beta}{\alpha} \not\in U. \]
+
+From here I don't know how to procede, but I believe that, using the conjugate of the function, there's a way to prove that 
+\[ \frac{-\delta}{\gamma}, \frac{\alpha}{\gamma}, \frac{\beta}{\delta}, \frac{-\beta}{\alpha} \in \R. \]
+
+With this, we can then make a choosing of $\alpha,\beta,\gamma,\delta \in \R$.
+
