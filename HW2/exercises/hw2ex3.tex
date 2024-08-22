@@ -28,18 +28,25 @@ The Cauchy product of 2 series implies that
 
 For every complex number $z$, there exists an additive inverse $(-z)$ such that
 \[ z + (-z) = 0. \]
-Thus, if it was the case that there exists $z\in \C$ such that $e^z = 0$. Then, using part (a),
+Thus, if it was the case that there exists $z\in \C$ such that $e^z = 0$, then, using part (a),
 \[ 1 = e^0 = e^{z + (-z)} = e^{z} e^{-z} = 0, \]
 and this would lead to a contradiction.
 
 \subsection*{Solution Part (c)}
 
-$\boldsymbol{\impliedby:}$ Let $z = iy,\; y\in \R$. We are going to prove Euler's formula:
+$\boldsymbol{\impliedby:}$ We are going to prove Euler's formula. Let $z = iy,\; y\in \R$,
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{2.5}
 \begin{array}{rcl}
     \exp(iy) & = & \frac{(iy)^0}{0!} + \frac{(iy)^1}{1!} + \frac{(iy)^2}{2!} + \frac{(iy)^3}{3!} + \cdots\\
-    & = & \left( \frac{(iy)^0}{0!} + {(iy)^2}{2!} + \cdots \right) + i\left( \frac{y^1}{0!} + {y^3}{2!} + \cdots \right) 
+    & = & \left( \frac{(iy)^0}{0!} + \frac{(iy)^2}{2!} + \cdots \right) + i\left( \frac{i^0 y^1}{1!} + \frac{i^2 y^3}{3!} + \cdots \right)\\
+    & = & \sum_{n = 0}^{\infty} i^{2n}\frac{y^{2n}}{(2n)!} + i \sum_{n = 0}^{\infty} i^{2n}\frac{y^{2n+1}}{(2n+1)!}\\
+    & = & \sum_{n = 0}^{\infty} (-1)^{n}\frac{y^{2n}}{(2n)!} + i \sum_{n = 0}^{\infty} (-1)^{n}\frac{y^{2n+1}}{(2n+1)!}\\
+    & = & \cos(y) + i \sin(y).
 \end{array} \]
+Therefore, we have $\cos^2(y) + \sin^2(y) = 1$ for $y\in \R$, and thus,
+\[ |\exp(iy)| = \sqrt{\cos^2(y) + \sin^2(y)} = 1 \]
 
-$\boldsymbol{\implies:}$ Let $z = x+iy,\; x,y\in\R$ such that $|\exp(z)| = 1$. Then, using part (a), $|\exp(z)| = |\exp(x)| |\exp(iy)|$
+$\boldsymbol{\implies:}$ Let $z = x+iy,\; x,y\in\R$ such that $|\exp(z)| = 1$. Then, using part (a), $|\exp(z)| = |\exp(x)| |\exp(iy)|$. 
+Then, using the previous implication, we know that $|\exp(iy)| = 1$. 
+Therefore, $|\exp(z)| = |\exp(x)| = \exp(x) = 1$, but for real numbers, the only solution for $\exp(x) = 1$ is $x  = 0$.

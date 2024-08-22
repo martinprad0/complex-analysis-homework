@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  22 AUG 2024 10:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  22 AUG 2024 12:50
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -837,20 +837,20 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) (|ls -1 ../exercises/*) (../exercises/hw2ex1.tex [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw2ex2.tex [2]) (../exercises/hw2ex3.tex [3]) (../exercises/hw2ex4.tex [4]) (../exercises/hw2ex5.tex) [5] (./hw2.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw2ex2.tex [2]) (../exercises/hw2ex3.tex [3] [4]) (../exercises/hw2ex4.tex) (../exercises/hw2ex5.tex [5]) [6] (./hw2.aux) ) 
 Here is how much of TeX's memory you used:
- 26872 strings out of 476041
- 516290 string characters out of 5793164
- 1862388 words of memory out of 6000000
+ 26873 strings out of 476041
+ 516296 string characters out of 5793164
+ 1863388 words of memory out of 6000000
  46816 multiletter control sequences out of 15000+600000
  525121 words of font info for 82 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 110i,8n,133p,10668b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,8n,133p,10668b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw2.pdf (5 pages, 167004 bytes).
+Output written on hw2.pdf (6 pages, 169850 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 146 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
