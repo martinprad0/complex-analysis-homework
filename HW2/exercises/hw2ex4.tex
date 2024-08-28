@@ -7,3 +7,34 @@ Prove that
     \item $\sum_{n = 1}^\infty \frac{z^n}{n^2}$ converges to every point for $z \in\S^1$
     \item $\sum_{n = 1}^\infty \frac{z^n}{n}$ converges to every point for $z \in\S^1$, except for 1.
 \end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+If a series $\sum_{n = 1}^\infty a_n$ converges, then $|a_n|\to 0$. Note that $|nz^n| = n$ if $|z| = 1$, which as a matter of fact diverges to infinity. Thus, the series $\sum_{n = 1}^\infty n z_n $ doesn't converge.
+
+\subsection*{Solution Part (b)}
+
+$\S^1 \subseteq \C$ is a complete space, that implies that absolute convergent series are convergent. The series $\sum_{n = 1}^\infty \frac{z^n}{n^2}$ is absolutely convergent because
+\[ \sum_{n = 1}^\infty \left| \frac{z^n}{n^2} \right| = \sum_{n = 1}^\infty\frac{|z^n|}{|n^2|} = \sum_{n = 1}^\infty \frac{1}{n^2} < \infty. \]
+Therefore, the original series is also convergent.
+
+\subsection*{Solution Part (c)}
+
+It's a known fact from real analysis that the series $\sum_{n = 1}^\infty 1/n$ diverges.
+
+So let $z\in \S^1\backslash \{1\}$, and let $a_n = \frac{1}{n}$ and $B_k = \sum_{n = 0}^{k}b_n$, where $b_n = z^n$. The summation by part formula states that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{n = M}^N a_n b_n & = & a_N B_N - a_M B_{M-1} - \sum_{n = M}^{N-1}(a_{n+1}- a_n)B_n\\
+    & = & \frac{1}{N} \sum_{n = 0}^{N} z^n - \frac{1}{M}\sum_{n = 0}^{M} z^n - \sum_{n = M}^{N-1}\frac{-1}{n(n+1)}\sum_{k = 0}^{n} z^k\\
+    & = & \frac{1}{N} \frac{1-z^N}{1-z} - \frac{1}{M} \frac{1-z^M}{1-z} + \sum_{n = M}^{N-1} \frac{1}{n^2 + n} \frac{1-z^n}{1-z}
+\end{array}. \]
+Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{n = 1}^N \frac{z^n}{n} & = & \frac{1}{N} \frac{1-z^N}{1-z} - 1 + \frac{1}{1-z}\sum_{n = 1}^{N-1} \frac{1-z^n}{n^2 + n} 
+\end{array}, \]
+On the other hand,
+

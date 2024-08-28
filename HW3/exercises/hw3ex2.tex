@@ -1,0 +1,32 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 2.}
+
+Let $f: \C \to \C$ be an entire function. Suppose that the exist $M, r> 0$ and $n\in \N$ such that $|f(z)|<M|z|^n$ for every $z\in\C$ for $|z|\geq r$. Show that $f$ is a polynomial of degree at most $n$.
+
+\textit{Observe that the case $n = 0$ is Liouville's theorem.}
+
+\textbf{Solution:}
+
+For the case $n = 0$, we have Liouville's theorem because
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sup_{z\in\C}\{|f(z)|\} & = & \max(\sup_{|z| > r}\{|f(z)|\}, \sup_{|z| \leq r}\{|f(z)|\})\\
+    & = & \max(M, \max_{|z| \leq r}\{|f(z)|\}) < \infty.
+\end{array} \]
+It follows that $f(z)$ is bounded, and thus, a constant function by Liouville's theorem. 
+
+Now, for the general case, note that since $f$ is entire, it has a power series around 0
+\[ f(z) = \sum_{k = 0}^{\infty} a_k z^k \]
+if $|f(z)| < M |z|^n$, then for $R > r$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |a_k| & \leq & \left| \frac{1}{2\pi i} \right| \oint_{|z| = R} \frac{|f(z)|}{|z|^{n+1}} dz\\
+    & < & \frac{1}{2\pi} \oint_{|z| = R} \frac{M|z|^k}{|z|^{n+1}} dz\\
+    & \leq & \frac{1}{2\pi } \underbrace{2\pi R}_{\mbox{\tiny{arc lenght}}} \cdot \underbrace{\frac{M}{R^{n-k+1}}}_{\mbox{\tiny{function max}}}\\
+    & = & \frac{M}{R^{n-k}}
+\end{array} \]
+By letting $R \to \infty$ we conclude that, for $k \geq n+1$, $a_k = 0$. Therefore,
+\[ f(z) = \sum_{k = 0}^{n} a_k z^k, \]
+which is a polynomial of degree at most $n$.

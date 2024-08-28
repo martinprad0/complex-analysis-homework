@@ -1,0 +1,10 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 4.}
+
+Let $U\subseteq \C$ be a region, $z_0\in U$ and $R > 0$ such that $B_R(z_0) \subseteq U$. Let $f: U \to \C$ be holomorphic with a Taylor series $f(z) = \sum_{n = 0}^{\infty} c_n(z-z_0)^n$ centered around $z_0$. For $0< r < R$ define $M(r) := \sup_{|z-z_0| = r}|f(z)|$.
+\begin{enumerate}[label=(\alph*)]
+    \item Show that for every $n \in \N_0$ and $0< r < R$
+    \[ c_n r^n = \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + re^{it})e^{-int} dt. \]
+    \item Show that for every $0< r < R$
+    \[ \sum_{n=0}^{\infty} |c_n|^{2}r^{2n} = \frac{1}{2\pi} \int_{0}^{2\pi} |f(z_0+re^{it})|^2 dt \leq M(r)^2. \]
+\end{enumerate} 

@@ -1,0 +1,35 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 3.}
+
+Let $f:\C\to\C$ be an entire function.
+\begin{enumerate}[label=(\alph*)]
+    \item Show that either the range of $f$ is dense in $\C$ or $f$ is constant.
+    \item Suppose that $\re(f)$ is bounded. Show that $f$ is constant.
+\end{enumerate} 
+
+\subsection*{Solution Part (a)}
+
+Assume that $f(\C)$ is not dense in $\C$. Then, there exists $w_0\in \C$ and $\varepsilon>0$ such that $B_\varepsilon(w_0) \cap f(\C) = \emptyset$. This implies that $f(\C) \subseteq \C \backslash B_\varepsilon(w_0)$.
+
+Now, consider the function $\phi(w) = \frac{\varepsilon}{w-w_0}$ which takes every point in the complement of $B_\varepsilon(w_0)$ inside the closed disk $B_1(0)$. That is because, if $|w-w_0| \geq \varepsilon$, then
+\[ |\phi(w)| = \frac{\varepsilon}{|w-w_0|} \leq \frac{\varepsilon}{\varepsilon} = 1.  \]
+It follows that $\phi \circ f$ is entire because $f(z) \neq w_0$ for every $z \in \C$ and it's bounded because $\phi \circ f(\C) \subseteq \phi(\C \backslash B_\varepsilon(z_0)) = B_1(0)$. Finally, if $\phi\circ f(z) = K$, then
+\[ f(z) = \frac{K}{\varepsilon} + w_0, \]
+so $f$ is a constant function.
+
+\subsection*{Solution Part (b)}
+
+Let $f(z) = u(z) + iv(z)$, where $u,v: \C \to \R$ and $u(z) \leq M$ for every $z\in\C$. Then, we use Euler's formula,
+\[ e^{f(z)} = e^{u(z)} (\cos(v(z)) + i \sin(v(z))). \]
+Note that since $u$ is bounded by $M$, $e^{u(z)} \leq e^{M}$. On the other hand, $\cos(z) + i \sin(z)$ is on the unit circle (for $z\in \R$). Therefore,
+\[ |e^{f(z)}| \leq e^M   \]
+This implies that $\exp\circ f$ is a constant function $e^{f(z)} = K$, $K\neq 0$. Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rrcl}
+    & \frac{d}{dz} e^{f(z)} & = & 0\\
+    \implies & f'(z) e^{f(z)} & = & 0\\
+    \implies & f'(z) K & = & 0\\
+    \implies & f'(z) & = & 0.
+\end{array} \]
+Therefore, $f$ is a constant function too.

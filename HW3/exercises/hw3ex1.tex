@@ -1,0 +1,35 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 1.}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Calculate $\displaystyle \oint_{|z-1| = 2} z^{n}\sin(z) dz$ for $n\in\Z$.
+    \item For $n \in \N_0$ prove that
+    \[ \int_{|z+2i| = 3} \frac{1}{(z^2+\pi^2)^{n+1}}dz = \frac{-(2n)!}{(n!)^2}(2\pi)^{-2n} \]
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+$z \mapsto z^n \sin(z)$ is an entire function with Taylor series
+\[ z^n \sin(z) = \sum_{k = 0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1+n}.  \]
+Therefore, using Cauchy's theorem, we assert that
+\[ \oint_{|z-1| = 2} z^{n}\sin(z) dz = 0.  \]
+
+\subsection*{Solution Part (b)}
+
+\begin{center}
+    \includegraphics*[width=0.8\textwidth]{../pictures/hw3ex1pic1.png}
+\end{center}
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{|z+2i| = 3} \frac{1}{z^2+\pi^2}dz & = & \int_{|z+2i| = 3} \frac{1}{(z+i\pi)(z-i\pi)}dz\\
+    & = & \frac{-1}{2\pi i}\int_{|z+2i| = 3} \frac{1}{z+i\pi} - \frac{1}{z-i\pi}dz\\
+    & = & \frac{-1}{2\pi i}\int_{|z+2i| = 3} \frac{1}{z+i\pi} + \frac{1}{2\pi i}\int_{|z+2i| = 3} \frac{1}{z-i\pi}dz\\
+    & = & \frac{-1}{2\pi i}\int_{|z+2i| = 3} \frac{1}{z+i\pi} + 0\\
+    & = &  \frac{-1}{2\pi i} \cdot 2\pi i\\
+    & = & \frac{-(2\cdot 0)!}{(0)!^2} (2\pi)^{2\cdot 0}.
+\end{array}  \]
+Now, assume that the formula is true for $n-1$.
+
+In the first place, one consequence of Cauchy's integral formula is that for a continuous function $\phi(z)$ continuous for $z \in \gamma$ for an arc $\gamma$,
+\[ F_n(z) =  \]

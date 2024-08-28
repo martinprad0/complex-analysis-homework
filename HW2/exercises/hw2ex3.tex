@@ -34,7 +34,7 @@ and this would lead to a contradiction.
 
 \subsection*{Solution Part (c)}
 
-$\boldsymbol{\impliedby:}$ We are going to prove Euler's formula. Let $z = iy,\; y\in \R$,
+$\boldsymbol{\impliedby:}$ We are going to prove Euler's formula for the power series definition. Let $z = iy,\; y\in \R$,
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{2.5}
 \begin{array}{rcl}
@@ -44,9 +44,93 @@ $\boldsymbol{\impliedby:}$ We are going to prove Euler's formula. Let $z = iy,\;
     & = & \sum_{n = 0}^{\infty} (-1)^{n}\frac{y^{2n}}{(2n)!} + i \sum_{n = 0}^{\infty} (-1)^{n}\frac{y^{2n+1}}{(2n+1)!}\\
     & = & \cos(y) + i \sin(y).
 \end{array} \]
+Note that from this and part (a), it follows that for $x,y\in\R$,
+\[ e^{x+iy} = e^x (\cos(y) + i \sin(y)) \]
 Therefore, we have $\cos^2(y) + \sin^2(y) = 1$ for $y\in \R$, and thus,
 \[ |\exp(iy)| = \sqrt{\cos^2(y) + \sin^2(y)} = 1 \]
 
 $\boldsymbol{\implies:}$ Let $z = x+iy,\; x,y\in\R$ such that $|\exp(z)| = 1$. Then, using part (a), $|\exp(z)| = |\exp(x)| |\exp(iy)|$. 
 Then, using the previous implication, we know that $|\exp(iy)| = 1$. 
 Therefore, $|\exp(z)| = |\exp(x)| = \exp(x) = 1$, but for real numbers, the only solution for $\exp(x) = 1$ is $x  = 0$.
+
+\subsection*{Solution Part (d)}
+According to Ahlfors' book, the definition of the cosine and sine functions are:
+\[ \cos(z) = \frac{e^{iz}+e^{-iz}}{2},\hspace{1em}\sin(z) = \frac{e^{iz}-e^{-iz}}{2i}.  \]
+Thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \cos^2(z) + \sin^2(z) & = & \left( \frac{e^{iz}+e^{-iz}}{2} \right)^2 + \left( \frac{e^{iz}-e^{-iz}}{2i}  \right)^2 \\
+    & = & \frac{1}{4} e^{2iz} + \frac{e^{iz-iz}}{2} + \frac{1}{4} e^{-2iz} - \frac{1}{4} e^{2iz} + \frac{e^{iz-iz}}{2} - \frac{1}{4} e^{-2iz}\\
+    & = & e^{iz-iz} = 1.
+\end{array} \]
+
+\subsection*{Solution Part (e)}
+Using Euler's formula, we know that $e^{-2\pi i} = e^{2\pi i} = \cos(2\pi) + i\sin(2\pi) = 1$. Now, with the same identity and part (a),
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \cos(z+2\pi) & = & \frac{e^{iz+i2\pi}+e^{-iz - i2\pi}}{2}\\
+    & = & \frac{e^{iz}e^{2\pi i}+e^{-iz }e^{-2\pi i}}{2}\\
+    & = & \frac{e^{iz}+e^{-iz}}{2} = \cos(z),
+\end{array} \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sin(z+2\pi) & = & \frac{e^{iz+i2\pi}-e^{-iz - i2\pi}}{2i}\\
+    & = & \frac{e^{iz}e^{2\pi i}-e^{-iz }e^{-2\pi i}}{2i}\\
+    & = & \frac{e^{iz}-e^{-iz}}{2i} = \sin(z).
+\end{array} \]
+
+\subsection*{Solution Part (f)}
+Let $z = x+iy$. Either $\cos(z) = 0$ or $\sin(z) = 0$ (or both). So let's start with the case $\cos(z) = 0$. Using general Euler's formula,
+\[ e^{iz} = \cos(z) + i \sin (z) = i\sin(z) =  \frac{e^{iz}-e^{-iz}}{2} \]
+Remember that for $x\in\R,\; |e^{ix}| = 1$, and $|e^x| = e^x$. Now,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rrcl}
+    \implies & e^{-iz} & = & -e^{iz}\\
+    \implies & e^{y-ix} & = & -e^{-y+ix}\\
+    \implies & |e^{-ix}||e^{y}| & = & |-1||e^{ix}||e^{-y}|\\
+    \implies & e^y & = & e^{-y}\\
+    \implies & e^{2y} & = & 1\\
+    \implies & y & = & \im(z) = 0.
+\end{array}\]
+For the case when $\sin(z) = 0$, the argument is a similar one:
+\[ e^{iz} = \cos(z) + i \sin (z) = \cos(z) =  \frac{e^{iz}+e^{-iz}}{2} \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rrcl}
+    \implies & e^{-iz} & = & e^{iz}\\
+    \implies & e^{y-ix} & = & e^{-y+ix}\\
+    \implies & |e^{-ix}||e^{y}| & = & |e^{ix}||e^{-y}|\\
+    \implies & e^y & = & e^{-y}\\
+    \implies & e^{2y} & = & 1\\
+    \implies & y & = & \im(z) = 0.
+\end{array}\]
+
+\subsection*{Solution Part (g)}
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |\cos(x+it)| & = & \left| \frac{e^{ix-t}+e^{-ix+t}}{2} \right|\\
+    & = & \left| \frac{e^{ix}e^{-t}+e^{-ix+t}e^{t}}{2} \right|\\
+    \mbox{($\triangle$-ineq)} & \geq & \frac{1}{2} \left| |e^{ix}||e^{-t}| - |e^{-ix}||e^{t}| \right|\\
+    & = & \frac{1}{2}\left||e^{-t}| - |e^{t}| \right|
+\end{array} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |\sin(x+it)| & = & \left| \frac{e^{ix-t}-e^{-ix+t}}{2i} \right|\\
+    & = & \left| \frac{e^{ix}e^{-t}-e^{-ix+t}e^{t}}{2i} \right|\\
+    \mbox{($\triangle$-ineq)}& \geq & \frac{1}{2} \left| |e^{ix}||e^{-t}| - |e^{-ix}||e^{t}| \right|\\
+    & = & \frac{1}{2}\left||e^{-t}| - |e^{t}| \right|
+\end{array} \]
+
+Note that the inequalities of both cases are satisfied for all $x\in\R$. Either $e^t$ or $e^{-t}$ converges to $\infty$ (and the other to 0), when $t\to \pm \infty$. Therefore, $\forall \varepsilon > 0$, there exists $N$ such that for every $x\in \R$:
+\[ \frac{1}{\varepsilon} < \frac{1}{2}\left||e^{-t}| - |e^{t}| \right| \begin{array}{l}
+    \leq |\cos(x+it)|\\[0.7 em]
+    \leq |\sin(x+it)|
+\end{array}\hspace{2em} \forall t > N. \]
+So the limit is uniform on $x$.
