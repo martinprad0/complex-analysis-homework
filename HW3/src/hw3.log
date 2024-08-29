@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  28 AUG 2024 00:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  29 AUG 2024 01:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -838,25 +838,25 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 <../pictures/hw3ex1pic1.png, id=7, 845.1575pt x 518.93875pt>
 File: ../pictures/hw3ex1pic1.png Graphic file (type png)
 <use ../pictures/hw3ex1pic1.png>
-Package pdftex.def Info: ../pictures/hw3ex1pic1.png  used on input line 19.
+Package pdftex.def Info: ../pictures/hw3ex1pic1.png  used on input line 25.
 (pdftex.def)             Requested size: 346.89731pt x 213.00381pt.
  [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw3ex2.tex [2 <../pictures/hw3ex1pic1.png>]) (../exercises/hw3ex3.tex [3]) (../exercises/hw3ex4.tex [4]) (../exercises/hw3ex5.tex) [5] (./hw3.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <../pictures/hw3ex1pic1.png>]) (../exercises/hw3ex2.tex [3]) (../exercises/hw3ex3.tex [4]) (../exercises/hw3ex4.tex [5] [6]) (../exercises/hw3ex5.tex) [7] (./hw3.aux) ) 
 Here is how much of TeX's memory you used:
- 26851 strings out of 476041
- 516225 string characters out of 5793164
- 1861388 words of memory out of 6000000
+ 26855 strings out of 476041
+ 516258 string characters out of 5793164
+ 1864388 words of memory out of 6000000
  46814 multiletter control sequences out of 15000+600000
  522659 words of font info for 74 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 110i,14n,133p,10668b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,14n,133p,10668b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw3.pdf (5 pages, 192992 bytes).
+Output written on hw3.pdf (7 pages, 200588 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
+ 132 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
  24 words of extra memory for PDF output out of 10000 (max. 10000000)
 

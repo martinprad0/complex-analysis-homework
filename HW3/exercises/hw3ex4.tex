@@ -1,4 +1,4 @@
-% chktex-file 3 chktex-file 18 chktex-file 36
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
 \section*{Exercise 4.}
 
 Let $U\subseteq \C$ be a region, $z_0\in U$ and $R > 0$ such that $B_R(z_0) \subseteq U$. Let $f: U \to \C$ be holomorphic with a Taylor series $f(z) = \sum_{n = 0}^{\infty} c_n(z-z_0)^n$ centered around $z_0$. For $0< r < R$ define $M(r) := \sup_{|z-z_0| = r}|f(z)|$.
@@ -7,4 +7,42 @@ Let $U\subseteq \C$ be a region, $z_0\in U$ and $R > 0$ such that $B_R(z_0) \sub
     \[ c_n r^n = \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + re^{it})e^{-int} dt. \]
     \item Show that for every $0< r < R$
     \[ \sum_{n=0}^{\infty} |c_n|^{2}r^{2n} = \frac{1}{2\pi} \int_{0}^{2\pi} |f(z_0+re^{it})|^2 dt \leq M(r)^2. \]
-\end{enumerate} 
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+For $0<r<R$, $c_n$ is defined as the $n$-th Taylor's series coefficient,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    c_n = \frac{f^{(n)}(z_0)}{n!} & = & \frac{n!}{n! 2\pi i} \int_{|z-z_0| = r} \frac{f(z)}{(z-z_0)^{n+1}} dz\\
+    & = & \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{f(z_0+re^{it})}{(z_0+re^{it}-z_0)^{n+1}} d(z_0+re^{it})\\
+    & = & \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{f(z_0+re^{it})}{r^{n+1}e^{it(n+1)}} ire^{it} dt\\
+    & = & \frac{1}{r^n 2\pi } \int_0^{2\pi} f(z_0 + re^{it})e^{-int} dt.
+\end{array} \]
+
+\subsection*{Solution Part (b)}
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{0}^{2\pi}|f(z_0+re^{it})|^2 dt & = & \int_{0}^{2\pi} \ol{f(z_0+re^{it})} \cdot f(z_0+re^{it}) dt\\
+    & = & \int_{0}^{2\pi} \sum_{n=0}^{\infty}\ol{c_n r^n e^{int}} \cdot \sum_{n=0}^{\infty}c_n r^n e^{int} dt\\
+    & = & \int_{0}^{2\pi} \sum_{n = 0}^\infty \sum_{k = 0}^n \ol{c_k r^k e^{ikt}} c_{n-k} r^{n-k} e^{i(n-k)t} dt\\
+    & =^* & \sum_{n = 0}^\infty \sum_{k = 0}^n \ol{c_k} c_{n-k} r^{n} \int_{0}^{2\pi} e^{-ikt}e^{i(n-k)t} dt.
+\end{array} \]
+Then, note that if $n-2k \neq 0$, then $t\mapsto e^{i(n-2k)t}$ is an entire function. Thus, by Cauchy integral theorem,
+\[ \int_{0}^{2\pi} e^{-ikt}e^{i(n-k)t} dt = \int_{0}^{2\pi} e^{i(n-2k)t} dt = \begin{cases}
+    2\pi, & n = 2k\\
+    0, & n \neq 2k.
+\end{cases} \]
+Therefore,
+\[  \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{0}^{2\pi}|f(z_0+re^{it})|^2 dt & = & \sum_{n = 0}^\infty \sum_{k = 0}^n \ol{c_k} c_{n-k} r^{n} \int_{0}^{2\pi} e^{i(n-2k)t} dt\\
+    & = & \sum_{k = 0}^{\infty} \ol{c_{k}}c_{2k-k} r^{2k} \cdot 2\pi \\
+    & = & 2\pi \sum_{n = 0}^{\infty} |c_n|^2 r^{2k}.
+\end{array} \]
+Finally, note that $\displaystyle M(r) = \sup_{|z-z_0| = r}|f(z)| = \sup_{t\in[0,2\pi]} |f(z_0+re^{it})|$. Then, by using the integral inequality we conclude
+\[ \int_{0}^{2\pi}|f(z_0+re^{it})|^2 dt \leq \underbrace{2\pi}_{\mbox{\tiny{arc lenght}}} \cdot \underbrace{M(r)^2}_{\mbox{\tiny{function max}}} \]
