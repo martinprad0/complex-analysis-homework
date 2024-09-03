@@ -1,0 +1,10 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 3.}
+
+Let $U \subset \C$ be open and connected, $f: U \to X$ be a non constant holomorphic function and $N := \{z \in \C \;:\; f(z) = 0\}$. Show that $N$ is closed and discrete in $U$.
+
+\textbf{Solution:}
+
+To see that $N$ is closed, take $w \in \C$ such that $f(w) = \omega \neq 0$. Assuming that $X$ is a vector space with some metric, there exists for some $\varepsilon > 0$, an open ball $B_\varepsilon(\omega)$ that doesn't contain $0$. Then, by continuity of $f$, $f^{-1}(B_\varepsilon(\omega)) \subset \C \backslash N$ is an open set that contains $w$.
+
+Now, assume that $N$ has some limit point $z_0$. Also let $g: z \mapsto 0$, and note that $f = g$ on $N$. Using identity's theorem we conclude that there exists $\varepsilon > 0$ such that $f(z) = g(z) = 0$ for every $z\in B_\varepsilon(z_0)$. Therefore, Since $f$ is entire, all of the Taylor series coefficients of $f$ must be 0 to coincide with the Taylor series of $g$, contradicting the fact that $f$ is not constant.
