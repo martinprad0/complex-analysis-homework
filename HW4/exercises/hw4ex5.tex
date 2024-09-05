@@ -3,3 +3,14 @@
 \section*{Exercise 5.}
 Let $f(z) = \sum_{n = 0}^{\infty} c_n (z-z_0)^n$ be a power series with convergence radius $R \in (0,\infty)$. Show that $f$ has at least a singular point in the frontier of the convergence disk.
 
+\textbf{Solution:}
+
+For the sake of contradiction assume that $f$ has no singularities at $\d B_R(z_0)$ and can be extended to an holomorphic function $\tilde{f}$ at $\ol{B_R(z_0)}$. Then, for every $w\in \d B_R(z_0)$, there exists $\varepsilon_w$ such that there exists a power series $g_w(z) = \sum_{j = 0}^{\infty} a_{w,j} (z-w)^j$ around $B_{\varepsilon_w}(w)$ that coincides with $\tilde{f}$ in $\ol{B_R(z_0)} \cap B_{\varepsilon_w}(w)$. 
+
+Since $\d B_R(z_0)$ is compact, there exists
+\[ \varepsilon = \frac{\min \{\varepsilon_w \,:\, w\in \d B_R(z_0)\}}{2} > 0. \]
+The set $\ol{B_{R+\varepsilon}(z_0)} \backslash B_R(z_0)$ is compact and it is covered by the open balls $\{B_{\epsilon_w}(w) \;:\; w \in \d B_R(z_0)\}$. Therefore, (by the definition of compact set) there exists $w_1,\ldots, w_n$ for $n \in \N$ such that $\ol{B_{R+\varepsilon}(z_0)} \backslash B_R(z_0)$ is covered by $\{B_{\epsilon_{w_k}}(w_k) \;:\; k \leq n\}$
+
+Using Identity's theorem $\tilde{f}$ can again be extended to a function $\tilde{f}_1$ that coincides with $g_{w_1}$ in $\ol{B_R(z_0)} \cup B_{\varepsilon_{w_1}}(w_1)$. Then, we recursively apply Identity's theorem to extend $\tilde{f}_k$ to a function $\tilde{f}_{k+1}$ that coincides with $g_{w_{k+1}}$ in $\ol{B_R(z_0)} \cup \bigcup_{j = 1}^{k+1} B_{\varepsilon_{w_j}}(w_j)$ for every $k < n$.
+
+Finally, $\tilde{f}_n$ extends $f$ to the ball $B_{R+\varepsilon}(z_0) \subset \ol{B_R(z_0)} \cup \bigcup_{j = 1}^{n} B_{\varepsilon_{w_j}}(w_j)$. However, this is a contradiction to the fact that $R$ is the greatest number for which $f(z)$ converges for every $|z-z_0| < R$.

@@ -2,3 +2,21 @@
 \section*{Exercise 4.}
 
 Let $U \subset \C$ be open and bounded, without isolated points of the frontier, and let $M \subset U$ be a subset without accumulation points in $U$. Show that every biholomorphic function $f: U \backslash M \to U \backslash M$ has a biholomorphic extension $g: U \to U$.
+
+\textbf{Solution:}
+Let $g = f^{-1}$.
+
+Since $M$ is discrete in $U$, for every $w \in M$, there exists $\varepsilon_w$ such that $M \cap B_{\varepsilon_w}(w) = \{w\}$ and $B_{\varepsilon_w}(w) \subset U$. Since $f$ and $g$ images are bounded ($U\backslash M$ is bounded), then $f,g$ are bounded on the set $B_{\varepsilon_w}^\bullet(w) = B_{\varepsilon_w}(w) \backslash \{w\}$. Therefore, using Riemann's removable singularity criterion, $w$ is a removable singularity for every $w \in M$ for both $f$ and $f^{-1}$.
+
+Let $\tilde{f}$ and $\tilde{g}$ be the extensions for $f$ and $g$ respectively. Let $h_1 = \tilde{f} \circ \tilde{g}$ and $h_2 = \tilde{g}\circ \tilde{f}$. For $z \in U\backslash M$, 
+\[ h_1(z) = f\circ g (z) = z = g\circ f(z) = h_2(z). \]
+Now, to prove that $h_1, h_2$ are defined for every $z\in U$, we must prove that $\tilde{f}(w), \tilde{g}(w) \in U$ for $w \in M$. For the sake of contradiction assume it's not. We know that
+\[ \tilde{f}(B_{\varepsilon_w}^\bullet(w)) = f(B_{\varepsilon_w}^\bullet(w)) \subset U\backslash M \subset U.\]
+Also, $\ol{B_{\varepsilon_w}^\bullet(w)} = \ol{B_{\varepsilon_w}(w)}$, so by continuity of $f$
+\[ \implies \tilde{f}(B_{\varepsilon_w}(w)) \subset \tilde{f}(\ol{B_{\varepsilon_w}(w)}) = \tilde{f}(\ol{B_{\varepsilon_w}^\bullet(w)}) \subset \ol{f(B_{\varepsilon_w}^\bullet(w))} \subset \ol{U} \]
+Therefore, $\tilde{f}(w) \in \ol{U}$ and since we assumed (for the contradiction) that $\tilde{f}(w) \not\in U$, it follows that $f(w) \in \d U$. However, note that
+\begin{enumerate}
+    \item First, $\tilde{f}(B_{\varepsilon_w}(w)) = f(B_{\varepsilon_w}^\bullet (w)) \overset{\cdot}{\cup} \{\tilde{f}(w)\}$ (disjoint union). Therefore, since $U$ is open and $ f(B_{\varepsilon_w}^\bullet (w)) \subset U = U^\circ$, it follows that $f(B_{\varepsilon_w}^\bullet (w)) \cap  \d U = \emptyset$. Thus, $ \d U \cap \tilde{f}(B_{\varepsilon_w}(w)) = \{\tilde{f}(w)\}$
+    \item By Open Mapping Theorem, $\tilde{f}(B_{\varepsilon_w}(w))$ is an open set. Therefore, $\{\tilde{f}(w)\}$ is an isolated point of the boundary of $U$ (contradiction).
+\end{enumerate}
+So $\tilde{f}(w) \in U$ for every $w\in U$. The same argument applies for $\tilde{g}$, so $h_1$ and $h_2$ are defined for every $z\in U$. By identity theorem, it follows that $h_1(z) = z = h_2(z)$ for every $z\in U$ implying that $\ol{f}$ and $\ol{g}$ are each other's inverse functions.

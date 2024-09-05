@@ -5,3 +5,25 @@
     \item Let $U\subset \C$ be a region and $K\subset U$ a compact subset with non empty interior $K^\circ$. Let $f: U \to \C$ be an holomorphic function with $|f|$ constant of the boundary of $K$. Show that $f$ is constant or has a zero in $K^\circ$.
     \item Let $U \subset \C$, $z_0 \in U,\; \varepsilon > 0$ such that the closed ball $\ol{B_\varepsilon(z_0)}$ is a subset of $U$. Let $f: U \to \C$ be holomorphic with $|f(z_0)| < \min\{|f(z)| \;:\; |z-z_0| = \varepsilon\}$. Show that $f$ has a zero in $B_\varepsilon(z_0)$.
 \end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+In the first place, if $|f| = 0$ on $\d K$, then for $g: z \mapsto 0$, $ f|_{\d K} = g|_{\d K}$. Since $\d K$ has accumulation points (otherwise $U$ is not open), using identity's theorem we conclude that $f = g$ on $U$.
+
+Now, assume that $f$ doesn't have any zero on $K^\circ$ and that $|f| \neq 0$ on the boundary of $K$. Then, $g = 1/f$ is an holomorphic function defined in $K$, and since $K$ is compact, $|f|$ has a maximum in $K$. We have two possible cases
+\begin{itemize}
+    \item The maximum of $|f|$ is attained at $K^\circ$, so by maximum principle $f$ is constant.
+    \item The maximum of $|f|$ is attained at $\d K$, so the minimum of $1/|f|$ is attained at $\d K$, and thus, $1/|f|$ attains its maximum at $K^\circ$. Again, by maximum principle $1/f$ is constant and so $f$ too.
+\end{itemize}
+
+\subsection*{Solution Part (b)}
+
+Assume that $f$ doesn't have a zero in $B_\varepsilon(z_0)$, we want to prove that $|f(z_0)| \geq \min_{\d B_\varepsilon(z_0)} |f(z)|$.
+\begin{itemize}
+    \item If there's a zero in $\d B_\varepsilon(z_0)$, then we won, so suppose that $\min_{\d B_\varepsilon(z_0)} |f(z)| > 0$.
+    \item If $f$ is constant, then we also won. So assume it's not.
+\end{itemize}
+Now, $1/f$ is an holomorphic function defined at $\ol{B_\varepsilon(z_0)}$. Since $1/f$ is not constant, by maximum principle, it attains it maximum modulus at $\d B_\varepsilon(z_0)$. Therefore, 
+\[ 1/|f(z_0)| \leq \max_{\d B_\varepsilon}|1/f(z)|\]
+\[ \implies |f(z_0)| \geq \min_{\d B_\varepsilon}|f(z)|\]
+as we intended.

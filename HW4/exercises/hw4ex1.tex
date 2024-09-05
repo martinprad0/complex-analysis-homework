@@ -2,3 +2,15 @@
 \section*{Exercise 1.}
 
 Let $f$ be an entire function and let $\zeta = e^{2\pi i / n}$ for some $n \in \N$. Suppose that $f(\zeta z) = f(z)$ for every $z \in\C$. Show that there exists an entire function $g$ such that $f(z) = g(z^n)$ for every $z\in \C$.
+
+\textbf{Solution:}
+
+Since $f$ is entire, there's exists $\{c_k\}$ such that 
+\[ f(z) = \sum_{k = 0}^{\infty} c_k z^k. \]
+Then, since $f(\zeta z) = f(z)$, we have that
+\[ \sum_{k = 0}^{\infty} c_k z^k = \sum_{k = 0}^{\infty} c_k \zeta^k z^k. \]
+When $k$ is not a multiple of $n$, we have that $\zeta^k \neq 1$. Therefore, by uniqueness of the power series expansion,
+\[ c_k = \zeta^k c_k \implies c_k = 0,\; k\not\equiv 0 \mod n. \]
+Finally, we can rewrite the series as follows
+\[ f(z) = \sum_{k = 0}^{\infty} c_{nk} z^{nk} = \sum_{k = 0}^{\infty} c_{nk} (z^{n})^k. \]
+For $g(z) = \sum_{k = 0}^{\infty} c_{nk} z^k$, $f(z) = g(z^n)$.
