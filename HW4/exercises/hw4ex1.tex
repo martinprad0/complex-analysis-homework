@@ -11,6 +11,11 @@ Then, since $f(\zeta z) = f(z)$, we have that
 \[ \sum_{k = 0}^{\infty} c_k z^k = \sum_{k = 0}^{\infty} c_k \zeta^k z^k. \]
 When $k$ is not a multiple of $n$, we have that $\zeta^k \neq 1$. Therefore, by uniqueness of the power series expansion,
 \[ c_k = \zeta^k c_k \implies c_k = 0,\; k\not\equiv 0 \mod n. \]
-Finally, we can rewrite the series as follows
+Now, we can rewrite the series as follows
 \[ f(z) = \sum_{k = 0}^{\infty} c_{nk} z^{nk} = \sum_{k = 0}^{\infty} c_{nk} (z^{n})^k. \]
-For $g(z) = \sum_{k = 0}^{\infty} c_{nk} z^k$, $f(z) = g(z^n)$.
+For $g(z) = \sum_{k = 0}^{\infty} c_{nk} z^k$, $f(z) = g(z^n)$. To show that $g$ is absolutely convergent in all $\C$ note that for every $R \in \R^+$ and $|z| < R$,
+\[ |f(z)| \leq \sum_{k = 0}^{\infty} c_{nk} |z|^{nk} < \sum_{k = 0}^{\infty} c_{nk} R^{nk} < \infty. \]
+
+Therefore, for every $|z| < R^n \in (0,\infty)$,
+\[ |g(z)| \leq  \sum_{k = 0}^{\infty} c_{nk} |z|^{k} < \sum_{k = 0}^{\infty} c_{nk} R^{nk} < \infty. \]
+That shows that $g$ exists and is entire everywhere.
