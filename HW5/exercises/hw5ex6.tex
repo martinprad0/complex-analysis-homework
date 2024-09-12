@@ -1,0 +1,36 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+
+\section*{Exercise 6.}
+
+Let $U \subset \C$ be an open set, $z_0 \in G,\; \tilde{G} = G\backslash \{z_0\},\; f,g: \tilde{G} \to \C$ holomorphic and $z_0$ be a pole of $f$ and $g$. Let
+\[ \ord(f,z_0) = \mbox{order of the pole of $f$ at $z_0$ if $z_0$ is a pole}. \]
+Show that $z_0$ is a non-essential singularity of $f+g,\; fg$ and, if $g(z) \neq 0$ for every $z \in \tilde{G}$, $\dfrac{f}{g}$ and that the following formulas are valid:
+\begin{enumerate}[label = (\alph*)]
+    \item $\ord(f+g;z_0) \leq \max\{\ord(f;z_0), \ord(g;z_0)\}$.
+    \item $\ord(fg,z_0) = \ord(f;z_0)+\ord(g;z_0)$
+    \item $\ord\left( \frac{f}{g}; z_0 \right) = \ord(f;z_0) - \ord(g;z_0)$ if $\ord(f;z_0) > \ord(g;z_0)$.
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+Let $m$ be the order of $z_0$ at $f$ and $n$ at $g$, without restriction $m \leq n$. Then, there exist holomorphic functions $h_1$ and $h_2$ such that
+\[ f(z) = \sum_{k = 0}^{n} \frac{a_k}{(z-z_0)^k} + h_1(z), \]
+\[ g(z) = \sum_{k = 0}^{m} \frac{b_k}{(z-z_0)^k} + h_2(z). \]
+Then,
+\[ f(z)+g(z) = \sum_{k = m+1}^{n} \frac{a_k}{(z-z_0)^k} + \sum_{k = 0}^{m}\frac{a_k + b_k}{(z-z_0)^k} + h_1(z) + h_2(z), \]
+so it follows that $n$ is the maximum possible order of $f+g$ at $z_0$ (some coefficients could cancel if $m = n$ and $a_k = b_k$ for some $k\leq m$).
+
+
+\subsection*{Solution Part (b)}
+
+Again, let $m$ be the order of $z_0$ at $f$ and $n$ at $g$. Then, there exists $h_1, h_2$ holomorphic functions that don't cancel at $z_0$, such that
+\[ f(z) = \frac{h_1(z)}{(z-z_0)^n},\hspace{2em}  g(z) = \frac{h_2(z)}{(z-z_0)^m}. \]
+Then,
+\[ f(z)g(z) = \frac{h_1(z)h_2(z)}{(z-z_0)^{n+m}}, \]
+where $z_0$ is a pole of order $n+m$, because $h_1(z_0)h_2(z_0) \neq 0$.
+
+\subsection*{Solution Part (c)}
+
+If $g(z)$ doesn't have zeros in $\tilde{G}$, then $1/g(z) = \frac{(z-z_0)^m}{h_2(z)}$ is defined in all $\tilde{G}$, so it follows that
+\[ f(z)/g(z) = \frac{h_1(z)/h_2(z)}{(z-z_0)^{n-m}}. \]
+Since $h_2(z) \neq 0$ in $G$ because $h_2(z_0) \neq 0$, it follows that $f(z)/g(z)$ has a pole of order $n-m$ at $z_0$.

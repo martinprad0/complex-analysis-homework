@@ -10,11 +10,11 @@ Since $M$ is discrete in $U$, for every $w \in M$, there exists $\varepsilon_w$ 
 
 Let $\tilde{f}$ and $\tilde{g}$ be the extensions for $f$ and $g$ respectively. Let $h_1 = \tilde{f} \circ \tilde{g}$ and $h_2 = \tilde{g}\circ \tilde{f}$. For $z \in U\backslash M$, 
 \[ h_1(z) = f\circ g (z) = z = g\circ f(z) = h_2(z). \]
-Now, to prove that $h_1, h_2$ are defined for every $z\in U$, we must prove that $\tilde{f}(w), \tilde{g}(w) \in U$ for $w \in M$. For the sake of contradiction assume it's not. We know that
+Now, to prove that $h_1, h_2$ are defined for every $z\in U$, we must prove that $\tilde{f}(w), \tilde{g}(w) \in U$ for $w \in M$. For the sake of contradiction assume it's not ($\exists w \in M,\;\tilde{f}(w) \not\in U$). We know that
 \[ \tilde{f}(B_{\varepsilon_w}^\bullet(w)) = f(B_{\varepsilon_w}^\bullet(w)) \subset U\backslash M \subset U.\]
 Also, $\ol{B_{\varepsilon_w}^\bullet(w)} = \ol{B_{\varepsilon_w}(w)}$, so by continuity of $f$
 \[ \implies \tilde{f}(B_{\varepsilon_w}(w)) \subset \tilde{f}(\ol{B_{\varepsilon_w}(w)}) = \tilde{f}(\ol{B_{\varepsilon_w}^\bullet(w)}) \subset \ol{f(B_{\varepsilon_w}^\bullet(w))} \subset \ol{U} \]
-Therefore, $\tilde{f}(w) \in \ol{U}$ and since we assumed (for the contradiction) that $\tilde{f}(w) \not\in U$, it follows that $f(w) \in \d U$. However, note that
+Therefore, $\tilde{f}(w) \in \ol{U}$ and since we assumed that $\tilde{f}(w) \not\in U$, it follows that $f(w) \in \d U$. However, note that
 \begin{enumerate}
     \item First, $\tilde{f}(B_{\varepsilon_w}(w)) = f(B_{\varepsilon_w}^\bullet (w)) \overset{\cdot}{\cup} \{\tilde{f}(w)\}$ (disjoint union). Therefore, since $U$ is open and $ f(B_{\varepsilon_w}^\bullet (w)) \subset U = U^\circ$, it follows that $f(B_{\varepsilon_w}^\bullet (w)) \cap  \d U = \emptyset$. Thus, $ \d U \cap \tilde{f}(B_{\varepsilon_w}(w)) = \{\tilde{f}(w)\}$
     \item By Open Mapping Theorem, $\tilde{f}(B_{\varepsilon_w}(w))$ is an open set. Therefore, $\{\tilde{f}(w)\}$ is an isolated point of the boundary of $U$ (contradiction).
