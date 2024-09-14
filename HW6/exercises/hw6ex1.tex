@@ -1,0 +1,43 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 1.}
+
+Let $D := \{ z \in \C : |z| < 1\}$. For the following function determine the type of singularity at 0. If it is a removable singularity, determine the continuous extension of the function; If it's a pole, determine the principal part of its Laurent series at 0; If it's an essential singularity, determine $\{f(z) \;:\; 0<|z| < \varepsilon\}$ for $\varepsilon > 0$.
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rrcrr}
+    f : D \to \C,\hspace{1em} & f(z) = \frac{1}{1-e^z} & \hspace{4em} & g : D \to \C,\hspace{1em} & g(z) = e^{\frac{1}{z}}\\
+    h : D \to \C,\hspace{1em} & h(z) = \cos\frac{1}{z} & \hspace{4em} & k : D \to \C,\hspace{1em} & k(z) = \frac{\sin z}{z}
+\end{array}
+\]
+
+\textbf{Solution:}
+
+
+
+\begin{itemize}
+    \item For $f$, note that for $z \in \R$, 
+    \[ e^z-1 = \sum_{k = 1}^{\infty} \frac{z^k}{k!} = z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots, \]
+    so it follows that
+    \[ \lim_{z \to 0} \frac{e^z-1}{z} = \lim_{z\to 0} 1 + \frac{z}{2!} + \frac{z^2}{3!} + \cdots = 1.\]
+    Therefore, since $0$ is a zero of multiplicity 1 in $e^{z}-1$, it follows that $0$ is a pole of order 1 in $f(z)$. The Laurent series of $f$ has the following form
+    \[ f(z) = \frac{\lambda}{z} + h(z) = \frac{\lambda}{z} + \sum_{n = 0}^{\infty} a_n z^n, \]
+
+    \item For $g$, note that $e^{1/z}$ is not bounded on any punctured neighborhood around 0 because
+    \[ \lim_{t \to 0^+} |e^{1/(t+0i)}| = \infty. \]
+    On the other hand, the limit of the module doesn't exactly diverges to infinity because
+    \[ \lim_{t \to 0^+} |e^{1/(-t+0i)}| = 0. \]
+    Therefore, $0$ is neither a removable singularity nor a pole, which implies that $0$ is an essential singularity. 
+    
+    Note that the map $z \mapsto 1/z$ makes every punctured ball $B^\bullet_\varepsilon(0)$ go to $\C \backslash \ol{B_\varepsilon^{-1}(0)}$. 
+    
+    Now, consider $w = |w|e^{i\theta} \in \C\backslash\{0\}$. Then, with $z_0 = \ln|w| + i(\theta +2k\pi)$ with $k$ big enough so $z_0 \in \C \backslash \ol{B_\varepsilon^{-1}(0)}$, we can see that $w = e^{z_0}$ for $0< |1/z_0|< \varepsilon$. However, $e^z$ doesn't have zeroes, so it follows that
+    \[ \{g(z) \;:\; 0 < |z| < \varepsilon\} = g(B^\bullet_\varepsilon(0)) = \exp(\C \backslash \ol{B_\varepsilon^{-1}(0)}) = \C\backslash \{0\}\]
+
+    \item For $h$, note that $\cos$ is entire, so we can use the Taylor series to see that $0$ is an essential singularity
+    \[ \cos( z^{-1}) = \sum_{n = 0}^{\infty} \frac{(-1)^n z^{-2n}}{(2n)!}.\]
+    Therefore, there doesn't exist $k$ such that $z^k \cos z^{-1}$ has a removable singularity at $0$. Now, for the image of the punctured neighborhood, I can say that by Great Picard's theorem, $\{g(z) \;:\; 0 < |z| < \varepsilon\}$ is either $\C$ or $\C \backslash \{z_0\}$ for some $z_0 \in \C$, but I don't know how to find it.  
+    \item For $k$, according to Riemann's removable singularity theorem, $k$ has a removable singularity at $a$ if $\lim_{z\to a} (z-a) f(z) = 0$. For our case, we have that
+    \[ \lim_{z\to 0}z\frac{\sin z}{z} = \lim_{z\to 0} \sin(z) = \sin(0) = 0. \]
+    Since the limit of removable singularities is unique, we use a known fact from real analysis, for $t \in \R$
+    \[ \lim_{z\to 0}\frac{\sin z}{z} = \lim_{t\to 0^+}\frac{\sin (t+0i)}{t+0i} = 1  \]
+\end{itemize}
