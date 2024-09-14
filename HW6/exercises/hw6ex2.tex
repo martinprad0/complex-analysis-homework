@@ -1,27 +1,3 @@
 % chktex-file 3 chktex-file 18 chktex-file 36
 \section*{Exercise 2.}
 
-Let $U\subset \C$ be an open set, $z_0\in U$ and $f : U\backslash\{z_0\} \to \C$ holomorphic. Show that $e^{f}$ doesn't have a pole in $z_0$.
-
-\textbf{Solution:} 
-If $f$ can be extended at $z_0$, then by continuity of the $\exp$ function, $e^f$ can also be extended at $z_0$ (uniqueness of the limit). 
-
-If $z_0$ is a essential singularity, then (by  Casorati-Weierstrass theorem) $f(U\backslash \{z_0\})$ is dense in $\C$ so we can choose $a,b\in f(U\backslash \{z_0\})$ such that $e^a \neq e^b$. Also, there exist two sequences $(x_n)_{n\in\N}, (y_n)_{n\in\N} \subseteq U\backslash \{z_0\}$ with $(x_n)_{n\in\N} \overset{n\to\infty}{\to} z_0$ and $(y_n)_{n\in\N} \overset{n\to\infty}{\to} z_0$, such that $f(x_n) \overset{n\to\infty}{\to} a$ and $f(y_n) \overset{n\to\infty}{\to} b$. By continuity of $\exp$,
-\[ \lim_{n\to\infty} e^{f(x_n)} = e^a \neq e^b = \lim_{n\to\infty} e^{f(y_n)}. \]
-So $z_0$ is an essential singularity for $e^f$ too.
-
-Now, assume that $f$ has a pole at $z_0$, and let $n \geq 1$ be the order of that pole. Then, for some neighborhood of $z_0$, $f$ has a Laurent series
-\[ f(z) = \sum_{k = -n}^{\infty} a_{k} (z-z_0)^{k}. \]
-Therefore, 
-\[ f'(z) = \sum_{k = -n}^{\infty} k a_{k} (z-z_0)^{k-1} = \sum_{k = -n-1}^{\infty} (k+1) a_{k+1} (z-z_0)^{k}, \]
-so $f'(z)$ has a pole of order $n+1$. Now, suppose that $e^f$ has a pole of order $m$ at $z_0$,
-\[ e^{f(z)} =  \sum_{k = -m}^{\infty} b_{k} (z-z_0)^{k}, \]
-and by the same logic $(e^f)'$ has a pole of order $m+1$. However, using the chain rule,
-\[ \everymath{\displaystyle}
-\arraycolsep=1.8pt\def\arraystretch{2.5}
-\begin{array}{rcl}
-    (e^f)'(z) & = & f'(z) e^{f(z)}\\
-    & = & \sum_{k = -n-1}^{\infty} (k+1) a_{k+1} (z-z_0)^{k} \cdot \sum_{k = -m}^{\infty} b_{k} (z-z_0)^{k}\\
-    & = & \sum_{k = -m-n-1}^{\infty} c_k (z-z_0)^k,
-\end{array} \]
-where $c_k = \sum_{l = -m-n-1}^{k} (l+m+1) a_{l+m+1}b_{k-l-m}$ is the coefficient of the Cauchy product between the two series. Even if I made a mistake, the important part is that $c_{-m-n-1} = (-n)a_{-n} b_{-m} \neq 0$, and thus, $(e^{f})'$ has a pole of order $m+n+1 \neq m+1$ which leads to a contradiction.
