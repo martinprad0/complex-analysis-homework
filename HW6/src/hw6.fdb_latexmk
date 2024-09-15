@@ -1,10 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1726349966.4665 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw6.tex" "hw6.pdf" "hw6" 1726349967.64971 0
-  "../exercises/hw6ex1.tex" 1726349958.95808 182 0df8487d9fee770c4aa8a247bede206b ""
+["pdflatex"] 1726368371.72055 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw6.tex" "hw6.pdf" "hw6" 1726368372.90726 0
+  "../exercises/hw6ex1.tex" 1726350443.01026 70 2064d3327cf936fa6fd41d1cb4cc0191 ""
   "../exercises/hw6ex2.tex" 1726348666.47224 70 d8b39a19e5900783022dc556962c0a5e ""
   "../exercises/hw6ex3.tex" 1726348662.93521 70 e28e7b15ca9970cad28847f46c35e586 ""
   "../exercises/hw6ex4.tex" 1726348656.71416 99 73a47a580d1602d3cb50e3b7f2ed8f40 ""
-  "../pictures/image1.png" 1726349957.94907 19377 df4110017bcf6a98c8871a19bdd63516 ""
   "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw6.tex" 1726349117.28491 2926 0ed2deeabb8398b1e649fc8365c1a4a9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -183,7 +182,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "hw6.aux" 1726349967.52716 621 1f15e09b49dded6d5846ab5403bc64ca "pdflatex"
+  "hw6.aux" 1726368372.78701 621 9fb97706c62df20e4b1ac320b98c0c30 "pdflatex"
   "hw6.tex" 1726349117.28491 2926 0ed2deeabb8398b1e649fc8365c1a4a9 ""
   (generated)
   "hw6.aux"
