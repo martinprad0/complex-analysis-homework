@@ -1,3 +1,25 @@
 % chktex-file 3 chktex-file 18 chktex-file 36
 \section*{Exercise 1.}
 
+Let $P$ be a polynomial of degree $n$ and $R > 0$ such that $|z|<R$ for every $z$ with $P(z) = 0$. Define $\gamma : [0,1] \to \C,\; \gamma(t) = R e^{2\pi t}$. Calculate $\displaystyle \oint_\gamma \frac{P'}{P} dz$.
+
+\textbf{Solution:}
+
+If $P(z) = \lambda (z- z_1)\cdots (z-z_n)$, then by product rule
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rccc}
+    P'(z) & = & & \lambda \cdot 1\cdot (z-z_2)(z-z_3)\cdots (z-z_n)\\
+    & & + & \lambda (z-z_1)\cdot 1\cdot(z-z_3)\cdots (z-z_n)\\
+    & & + & \lambda (z-z_1)(z-z_2)\cdot 1\cdot\cdots (z-z_n)\\
+    & & + & \vdots\\
+    & & + & (z-z_1)(z-z_2)\cdots (z-z_{n-1})\cdot 1.\\[1em]
+    & = & & \sum_{k = 1}^{n} \lambda  \prod_{j \neq k} (z-z_j)\\[1em]
+    & = & & \sum_{k = 1}^{n} \frac{P(z)}{z-z_k}.
+\end{array}\]
+
+Therefore,
+\[ \frac{P'(z)}{P(z)} = \sum_{k = 1}^{n} \frac{1}{z-z_k}. \]
+Finally, $z_k$ is inside the circle we're evaluating the integral, so by residue's theorem, 
+\[ \oint_\gamma \frac{P'}{P} dz = \sum_{k = 1}^{n} \oint_\gamma \frac{1}{z-z_k} dz = n 2\pi i. \]

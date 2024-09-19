@@ -1,3 +1,23 @@
 % chktex-file 3 chktex-file 18 chktex-file 36
 \section*{Exercise 2.}
 
+Determine all the biholomorphic functions $\C \to \C$.~\textbf{Hint.} Suppose that $f$ is a biholomorphic function $\C \to \C$. Consider $f(1/z)$
+
+\textbf{Solution:}
+
+Since $f$ is entire in $\C$, it has the following Taylor series
+\[ f(z) = \sum_{n = 0}^{\infty} a_n z^n. \]
+Then,
+\[ f(1/z) = \sum_{n = 0}^{\infty} a_n \frac{1}{z^n}. \]
+
+If we have an infinite number of $n$ for which $a_n \neq 0$, then 0 is an essential singularity, otherwise, $f$ would be a polynomial. So assume that it's the case that 0 is an essential singularity of $g(z) = f(1/z)$. 
+
+By Picard's theorem, for some suitable $z_0 \in \C$,
+\[ \C \backslash \{z_0\} \subseteq g(B_\varepsilon(0)^\bullet) = f(\C \backslash \ol{B_{\varepsilon^{-1}}(0)}),\; \forall \varepsilon > 0. \]
+However, since $f$ is bijective, this would imply, $f(\ol{B_{\varepsilon^{-1}}(0)}) \subseteq \{z_0\}$, but this would contradict injectivity.
+
+Therefore, $f$ is a polynomial. Let $n$ be the degree of $f$, then, $f(z) = \lambda (z-z_1)\cdots (z-z_n)$. However, the injectivity of $f$ implies $n = 1$, otherwise for some $w\in\C$ we would obtain multiple solutions for $f(z) = 0$. 
+
+It might also happen that $z_1 = \cdots = z_n$, so $f = (z-z_1)^n$. Then there exists $n$ different solutions $\zeta_k = e^{2\pi i k/n},\; k\leq n$ for the equation $f(z+z_1) = 1$, so $\zeta_k + z_1,\; k \leq n$ are $n$ different solutions for $f(z) = 1$ contradicting injectivity again.
+
+Finally, all the entire biholomorphic functions are degree 1.

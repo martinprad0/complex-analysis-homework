@@ -1,3 +1,36 @@
 % chktex-file 3 chktex-file 18 chktex-file 36
 \section*{Exercise 3.}
 
+Let $f$ be a meromorphic function in $\C$. It's said that $f$ is meromorphic at $\infty$ is the function $z \mapsto g(z) := f(1/z)$ is meromorphic at a neighborhood of $0$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Show that a rational function is meromorphic at $\C$ and at $\infty$.
+    \item Show that a meromorphic function at $\C$ and at $\infty$ is a rational function.
+\end{enumerate}
+
+\subsection*{Solution Item (a)}
+
+Let $P(z)$ and $Q(z)$ be polynomials such that
+\[ f(z) = \frac{P(z)}{Q(z)} = \frac{\sum_{j = 0}^{n} a_j z^j}{\sum_{j = 0}^{m} b_j z^j} = \lambda \frac{(z-\alpha_1)\cdots (z-\alpha_n)}{(z-\beta_1)\cdots (z-\beta_m)}, \]
+where $\alpha_1,\ldots, \alpha_n$ are the $n$ roots of $P(z)$ and $\beta_1,\ldots, \beta_m$ the $m$ roots of $Q(z)$ (some of them could be the repeated), and $\alpha_i \neq \beta_j$ without restriction. Then, the singularities of $f$ are located at $\beta_1,\ldots, \beta_m$ and they are non-essential because these are the zeroes of a $m$ degree polynomial that can be written as the sum of meromorphic functions:
+\[ \frac{1}{Q(z)} = \frac{Q_1(z)}{(z-\beta_{k_1})^{m_1}} + \cdots + \frac{Q_l(z)}{(z-\beta_{k_l})^{m_l}},\hspace{1em} m_1+\cdots+m_l = m,\hspace{1em} \mbox{$Q_i$ is a polynomial} \]
+\[ \implies \ord(1/Q; z) \leq \max_{i = 1,\ldots, l}(m_i),\; \forall z \in \C.\]
+From this, it follows that there exists $k \in \N$ such that for some $\varepsilon > 0$ and $z \in B_\varepsilon(0)$
+\[ f(z) = \sum_{j = -k}^{\infty} c_j z^j. \]
+Finally, note that $Q(z) f(z) = P(z)$, and $P(1/z),Q(1/z)$ are meromorphic because they have a Laurent series with finite of non-zero coefficients, (assume W.L.O.G that $a_n, b_m \neq 0$)
+\[ P(1/z) = \sum_{j = 0}^{n} a_j z^{-j} = \sum_{j = -n}^0 a_{-j} z^j \]
+\[ Q(1/z) = \sum_{j = 0}^{m} b_j z^{-j} = \sum_{j = -m}^0 b_{-j} z^j \]
+so there must exist $K \in \N$ such that $c_j = 0$ for every $j > K$. Otherwise, $f(1/z)$ has an essential singularity at 0 because it has an infinite number of non-zero coefficients in the Laurent series. Then, $Q(1/z) f(1/z)$ also has an infinite number of non-zero coefficients (because $b_{m} \neq 0$), but since $P(1/z)$ only has finite, we would get a contradiction. So, we have that
+\[ f(z) = \sum_{j = -k}^{K} c_j z^j \]
+\[ \implies f(1/z) = \sum_{j = -K}^{k} c_{-j} z^j, \]
+so $f(1/z)$ is meromorphic at zero at $B_\varepsilon(0)$.
+
+\subsection*{Solution Item (b)}
+
+If $f$ is meromorphic at $\C$, then for some $k \in \N$ and $\varepsilon_1 > 0$
+\[ f(z) = \sum_{j = -k}^{\infty} c_j z^j,\; z\in B_{\varepsilon_1}(0). \]
+On the other hand, if $f(z)$ is meromorphic at $\infty$, then $f(1/z)$ is meromorphic at 0, so there exists $K \in \N$ and $\varepsilon_2 > 0$ such that
+\[ f(1/z) = \sum_{j = -K}^{\infty} c_{-j} z^j = \sum_{j = -\infty}^{K} c_{j} z^{-j},\; z\in B_{\varepsilon_2}(0).\]
+By mixing both results together, we have that for $\varepsilon = \min (\varepsilon_1, \varepsilon_2)$
+\[ f(z) = \sum_{j = -k}^{K} c_j z^j,\; z\in B_\varepsilon(0)\]
+which can be expanded to obtain a rational function, and later be extended to the rest of the complex plane (minus the roots of the denominator) using identity theorem. 
