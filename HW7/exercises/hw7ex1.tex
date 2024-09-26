@@ -1,0 +1,89 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 1.}
+
+Calculate the principal part at 0 of the functions
+\[ f(z) = \frac{(\sin z)^2}{\sin(z^2)}, \hspace{2em} g(z) = \frac{1-z^2}{z(1-\cos(z^2))}.  \]
+
+\subsection*{Solution Item (a)}
+The Taylor series of $(\sin z)^2$ is by trigonometric identities,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    (\sin z)^2 & = & \frac{1-\cos(2z)}{2}\\
+    & = & \frac{1}{2} - \sum_{n = 0}^{\infty} \frac{(-1)^n 2^{2n-1}}{(2n)!} z^{2n}\\
+    & = & z^2 - \frac{2^3 z^4}{4!} + \frac{2^5 z^6}{6!} + O(z^8)
+\end{array} \]
+
+The Taylor series of $\sin (z^2)$ is by substitution
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sin(z^2) & = & \sum_{n = 0}^{\infty} \frac{(-1)^n z^{4n+1}}{(2n+1)!}\\
+    & = & z^2 - \frac{z^6}{3!} + \frac{z^{10}}{5!} + O(z^{14})
+\end{array} \]
+
+Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \lim_{z\to 0} \frac{(\sin z)^2}{\sin(z^2)} & = & \lim_{z\to 0} \frac{z^2 - \frac{2^3}{4!} z^4 + O(z^6) }{z^2 + O(z^6)}\\
+    & = & \lim_{z\to 0} \frac{1 + O(z^2)}{1 + O(z^4)} = 1.
+\end{array} \]
+
+Therefore, the principal part of the series is 0 because the series has a removable singularity at 0.
+
+\subsection*{Solution Item (b)}
+
+The Taylor series expansion of $z(1-\cos(z^2))$ is the following
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    z(1-\cos(z^2)) & = & z \left( 1 - \sum_{n = 0}^{\infty} \frac{(-1)^n}{(2n)!} z^{2n} \right)\\
+    & = & \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{(2n)!} z^{2n+1}\\
+    & = & \frac{1}{2!} z^5 - \frac{1}{4!} z^9 + O(z^{13})
+\end{array} \]
+Therefore,
+\[ g(z) = \frac{1 - z^2}{\frac{1}{2} z^5 + O(z^9)}, \]
+so it's clear that $g(z)$ has a pole of order 5 at $z = 0$. In fact, if
+\[ g(z) = \sum_{n = -5}^{\infty} a_{n} z^n, \]
+then $a_{-5} = \lim_{z\to 0} z^5 g(z) = \lim_{z\to 0} \frac{1- z^2}{\frac{1}{2} + O(z^4)} = 2$. Then, for the next coefficients
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    a_{-4} & = & \lim_{z\to 0} z^4 (g(z) - a_{-5} z^{-5}) \\
+    & = & \lim_{z\to 0} z^4 (g(z) - 2z^{-5})\\
+    & = & \lim_{z\to 0} z^4 \frac{1-z^2 - 2z^{-5}(\frac{1}{2!} z^5 + O(z^9))}{\frac{1}{2} z^5 + O(z^9)}\\
+    & = & \lim_{z\to 0} \frac{-z^2 + O(z^4)}{\frac{1}{2} z + O(z^5)} = 0
+\end{array} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    a_{-3} & = & \lim_{z\to 0} z^3 (g(z) - a_{-5} z^{-5} - a_{-4} z^{-4}) \\
+    & = & \lim_{z\to 0} z^3 (g(z) - 2z^{-5})\\
+    & = & \lim_{z\to 0} z^3 \frac{1-z^2 - 2z^{-5}(\frac{1}{2!} z^5 + O(z^9))}{\frac{1}{2} z^5 + O(z^9)}\\
+    & = & \lim_{z\to 0} \frac{-z^2 + O(z^4)}{\frac{1}{2} z^2 + O(z^4)} = -2
+\end{array} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    a_{-2} & = & \lim_{z\to 0} z^2 (g(z) - a_{-5} z^{-5} - a_{-4} z^{-4} - a_{-3} z^{-3}) \\
+    & = & \lim_{z\to 0} z^2 (g(z) - 2z^{-5} + 2z^{-3})\\
+    & = & \lim_{z\to 0} z^2 \frac{1-z^2 + (- 2z^{-5} + 2z^{-3})(\frac{1}{2!} z^5 - \frac{1}{4!} z^9 + O(z^{13}))}{\frac{1}{2} z^5 + O(z^9)}\\
+    & = & \lim_{z\to 0} \frac{1 - z^2 + (-1 + \frac{2}{4!} z^{4} + O(z^8)) + (z^2 - \frac{2}{4!} z^{6} + O(z^{10}))}{\frac{1}{2} z^3 + O(z^7)}\\
+    & = & \lim_{z\to 0} \frac{\frac{1}{12} z^{4} + O(z^6) }{\frac{1}{2}z^3 + O(z^7)} = 0.
+\end{array} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    a_{-1} & = & \lim_{z\to 0} z (g(z) - a_{-5} z^{-5} - a_{-4} z^{-4} - a_{-3} z^{-3} - a_{-2} z^{-2}) \\
+    & = & \lim_{z\to 0} z (g(z) - 2z^{-5} + 2z^{-3})\\
+    & = & \lim_{z\to 0} z \frac{1-z^2 + (- 2z^{-5} + 2z^{-3})(\frac{1}{2!} z^5 - \frac{1}{4!} z^9 + O(z^{13}))}{\frac{1}{2} z^5 + O(z^9)}\\
+    & = & \lim_{z\to 0} \frac{1 - z^2 + (-1 + \frac{2}{4!} z^{4} + O(z^8)) + (z^2 - \frac{2}{4!} z^{6} + O(z^{10}))}{\frac{1}{2} z^4 + O(z^8)}\\
+    & = & \lim_{z\to 0} \frac{\frac{1}{12} z^{4} + O(z^6) }{\frac{1}{2}z^4 + O(z^8)} = \frac{1}{6}.
+\end{array} \]
+
+Finally, the principal part is
+\[ \frac{2}{z^5} - \frac{2}{z^3} + \frac{1}{6z}. \]

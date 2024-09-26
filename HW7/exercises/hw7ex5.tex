@@ -1,0 +1,18 @@
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+\section*{Exercise 5.}
+
+Let $f:\C \to \C$ be a holomorphic function. Suppose that for every $a \in \C$, at least one coefficient in the Taylor series of $f$ in $a$ is vanished. Show that $f$ is a polynomial
+
+\textbf{Solution:}
+
+We previously proved that the set of zeroes of a non-zero holomorphic function is discrete and closed, so it has to be countable (because uncountable sets have accumulation points in $\R^n$). 
+
+Now assume for the sake of contradiction that $f$ is not a polynomial, so the $k$-th derivative $f^{(k)}$ is always non-zero, and thus, has a countable set of zeroes. So it follows that $(f^{(k)})^{-1}(\{0\})$ is a countable set, and thus,
+\[ \bigcup_{k = 0}^{\infty}(f^{(k)})^{-1}(\{0\})\mbox{ is countable too.} \]
+
+Also note that since for every $a\in \C$ there exists $n\in \N$ such that $a_n = 0$ for the series
+\[ f(z) = \sum_{k = 0} a_k(z-a)^k, \]
+so it follows that $f^{(n)}(a) = 0$, and thus, for every $a \in \C$
+\[ a \in (f^{(n)})^{-1}(\{0\}) \subset \bigcup_{k = 0}^{\infty}(f^{(k)})^{-1}(\{0\}) \]
+\[ \implies \C \subset \bigcup_{k = 0}^{\infty}(f^{(k)})^{-1}(\{0\}), \]
+but that would imply that $\C = \R \times \R$ is countable, which is false.

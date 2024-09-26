@@ -1,10 +1,15 @@
 # Fdb version 4
-["pdflatex"] 1727338386.81424 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw6.tex" "hw6.pdf" "hw6" 1727338388.20324 0
-  "../exercises/hw6ex1.tex" 1727283638.81331 1135 d974cdac909c6cb1ac6c4391353d5ccf ""
-  "../exercises/hw6ex2.tex" 1727283638.81431 1556 2c3278e0d9073a8e1597f04a7d924705 ""
-  "../exercises/hw6ex3.tex" 1727283638.81531 3222 f953b2bc0124f29a71034fad0dbe166d ""
-  "../exercises/hw6ex4.tex" 1727283638.81731 1358 0657f94946dcaccdc13fa1b6d7ae9611 ""
-  "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw6.tex" 1727283638.82331 2926 0ed2deeabb8398b1e649fc8365c1a4a9 ""
+["pdflatex"] 1727338113.59716 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw7.tex" "hw7.pdf" "hw7" 1727338115.04644 0
+  "../exercises/hw7ex1.tex" 1727328251.52985 4216 4e0500ae3297b02737bfb58f4f3cb1e5 ""
+  "../exercises/hw7ex2.tex" 1727338113.07242 1711 09fb13869a373a73b27fa692f975d06d ""
+  "../exercises/hw7ex3.tex" 1727336636.27826 6110 4735a4e89c189ac6fa2fdff138ead867 ""
+  "../exercises/hw7ex4.tex" 1727335161.60108 586 d3511e0c9fecbb63d0dc54bfa6300d55 ""
+  "../exercises/hw7ex5.tex" 1727336545.10633 1256 fde439d22a5a6c972f1d8661511f6eb5 ""
+  "../pictures/image1.png" 1727332926.00694 23475 b4b74487aeb760f8648aa70080f62988 ""
+  "../pictures/image2.png" 1727333114.07588 20474 bd944a02aec5231bc3998c568cac0942 ""
+  "../pictures/image3.png" 1727333751.32648 14366 1a0eeee2769c49f0383d467bd1097bd8 ""
+  "../pictures/image4.png" 1727336635.27025 8722 7ad303f6c69a68a1feec6b9c2277f80e ""
+  "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW6/src/hw7.tex" 1727335046.9919 3033 4c1947e50f2f0e91bc0df85b3d24ac2a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -202,10 +207,10 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "hw6.aux" 1727338388.05424 621 c064e3255b0e62efdb788796f98ce2ab "pdflatex"
-  "hw6.tex" 1727283638.82331 2926 0ed2deeabb8398b1e649fc8365c1a4a9 ""
+  "hw7.aux" 1727338114.89544 622 78c526c5bc22012d7a339c379afe8d5d "pdflatex"
+  "hw7.tex" 1727335046.9919 3033 4c1947e50f2f0e91bc0df85b3d24ac2a ""
   (generated)
-  "hw6.aux"
-  "hw6.log"
-  "hw6.pdf"
+  "hw7.aux"
+  "hw7.log"
+  "hw7.pdf"
   (rewritten before read)
