@@ -5,6 +5,22 @@ Calculate the principal part at 0 of the functions
 \[ f(z) = \frac{(\sin z)^2}{\sin(z^2)}, \hspace{2em} g(z) = \frac{1-z^2}{z(1-\cos(z^2))}.  \]
 
 \subsection*{Solution Item (a)}
+
+\textbf{Note:} After working a little more on the problem, I think I found a way to calculate the limits in this problem without using Big O notation.
+
+Let $f_1(z) = \sin(z) / z$ and $f_2(z) = \sin(z^2)/z^2$. In the first place, 
+\[ \lim_{z\to 0} z f_1(z) = \lim_{z \to 0} \frac{z}{z} \sin(z) = 0, \]
+so $0$ is a removable singularity for $f_1$, which is extended to the following holomorphic function (by uniqueness of the Taylor series expansion) 
+\[ \tilde{f}_1 = \begin{cases}
+    f_1(z) & z \neq 0,\\
+    1 & z = 0.
+\end{cases}\hspace{2em}  \tilde{f}_1(z) = 1 - \frac{z^2}{3!} + \frac{z^4}{5!} + \cdots = \sum_{n = 0}^{\infty} \frac{(-1)^n z^{2n}}{(2n+1)!}. \]
+For a similar reason, $f_2(z) = f_1(z^2)$ has a removable singularity at $0$, and by continuity of the map $z \mapsto z^2$, the continuous extension for $f_2$ is $\tilde{f}_2 = z \mapsto \tilde{f}_1(z^2)$. Finally,
+\[ \lim_{z \to 0} \frac{(f_1(z))^2}{f_2(z)} = \lim_{z \to 0} \frac{(\tilde{f}_1(z))^2}{\tilde{f}_2(z)} = \frac{(\tilde{f}_1(0))^2}{\tilde{f}_1(0^2)} = \frac{1^2}{1} = 1. \]
+Therefore, the principal part of the function is $0$.
+
+\subsection*{Alternate Solution Item (a)}
+
 The Taylor series of $(\sin z)^2$ is by trigonometric identities,
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{2.5}
@@ -34,13 +50,24 @@ Therefore, the principal part of the series is 0 because the series has a remova
 
 \subsection*{Solution Item (b)}
 
+\textbf{Note:} If found a very confortable way to calculate the principal part using Big-O notation. However, for the sake of this homework, I believe that this method requires further justifications. For now I'll define the notation as follows:
+\[ f(z) = O(g(z))\; \mbox{ as }\; z \to 0 \]
+when there exists $K > 0$ and $\varepsilon > 0$ such that
+\[ |f(z)| \leq M |h(z)|,\; \forall z \in B_\varepsilon(z). \]
+Then, (using real analysis) for every series with the form $f(z) = \sum_{n = k}^{\infty} a_n z^n$,
+\[ f(z) = O(z^k), \]
+and thus,
+\[ \lim_{z \to 0} a_0 + f(z) = a_0. \]
+
+
+
 The Taylor series expansion of $z(1-\cos(z^2))$ is the following
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{2.5}
 \begin{array}{rcl}
     z(1-\cos(z^2)) & = & z \left( 1 - \sum_{n = 0}^{\infty} \frac{(-1)^n}{(2n)!} z^{2n} \right)\\
     & = & \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{(2n)!} z^{2n+1}\\
-    & = & \frac{1}{2!} z^5 - \frac{1}{4!} z^9 + O(z^{13})
+    & = & \frac{1}{2!} z^5 - \frac{1}{4!} z^9 + O(z^{13}).
 \end{array} \]
 Therefore,
 \[ g(z) = \frac{1 - z^2}{\frac{1}{2} z^5 + O(z^9)}, \]
@@ -53,7 +80,7 @@ then $a_{-5} = \lim_{z\to 0} z^5 g(z) = \lim_{z\to 0} \frac{1- z^2}{\frac{1}{2} 
     a_{-4} & = & \lim_{z\to 0} z^4 (g(z) - a_{-5} z^{-5}) \\
     & = & \lim_{z\to 0} z^4 (g(z) - 2z^{-5})\\
     & = & \lim_{z\to 0} z^4 \frac{1-z^2 - 2z^{-5}(\frac{1}{2!} z^5 + O(z^9))}{\frac{1}{2} z^5 + O(z^9)}\\
-    & = & \lim_{z\to 0} \frac{-z^2 + O(z^4)}{\frac{1}{2} z + O(z^5)} = 0
+    & = & \lim_{z\to 0} \frac{-z^2 + O(z^4)}{\frac{1}{2} z + O(z^5)} = 0,
 \end{array} \]
 
 \[ \everymath{\displaystyle}
@@ -62,7 +89,7 @@ then $a_{-5} = \lim_{z\to 0} z^5 g(z) = \lim_{z\to 0} \frac{1- z^2}{\frac{1}{2} 
     a_{-3} & = & \lim_{z\to 0} z^3 (g(z) - a_{-5} z^{-5} - a_{-4} z^{-4}) \\
     & = & \lim_{z\to 0} z^3 (g(z) - 2z^{-5})\\
     & = & \lim_{z\to 0} z^3 \frac{1-z^2 - 2z^{-5}(\frac{1}{2!} z^5 + O(z^9))}{\frac{1}{2} z^5 + O(z^9)}\\
-    & = & \lim_{z\to 0} \frac{-z^2 + O(z^4)}{\frac{1}{2} z^2 + O(z^4)} = -2
+    & = & \lim_{z\to 0} \frac{-z^2 + O(z^4)}{\frac{1}{2} z^2 + O(z^4)} = -2,
 \end{array} \]
 
 \[ \everymath{\displaystyle}
@@ -72,7 +99,7 @@ then $a_{-5} = \lim_{z\to 0} z^5 g(z) = \lim_{z\to 0} \frac{1- z^2}{\frac{1}{2} 
     & = & \lim_{z\to 0} z^2 (g(z) - 2z^{-5} + 2z^{-3})\\
     & = & \lim_{z\to 0} z^2 \frac{1-z^2 + (- 2z^{-5} + 2z^{-3})(\frac{1}{2!} z^5 - \frac{1}{4!} z^9 + O(z^{13}))}{\frac{1}{2} z^5 + O(z^9)}\\
     & = & \lim_{z\to 0} \frac{1 - z^2 + (-1 + \frac{2}{4!} z^{4} + O(z^8)) + (z^2 - \frac{2}{4!} z^{6} + O(z^{10}))}{\frac{1}{2} z^3 + O(z^7)}\\
-    & = & \lim_{z\to 0} \frac{\frac{1}{12} z^{4} + O(z^6) }{\frac{1}{2}z^3 + O(z^7)} = 0.
+    & = & \lim_{z\to 0} \frac{\frac{1}{12} z^{4} + O(z^6) }{\frac{1}{2}z^3 + O(z^7)} = 0,
 \end{array} \]
 
 \[ \everymath{\displaystyle}

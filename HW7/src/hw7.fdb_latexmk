@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1727646056.57309 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW7/src/hw7.tex" "hw7.pdf" "hw7" 1727646058.0683 0
-  "../exercises/hw7ex1.tex" 1727328251.52985 4216 4e0500ae3297b02737bfb58f4f3cb1e5 ""
-  "../exercises/hw7ex2.tex" 1727338113.07242 1711 09fb13869a373a73b27fa692f975d06d ""
+["pdflatex"] 1727673549.71169 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW7/src/hw7.tex" "hw7.pdf" "hw7" 1727673551.16929 0
+  "../exercises/hw7ex1.tex" 1727673528.80507 5955 19b72a2e2d856d719bba81a7d222834e ""
+  "../exercises/hw7ex2.tex" 1727673549.43126 2840 debc95b3ae57e119e0da337fab2e7556 ""
   "../exercises/hw7ex3.tex" 1727336636.27826 6110 4735a4e89c189ac6fa2fdff138ead867 ""
-  "../exercises/hw7ex4.tex" 1727335161.60108 586 d3511e0c9fecbb63d0dc54bfa6300d55 ""
-  "../exercises/hw7ex5.tex" 1727336545.10633 1256 fde439d22a5a6c972f1d8661511f6eb5 ""
+  "../exercises/hw7ex4.tex" 1727672378.41535 2121 508340de2dc1e06c7638407f31b3c9ed ""
+  "../exercises/hw7ex5.tex" 1727672486.80436 1270 58c3ca9c955a9d2c2b2a15ed55c11e27 ""
   "../pictures/image1.png" 1727332926.00694 23475 b4b74487aeb760f8648aa70080f62988 ""
   "../pictures/image2.png" 1727333114.07588 20474 bd944a02aec5231bc3998c568cac0942 ""
   "../pictures/image3.png" 1727333751.32648 14366 1a0eeee2769c49f0383d467bd1097bd8 ""
@@ -207,7 +207,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "hw7.aux" 1727646057.91393 622 78c526c5bc22012d7a339c379afe8d5d "pdflatex"
+  "hw7.aux" 1727673551.02528 622 2f0f6ef5651f3828467f3d7c95aa9396 "pdflatex"
   "hw7.tex" 1727335046.9919 3033 4c1947e50f2f0e91bc0df85b3d24ac2a ""
   (generated)
   "hw7.aux"

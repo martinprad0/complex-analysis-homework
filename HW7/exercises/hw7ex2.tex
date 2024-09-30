@@ -10,9 +10,33 @@ Let $M \subset \C$ be a finite set and let $f:\C\backslash M \to \C$ be holomorp
 
 \subsection*{Solution Item (a)}
 
-For some $R > 0$, $M \subset B_R(0)$, so it follows that $f$ is holomorphic at $\C \backslash \ol{B_R(0)}$. Then, the map $z \mapsto f(z^{-1})$ is holomorphic at $B_{1/R}(0)\backslash \{0\}$, so it follows that $g$ is also holomorphic at $B_{1/R}(0)\backslash \{0\}$.
+For some $R > 0$, $M \subset B_R(0)$, so it follows that $f$ is holomorphic at $\C \backslash \ol{B_R(0)}$. Then, the map $z \mapsto f(z^{-1})$ and the map $z \mapsto z^{-2}$ are holomorphic at $B_{1/R}(0)\backslash \{0\}$. So finally, $g: z \mapsto z^{-2}f(z^{-1})$ is holomorphic at $B_{1/R}(0)\backslash \{0\}$.
 
 \subsection*{Solution Item (b)}
+
+Let $\gamma(t) = (1/r) \cdot e^{i t}$ for $r > R$. Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \Res_0 g & = & \frac{1}{2\pi i} \int_\gamma g(z) dz\\
+    & = & \frac{1}{2\pi i} \int_\gamma \frac{f(1/z)}{z^2} dz\\
+    (u(z) = 1/z) & = & \frac{1}{2\pi i} \int_{u\circ \gamma} \frac{f(u)}{u^2} dz\\
+    (dz = -du/u^2) & = & \frac{1}{2\pi i} \int_{u\circ \gamma} -f(u) du.
+\end{array}\]
+
+Now, note that $u\circ \gamma(t) = r e^{-it}$, so the orientation of the circle is inverted, and
+\[ \frac{1}{2\pi i} \int_{u\circ \gamma} -f(u) du = \frac{1}{2\pi i} \int_{-u\circ \gamma} f(u) du = \int_{\d B_r(0)} f(z) dz. \]
+Then, since $B_r(0) \supseteq B_R(0)$, and $B_R(0)$ contains all the singularities of $f$, it follows that 
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \frac{1}{2\pi i} \int_{u\circ \gamma} -f(u) du & = & \int_{\d B_r(0)} f(z) dz\\
+    & = & \sum_{c \in B_r(0)} \Res_c f\\
+    & = & \sum_{c \in B_R(0)} \Res_c f\\
+    & = & \sum_{c \in \C} \Res_c f.
+\end{array} \]
+
+
 
 \subsection*{Solution Item (c)}
 

@@ -6,3 +6,31 @@
     \item Let $U\subset \C$ be open and connected, $c\in U$ and $\gamma$ be a closed curve in $U \backslash \{c\}$ such that $\interior(\gamma) \subset D$. Para a biholomorphic function $f: U \to f(U)$ show that
     \[ \ind_\gamma(c) = \ind_{f\circ \gamma}(f(c)) \]
 \end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+Without restriction, let $\gamma : [0,2\pi] \to \C \backslash \{0\}$. Then, by the argument principle,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \ind_{p\circ\gamma}(0) & = & \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{(p\circ \gamma)'(t)}{p\circ \gamma(t)} dt\\
+    & = & \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{\gamma'(t)(p'\circ \gamma)(t)}{p\circ \gamma(t)} dt\\
+    & = & \frac{1}{2\pi i} \int_{\gamma} \frac{p'(z)}{p(z)} dz\\
+    & = & \sum_{i = 1}^{n} \ind_\gamma(a_i);\hspace{2em}  p(a_i) = 0.
+\end{array} \]
+Since $0$ is a zero of multiplicity $n$ for $p$, it follows that $a_1 = \cdots = a_n = 0$, and thus,
+\[ \ind_{p\circ\gamma}(0) = n \cdot \ind_\gamma(0). \]
+
+\subsection*{Solution Part (b)}
+
+For every $c \in U$, $c$ is the only element in $f^{-1}(\{f(c)\})$. Therefore, for the function $g(z) = f(z) - f(c)$, $c$ is the unique solution for the equation $g(z) = 0$. So by following similar steps as the previous item,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \ind_{f\circ\gamma}(f(c)) & = & \ind_{g\circ\gamma}(0)\\
+    & = & \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{(g\circ \gamma)'(t)}{g\circ \gamma(t)} dt\\
+    & = & \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{\gamma'(t)(g'\circ \gamma)(t)}{g\circ \gamma(t)} dt\\
+    & = & \frac{1}{2\pi i} \int_{\gamma} \frac{g'(z)}{g(z)} dz\\
+    & = & \sum_{i = 1}^{n} \ind_\gamma(a_i);\hspace{2em}  g(a_i) = 0\\
+    & = & \ind_\gamma(c).
+\end{array} \] 
