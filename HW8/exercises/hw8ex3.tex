@@ -1,0 +1,50 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 3.}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Let $U \subset \C$ be a region, $g:U \to \C$ holomorphic, $f$ meromorphic in $U$ with zeros in $z_1,\ldots, z_n$ and poles in $p_1,\ldots, p_k$. Let $\gamma$ be a closed null-homotopic in $U$ and suppose that $\gamma \cap \{z_1,\ldots,z_n,p_1,\ldots,p_k\} = \emptyset$. Show that
+    \[ \frac{1}{2\pi i}\int_\gamma g(z) \frac{f'(z)}{f(z)} dz = \sum_{j = 1}^{n}g(z_j) \ord(f,z_j) \ind_\gamma(z_j) - \sum_{j = 1}^{k} g(p_j)\ord(f,p_j)\ind_{\gamma}(p_j).\]
+
+    \item Let $U\subseteq \C$ be open, let $p\in \C,\; R> 0$ such that $\ol{B_R(p)} \subset U$. Let $f : U\to \C$ be holomorphic and suppose that $f |_{B_R(p)}$ is injective. Let $V := \{ f(z) \;:\; z \in  B_R(p)\}$. Then, $f^{-1}: V \to B_R(p)$ is well defined. Show that 
+    \[ f^{-1}(q) = \frac{1}{2\pi i}\int_{\d B_R(p)} \frac{z f'(z)}{f(z) - q} dz,\hspace{2em} q \in V. \]
+\end{enumerate}
+
+\subsection*{Solution Item (a)}
+
+Remember that if for some function $p$,
+\[ f(z) = (z-z_0)^a p(z), \]
+then,
+\[ \frac{f'(z)}{f(z)} = \frac{(z-z_0)^{a-1} p(z) + (z-z_0)^a p'(z)}{(z-z_0)^a p(z)} = \frac{a}{z-z_0} + \frac{p'(z)}{p(z)}. \]
+Similarly, if for some function $p$,
+\[ f(z) = (z-p_0)^{-b} p(z), \]
+then,
+\[ \frac{f'(z)}{f(z)} = \frac{-b(z-p_0)^{-b-1} p(z) + (z-p_0)^{-b}p'(z)}{(z-p_0)^{-b}p(z)} = -\frac{b}{z-p_0} + \frac{p'(z)}{p(z)}. \]
+
+Now, we apply a similar idea as the proof of the Argument Principle, we can find an holomorphic function $h$ with no zeroes in $U$ that satisfies
+\[ f(z) = \frac{\prod_{i = 1}^{n} (z-z_i)^{a_i}}{\prod_{j = 1}^{k} (z-p_j)^{b_i}} \cdot h(z). \]
+Then, it follows that
+\[ \frac{f'(z)}{f(z)} = \sum_{i = 1}^n \frac{a_i}{z-z_i} - \sum_{j = 1}^{k} \frac{b_j}{z-p_j} + \frac{h'(z)}{h(z)}, \]
+so by multiplying $g$ we obtain,
+\[ g(z)\frac{f'(z)}{f(z)} = \sum_{i = 1}^n \frac{g(z)a_i}{z-z_i} - \sum_{j = 1}^{k} \frac{g(z)b_j}{z-p_j} + g(z)\frac{h'(z)}{h(z)}. \]
+Note that the function $\displaystyle g\cdot\frac{h'}{h}$ is holomorphic so $\displaystyle \int_\gamma g\cdot\frac{h'}{h} dz = 0$, and by Cauchy integral formula $\displaystyle \frac{1}{2\pi i}\int_\gamma \frac{g}{z-a} dz = g(a) \ind_\gamma(a)$. So finally,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \frac{1}{2\pi i}  \int_\gamma g(z)\frac{f'(z)}{f(z)} dz & = & \sum_{i = 1}^n a_i \frac{1}{2\pi i}\int_\gamma \frac{g(z)}{z-z_i} dz- \sum_{j = 1}^{k} b_j \frac{1}{2\pi i} \int_\gamma\frac{g(z)}{z-p_j}dz + \frac{1}{2\pi i} \int_\gamma g(z)\frac{h'(z)}{h(z)} dz\\
+    & = & \sum_{i = 1}^n a_i\; g(z_i) \ind_{\gamma}(z_i) - \sum_{j = 1}^{k} b_j\; g(z_i) \ind_{\gamma}(z_i) + 0,
+\end{array} \]
+and $a_i,b_j$ are the multiplicities and orders of the respective zeroes and poles of $f$.
+
+\subsection*{Solution Item (b)}
+
+For every $q \in V$ there exists a unique $z_q \in B_R(p)$ such that $f(z_q) = q$, so there exists a holomorphic function $h$ such that $h(z) \neq 0$ for every $z \in B_R(p)$ and,
+\[ f(z)-q = (z-z_q)h(z). \]
+From the previous item, we know that since
+\begin{itemize}
+    \item $z\mapsto f(z)-q$ has no poles and only one zero at $z = z_q$ with multiplicity 1,
+    \item $\d B_R(p)$ surrounds $q$ exactly once.
+\end{itemize}
+it follows that,
+\[ \frac{1}{2\pi i} \int_{\d B_R(p)} g(z)\frac{(f(z)-q)'}{f(z)-q} dz = \frac{1}{2\pi i}\int_{\d B_R(p)} g(z)\frac{f'(z)}{f(z)-q} dz = g(z_q) \]
+Finally, by letting $g(z) = z$ we obtain
+\[ \frac{1}{2\pi i}\int_{\d B_R(p)} g(z)\frac{f'(z)}{f(z)-q} dz = z_q = f^{-1}(q) \]

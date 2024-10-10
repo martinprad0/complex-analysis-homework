@@ -1,0 +1,16 @@
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+\section*{Exercise 5.}
+
+Determine all the values that $\displaystyle \int_\gamma \frac{1}{1+z^2}dz$ can take if $\gamma$ is a closed path in $\C \backslash \{\pm i\}$.
+
+\textbf{Solution:}
+
+Using partial fractions, we obtain
+\[ \frac{1}{1+z^2} = \frac{i}{2(z+i)} - \frac{i}{2(z-i)}. \]
+Then, by some nice integral formula,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_\gamma \frac{1}{1+z^2} dz & = & 2\pi i \left( \frac{i}{2} \ind_\gamma(-i) - \frac{i}{2} \ind_\gamma(i) \right)\\
+    & = & \pi \ind_\gamma(i) - \pi \ind_\gamma(-i) \in \pi \Z.
+\end{array}\]

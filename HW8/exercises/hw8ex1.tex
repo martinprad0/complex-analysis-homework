@@ -1,0 +1,13 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 1.}
+
+Let $R = \frac{P}{Q}$ with polynomials $P$ and $Q$ such that $Q(x) \neq 0$ for every $x \in \R$ and such that $\deg(Q) \geq \deg(P)+1$. Show that $\displaystyle \lim_{r\to\infty} \int_{-r}^r R(x) dx$ exists and express this limit in terms of the residues of $R$. Don't forget to formulate your assertion.
+
+\textbf{Solution:} The assertion is that $\int_{-\infty}^\infty R(x) dx$ exists if the degree of $Q$ is at least two units higher than the degree of $P$ (I believe that there's a typo in the exercise). The result of this integral in terms of the residues is
+\[ \int_{-\infty}^\infty R(x) dx = 2\pi i \sum_{\im(z) > 0} \Res\; R(z). \]
+
+Let $\gamma_1(t) = -r(1-t) + rt$ and $\gamma_2(t) = re^{-t\pi i}$, both curves defined for $t \in [0,1]$. $\gamma_1$ is the line that goes from $-r$ to $r$ and $\gamma_2$ is the semicircle that starts at $r$ and ends at $-r$. It follows that $\gamma = \gamma_1+\gamma_2$ is a closed curve, and if $r$ is big enough for $\gamma$ to contain all the poles of $R$, it follows by the Argument Principle that
+\[ \int_{\gamma} R(z) dz = \int_{-r}^r R(x) dx + \int_{\gamma_2} R(z) dz = 2\pi i \sum_{\im(z) > 0} \Res\; R(z). \]
+Finally, if $\deg(Q) - \deg(P) \geq 2$, then $|R(z)|$ behaves asymptotically as $|z|^{-2}$, and thus, there exists $K > 0$ such that $|R(z)| \leq K |z|^{-2} = K r^{-2}$ for $z \in \gamma_2$.
+\[ \left| \int_{\gamma_2} R(z) dz \right| \leq \int_{\gamma_2} |R(z)| dz \leq \underbrace{\pi r}_{\mbox{\tiny{arc length}}} \cdot \underbrace{K r^{-2}}_{\mbox{\tiny{upper bound}}} \overset{r\to\infty}{\to} 0. \]
+This proves the previous assertion.
