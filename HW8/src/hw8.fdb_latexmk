@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1728541560.59159 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW8/src/hw8.tex" "hw8.pdf" "hw8" 1728541561.97556 0
+["pdflatex"] 1728579156.65797 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW8/src/hw8.tex" "hw8.pdf" "hw8" 1728579159.37458 0
   "../exercises/hw8ex1.tex" 1728533427.12414 1668 158334de2e78ee9eac564f699d6bc265 ""
-  "../exercises/hw8ex2.tex" 1728281605.26557 609 d438a47a6812f4980f7affaabc863a06 ""
-  "../exercises/hw8ex3.tex" 1728539059.66327 3538 a06b06ac6b1ed6897aa3bbff9c100545 ""
+  "../exercises/hw8ex2.tex" 1728579155.96544 610 74d0709edd8deeed4d65a42b40d46906 ""
+  "../exercises/hw8ex3.tex" 1728570628.24492 3536 9782efad520c7fe8079f707d953516f7 ""
   "../exercises/hw8ex4.tex" 1728541560.34644 1130 a53e71768529422442621f2ee9fb8d86 ""
   "../exercises/hw8ex5.tex" 1728540543.94931 685 3ef2656c765d645228e736e0e31a9f7b ""
   "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW8/src/hw8.tex" 1728275444.6007 3067 72434b19bb9057dd2141745d57b15075 ""
@@ -216,7 +216,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "hw8.aux" 1728541561.81745 621 d6520307277bd7936b5034cbbb5b4b6b "pdflatex"
+  "hw8.aux" 1728579158.67046 621 d6520307277bd7936b5034cbbb5b4b6b "pdflatex"
   "hw8.tex" 1728275444.6007 3067 72434b19bb9057dd2141745d57b15075 ""
   (generated)
   "hw8.aux"

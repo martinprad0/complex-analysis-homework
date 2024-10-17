@@ -1,0 +1,115 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 1.}
+Let $a > 0$. Calculate the following integrals:
+\[ \int_{0}^{\infty}{\frac{\sqrt{x}}{x^{2}+a^{2}}}\; d x,\hspace{2em} \int_{0}^{\infty}{\frac{\sqrt{x}}{(x^{2}+4)^2}}\; d x.
+\]
+
+\subsection*{Solution}
+
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includesvg[width=0.45\textwidth]{../pictures/ex1_contour.svg}
+    \end{figure} 
+
+    For both items of the exercise we are going to consider the following contour which consists of 4 paths. In the first place let $R,\varepsilon > 0$ such that $\pm ai \in B_R(0)\backslash B_\varepsilon(0)$ (for item (b) $a = 4$). Then, the closed path $\CC$ we're going to integrate over is the concatenation of 4 paths:
+    \[ \CC = \Gamma + l_1 + \gamma + l_2. \]
+    \[ \Gamma(t) = R e^{2\pi i t},\hspace{1em} l_1(t) = (1-t)R + t \varepsilon - \frac{\varepsilon^2 i}{2}, \]
+    \[ \gamma(t) = \varepsilon e^{-2\pi i t}, \hspace{1em} l_2(t) = (1-t)\varepsilon + t R + \frac{\varepsilon^2 i}{2}. \]
+\end{multicols}
+
+Of course, without giving much more detail the start and finish points of $\Gamma$ and $\gamma$ are defined in such way that allow $\CC$ to be the continuous closed curve as the left picture shows.
+
+This is the outline for my solution:
+\begin{itemize}
+    \item $\displaystyle \int_{\CC} f(z) dz = \int_\Gamma f(z) dz + \int_{l_1} f(z) dz + \int_{\gamma} f(z) dz + \int_{l_2}f(z) dz $.
+    \item In both items of this exercise, $f$ has poles at $z = \pm ai$ and $\CC$ surrounds each pole exactly once, so by the residue theorem,
+    \[ \int_{\CC} f(z) dz = 2\pi i(\Res_f(ai) + \Res_f(ai)). \]
+    \item Using $\left| \int_{\alpha} f(z) dz \right| \leq \mbox{length}(\alpha) \cdot \max_{z \in \alpha} |f(z)|$, we can conclude that $\left| \int_{\Gamma} f(z) dz \right|$ and $\left| \int_{\gamma} f(z) dz \right|$ vanish when $R \to \infty$ and $\varepsilon \to 0$ respectively.
+    \item I'm going to define $\sqrt{x} = \exp \left( \frac{1}{2}\log(z) \right)$, where the branch of $\log$ I'm considering is
+    \[ \log(z) = \ln|z| + i \arg(z),\hspace{1em} \arg(z) \in (0,2 \pi). \]
+    This branch is defined for $\C \backslash \{x\in \R \;:\; x \geq 0\}$.
+    \item Using the previous remark, we are also showing that as $R \to \infty$ and $\varepsilon \to 0$, for both items:
+    \[ \int_{l_i} f(z) dz \to \int_{0}^{\infty} f(x) dx, \hspace{1em} i = 1,2. \]
+    In fact, after putting everything together, we are showing that:
+    \[ \int_{0}^{\infty} f(x) dx = \frac{1}{2}\int_{\CC} f(z) dz = \pi i(\Res_f(ai) + \Res_f(ai)). \]
+\end{itemize}
+
+\subsection*{Solution Item (a)}
+
+In this case, $f(z) = \frac{\sqrt{z}}{z^2 + a^2}$ with poles of order 1 in $\pm ai$. In the first place, remember that we've chosen $R$ such that $R > a$, so in order to prove that $\left| \int_{\Gamma} f(z) dz \right| \to 0$ as $R\to \infty$, note that for $z \in \Gamma$, using the inverse triangle inequality
+\[ \frac{1}{|z^2+ a^2|} \leq \frac{1}{|z^2| - |a^2|} = \frac{1}{R^2 - a^2} \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \implies \left| \int_{\Gamma} f(z) dz \right| & \leq & \underbrace{2\pi R}_{\leq\,\textit{length}(\Gamma)} \cdot \underbrace{\frac{R^{1/2}}{R^2 - a^2}}_{\textit{upper bound}}\\
+    & = & 2\pi \frac{R^{3/2}}{R^2 - a^2 }\\
+    & & \to 0,\hspace{1em} R\to \infty.
+\end{array} \]
+
+Similarly,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \implies \left| \int_{\gamma} f(z) dz \right| & \leq & \underbrace{2\pi \varepsilon}_{\leq\,\textit{length}(\gamma)} \cdot \underbrace{\frac{\varepsilon^{1/2}}{\varepsilon^2 - a^2}}_{\textit{upper bound}}\\
+    & = & 2\pi \frac{\varepsilon^{3/2}}{\varepsilon^2 - a^2 }\\
+    & \to & 2\pi \frac{0^{3/2}}{0^2 - a^2} = 0,\hspace{1em} \varepsilon\to 0.
+\end{array} \]
+
+Now, take into account that
+\[ \sqrt{z} = \exp\left( \frac{1}{2}\ln|z|\right)\cdot \exp\left( \frac{i}{2}\arg(z) \right) \]
+
+Then, note that for $z \in l_2$, $\arg(z)$ converges to 0 because every point in $l_2$ approaches to the real line from above. Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{l_2} \frac{\sqrt{z}}{z^2 + a^2} dz & = & \int_{l_2} \frac{\exp\left( \frac{1}{2} \ln|z| \right)\exp\left( \frac{1}{2} \arg(z)\right)}{z^2 + a^2} dz\\
+    & \to & \int_{0}^{\infty} \frac{\exp\left( \frac{1}{2} \ln|z| \right)\exp\left( 0\right)}{z^2 + a^2} dz\\
+    & = & \int_{0}^{\infty}{\frac{\sqrt{x}}{x^{2}+a^{2}}}\; d x.
+\end{array} \]
+
+On the other hand for $z \in l_1$, $\arg(z)$ converges to $2\pi$ because every point in $l_1$ approaches to the real line from below. Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{l_1} \frac{\sqrt{z}}{z^2 + a^2} dz & = & \int_{l_1} \frac{\exp\left( \frac{1}{2} \ln|z| \right)\exp\left( \frac{1}{2} \arg(z)\right)}{z^2 + a^2} dz\\
+    & \to & -\int_{0}^{\infty} \frac{\exp\left( \frac{1}{2} \ln|z| \right)\exp\left( \pi i\right)}{z^2 + a^2} dz\\
+    & = & \int_{0}^{\infty}{\frac{\sqrt{x}}{x^{2}+a^{2}}}\; d x.
+\end{array} \]
+
+Finally,
+\[ \Res_f(ai) = \lim_{z\to ai} (z-ai)\frac{\sqrt{z}}{(z-a_i)(z+ai)} = \frac{\sqrt{a}(1+i)\sqrt{2}^{-1}}{2ai},\]
+\[ \Res_f(-ai) = \lim_{z\to -ai} (z+ai)\frac{\sqrt{z}}{(z-a_i)(z+ai)} = \frac{\sqrt{a}(-1+i)\sqrt{2}^{-1}}{-2ai}.\]
+Thus,
+\[ \int_{0}^{\infty}{\frac{\sqrt{x}}{x^{2}+a^{2}}}\; d x = \frac{\pi  i \sqrt{a} \sqrt{2}^{-1}}{2ai}(1+i+1-i) =  \frac{\pi}{\sqrt{2a}}.\]
+
+\subsection*{Solution Item (b)}
+
+In this case, $f(z) = \frac{\sqrt{z}}{(z^2 + a^2)^2}$ with poles of order 2 at $\pm ai$ where $a = 2$. Using the exact same argument from the previous item,
+\[ \frac{1}{|(z^2+ a^2)^2|} \leq \frac{1}{|z^4| - 2|a||z^2| - |a^2|} = \frac{1}{R^4 - 2aR^2 - a^2} \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \implies \left| \int_{\Gamma} f(z) dz \right| & \leq & \underbrace{2\pi R}_{\leq\,\textit{length}(\Gamma)} \cdot \underbrace{\frac{R^{1/2}}{R^4 - 2aR^2 - a^2}}_{\textit{upper bound}}\\
+    & = & 2\pi \frac{R^{3/2}}{R^4 - 2aR^2 - a^2 }\\
+    & & \to 0,\hspace{1em} R\to \infty.
+\end{array} \]
+For $\gamma$:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \implies \left| \int_{\gamma} f(z) dz \right| & \leq & \underbrace{2\pi \varepsilon}_{\leq\,\textit{length}(\gamma)} \cdot \underbrace{\frac{\varepsilon^{1/2}}{\varepsilon^4 - 2a\varepsilon^2 - a^2}}_{\textit{upper bound}}\\
+    & = & 2\pi \frac{\varepsilon^{3/2}}{\varepsilon^4 - 2a\varepsilon^2 - a^2 }\\
+    & & \to 0,\hspace{1em} \varepsilon\to 0.
+\end{array} \]
+
+For $l_2$, as $\varepsilon \to 0$, $\arg(z) \to 0$, so
+\[ \int_{l_2} \frac{\sqrt{z}}{(z^2 + a^2)^2} dz \to \int_{0}^{\infty} \frac{\exp\left( \frac{1}{2} \ln|z| \right)\exp\left( 0\right)}{(z^2 + a^2)^2} dz = \int_{0}^{\infty} \frac{\sqrt{x}}{(x^2 + a^2)^2} dx. \]
+For $l_1$, as $\varepsilon \to 0$, $\arg(z) \to 2\pi$, so
+\[ \int_{l_1} \frac{\sqrt{z}}{(z^2 + a^2)^2} dz \to -\int_{0}^{\infty} \frac{\exp\left( \frac{1}{2} \ln|z| \right)\exp\left( \pi i\right)}{(z^2 + a^2)^2} dz = \int_{0}^{\infty} \frac{\sqrt{x}}{(x^2 + a^2)^2} dx. \]
+
+Therefore, since
+\[ \Res_f(ai) = \lim_{z\to ai} \frac{d}{dz}\frac{\sqrt{z}(z-ai)^2}{(z-a_i)^2(z+ai)^2} = \lim_{z\to ai} \frac{ai-3z}{2\sqrt{z}(z+ai)^3} = \frac{ai-3ai}{2\sqrt{ai}(2ai)^{3}} = \frac{(ai)^{-5/2}}{8},\]
+\[ \Res_f(-ai) = \lim_{z\to -ai} \frac{d}{dz}\frac{\sqrt{z}(z+ai)^2}{(z-a_i)^2(z+ai)^2} = \lim_{z\to -ai} \frac{-ai-3z}{2\sqrt{z}(z-ai)^3} = \frac{-ai+3ai}{2\sqrt{-ai}(-2ai)^{3}} = \frac{(-ai)^{-5/2}}{8},\]
+it follows that 
+\[  \int_{0}^{\infty} \frac{\sqrt{x}}{(x^2 + a^2)^2} dx = \pi i \left( \frac{(ai)^{-5/2}}{8} + \frac{(-ai)^{-5/2}}{8} \right) = \frac{\pi}{4 \sqrt{2a^5}} = \frac{\pi}{32} . \]

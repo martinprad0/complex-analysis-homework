@@ -1,0 +1,47 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 3.}
+
+Show that $\displaystyle \int_0^\infty \frac{\ln x}{1+x^2} dx = 0$.
+
+\subsection*{Solution}
+
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includesvg[width=0.45\textwidth]{../pictures/ex3_contour.svg}
+    \end{figure} 
+
+    Similarly to the first exercise. Let $R,\varepsilon > 0$ such that $\pm i \in B_R(0)\backslash B_\varepsilon(0) \cap \{z\in C \;:\; \im(z) \geq 0\}$. Then, the closed path $\CC$ we're going to integrate over is the concatenation of 4 paths:
+    \[ \CC = \Gamma + l_1 + \gamma + l_2. \]
+    \[ \Gamma(t) = R e^{\pi i t},\hspace{1em} l_1(t) = (1-t)(-R)+ t (-\varepsilon), \]
+    \[ \gamma(t) = \varepsilon e^{-\pi i t}, \hspace{1em} l_2(t) = (1-t)\varepsilon + t R. \]
+    In this case I can say that, for each curve, $t \in [0,1]$.
+\end{multicols}
+
+Now we are going to use a similar idea to exercise 1,
+\[ \int_{\CC} f(z) dz = \int_\Gamma f(z) dz + \int_{l_1} f(z) dz + \int_{\gamma} f(z) dz + \int_{l_2}f(z) dz. \]
+However, in this case we're going to use the branch of $\log = \ln |\cdot| + i \arg(\cdot)$ defined on $\C \backslash \{-i x \;:\; x \geq 0\}$ ($\arg(z) \in (-\tfrac{\pi}{2},\tfrac{3\pi}{2})$). Note that for $z\in \Gamma$ and $z\in \gamma$, $\arg(z) \leq \pi$. Therefore, we can use this bound
+\[ \left| \int_\Gamma \frac{\ln |z| + i \arg(z)}{z^2 + 1} \right| \leq \underbrace{\pi R}_{\textit{length}(\Gamma)} \underbrace{\frac{\ln R + \pi}{R^2 -1 }}_{\textit{upper bound}} \to 0,\hspace{1em} \mbox{as $R\to \infty$}. \]
+Also, $\lim_{x\to 0} x\ln(x) = 0$, and thus,
+\[ \left| \int_\gamma \frac{\ln |z| + i \arg(z)}{z^2 + 1} \right| \leq \underbrace{\pi \varepsilon}_{\textit{length}(\Gamma)} \underbrace{\frac{\ln \varepsilon + \pi}{\varepsilon^2 -1 }}_{\textit{upper bound}} \to 0,\hspace{1em} \mbox{as $\varepsilon\to 0$}. \]
+
+Now, for the line integrals, it's clear for $l_2$ that
+\[ \int_{l_2} \frac{\log(z)}{z^2 + 1} = \int_{\varepsilon}^{R} \frac{\ln x}{x^2 + 1}dx \to \int_{0}^{\infty}\frac{\ln x}{x^2 + 1}dx ,\hspace{1em} \mbox{as $\varepsilon\to 0$ and $R \to \infty$}. \]
+For $z\in l_1$ note that $\arg(z) = \pi$. Then, we make a substitution: $z = -u$ to obtain,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{l_1} \frac{\log(z)}{z^2 + 1} & = & \int_{-R}^{-\varepsilon} \frac{\ln z + i\overbrace{\arg(z)}^{\pi}}{z^2 + 1}dz\\
+    & = & \int_{R}^{\varepsilon} \frac{-\ln(-u) + i\pi}{(-u)^2 + 1}du\\
+    & = & \int_{\varepsilon}^{R} \frac{\ln u + \cancelto{0}{\ln(-1)} + i\pi}{u^2 + 1} du\\
+    & \to & \int_{0}^{\infty}\frac{\ln x}{x^2 + 1}dx + \int_{0}^{\infty}\frac{\pi i}{x^2 + 1}dx  ,\hspace{1em} \mbox{as $\varepsilon\to 0$ and $R \to \infty$}.
+\end{array} \]
+
+Using the substitution $x = \tan(u)$ we obtain $\displaystyle\int \frac{1}{x^2 + 1} dx = \arctan(x)$. Then, since $\lim_{x\to \infty} \arctan(x) = \frac{\pi}{2}$ and $\arctan(0) = 0$,
+\[  \int_{0}^{\infty}\frac{\pi i}{x^2 + 1}dx = \frac{\pi^2 i}{2}.\]
+
+Finally, using residue theorem. The contour $\CC$ surrounds $i$ exactly once, and thus,
+\[ 2\pi i \cdot \Res_f(i) = \int_{\CC} \frac{\log z}{z^2 + 1} dz = 2 \int_{0}^{\infty} \frac{\ln(x)}{x^2 + 1} dx + \frac{\pi^2 i}{2}.\]
+and since $z = i$ is a simple pole
+\[ \Res_f(i) = \lim_{z\to i} (z-i)\frac{\log(z)}{(z-i)(z+i)} = \frac{\log(i)}{2i} = \frac{\pi i/2}{2i} \]
+\[ \implies  \int_{0}^{\infty} \frac{\ln(x)}{x^2 + 1} dx = \pi i(\Res_f(i)) - \frac{\pi^2 i}{4} = \frac{\pi^2 i}{4} - \frac{\pi^2 i}{4} = 0.\]

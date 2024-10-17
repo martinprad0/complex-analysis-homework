@@ -1,0 +1,56 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 2.}
+
+Let $P,Q$ be polynomials with $Q(x) \neq 0$ for every $x \geq 0$ and $\deg\, Q \geq 2 + \deg\, P$ and let $F = \frac{P}{Q}$. Express $\displaystyle \int_0^{\infty} F(x) dx$ in terms of the residues of $\log(\cdot) F(\cdot)$ where $\log$ is the branch of the complex logarithm defined in $\C \backslash \{r\in \R \;:\; r \geq 0\}$.
+
+\subsection*{Solution}
+
+We use the exact same outline for the previous exercise. We use the same contour with the same $\log$ branch. The only difference is that this time we choose $R$ and $\varepsilon$ for the contour to surround all the zeroes $\{p_1,\ldots, p_m\}$ of $Q$ exactly once
+\begin{multicols}{2}
+    \vspace*{1em}
+    \begin{figure}[H]
+        \centering
+        \includesvg[width=0.45\textwidth]{../pictures/ex2_contour.svg}
+    \end{figure} 
+    \[ \CC = \Gamma + l_1 + \gamma + l_2. \]
+    \[ \Gamma(t) = R e^{2\pi i t},\hspace{1em} l_1(t) = (1-t)R + t \varepsilon - \frac{\varepsilon^2 i}{2}, \]
+    \[ \gamma(t) = \varepsilon e^{-2\pi i t}, \hspace{1em} l_2(t) = (1-t)\varepsilon + t R + \frac{\varepsilon^2 i}{2}. \]
+    Also,
+    \[ \log(z) = \ln|z| + i \arg(z),\hspace{1em} \arg(z) \in (0,2 \pi). \]
+    So we want to prove that as $R\to \infty$ and $\varepsilon \to 0$,
+\end{multicols}
+\[ 2\pi i \sum_{z \in \C\backslash \R^{\geq 0}}\underset{{\log(\cdot)F(\cdot)}}{\Res}(z) = \int_{\CC} \frac{\log(z) P(z)}{Q(z)} dz = -2\pi i \int_{0}^{\infty} \frac{P(x)}{Q(x)} dx. \]
+
+Using real analysis, we can get the following bound: $|F(z)| \leq K\dfrac{1}{R^2}$ for some $K > 0$ and $z \in \Gamma$. Also, $|\log(z)| = |\ln |z| + i \arg(z)| \leq \ln|R| + 2\pi$. Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \left| \int_{\Gamma} F(z) dz \right| & \leq & \underbrace{2\pi R}_{\leq\,\textit{length}(\Gamma)} \cdot \underbrace{\frac{K (\ln R + 2\pi)}{R^2}}_{\textit{upper bound}}\\
+    & \to & 0,\hspace{1em} R\to \infty.
+\end{array} \]
+
+Now, note that since $Q(0) \neq 0$, it follows that if $Q(z) = q_z z^m + \cdots + q_0$, then $q_0 \neq 0$. Then, for $z\in \gamma$, the inverse triangle inequality states that
+\[ |Q(z)| \geq |z||q_m z^{m-1} + \cdots + q_1| - q_1 \]
+\[ \implies |Q(z)| \geq O(\varepsilon) - q_0,\hspace{1em} \mbox{as $\varepsilon \to 0$} \]
+Since $\lim_{x\to 0} x \ln x = 0$, we conclude that 
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \left| \int_{\gamma} F(z) dz \right| & \leq & \underbrace{2\pi \varepsilon}_{\leq\,\textit{length}(\gamma)} \cdot \underbrace{\frac{(\ln \varepsilon + 2\pi)|P(z)|}{|Q(z)|}}_{\textit{upper bound}}\\
+    & \to & \frac{\lim_{\varepsilon \to 0}\varepsilon \ln \varepsilon}{0 - q_0} = 0,\hspace{1em} \varepsilon \to 0.
+\end{array} \]
+
+For $l_2$, as $\varepsilon \to 0$, $\arg(z) \to 0$, so
+\[ \int_{l_2} \frac{\log(z) P(z)}{Q(z)} dz \to \int_{0}^{\infty} \frac{(\ln|z| + 0)P(z)}{Q(z)} dz = \int_{0}^{\infty} \frac{\ln(x) P(x)}{Q(x)} dx. \]
+For $l_1$, as $\varepsilon \to 0$, $\arg(z) \to 2\pi$, so
+\[ \int_{l_1} \frac{\log(z) P(z)}{Q(z)} dz  dz \to \int_{\infty}^{0} \frac{(\ln|z| + 2\pi)P(z)}{Q(z)} dz = -\int_{0}^{\infty} \frac{\ln(x) P(x)}{Q(x)} dx - 2\pi i \int_{0}^{\infty}\frac{P(x)}{Q(x)} dx. \]
+
+Finally,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{\CC} \frac{\log(z) P(z)}{Q(z)} dz  & = & \int_{0}^{\infty} \frac{\ln(x) P(x)}{Q(x)} dx-\int_{0}^{\infty} \frac{\ln(x) P(x)}{Q(x)} dx - 2\pi i \int_{0}^{\infty}\frac{P(x)}{Q(x)} dx\\
+    & = &  - 2\pi i \int_{0}^{\infty}\frac{P(x)}{Q(x)} dx.
+\end{array} \]
+Then, it follows that
+\[ \int_{0}^{\infty}\frac{P(x)}{Q(x)} dx = \sum_{z \in \C\backslash \R^{\geq 0}}\underset{{\log(\cdot)F(\cdot)}}{\Res}(z). \]
