@@ -3,6 +3,17 @@
 
 Let \( U \subset \mathbb{C} \setminus \{ 0 \} \) be an open set, and suppose there exists a path in \( U \) such that \(\mathrm{ind}_{\gamma}(0) = 1\). Prove that there is no holomorphic \(n\)-th root in \(U\) for \(n \geq 2\).
 
-\subsection*{Solution}
+\subsection*{Solution }
 
-If there exists an 
+Let $f(z) = z$ and $n \geq 2$ such that there exists a holomorphic function $g$ that satisfies for every $z\in U$ the equation
+\[ g^n(z) = f(z) = z. \]
+Then, note that for every path in $U$, by the Argument Principle,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \ind_\gamma(0) & = & \ind_{\gamma \circ f}(0)\\
+    & = & \frac{1}{2\pi i} \int_{\gamma} \frac{f'(z)}{f(z)} dz\\
+    & = & \frac{1}{2\pi i} \int_{\gamma} \frac{n g'(z) g^{n-1}(z)}{g^n(z)}\\
+    & = & n\cdot \underbrace{\frac{1}{2\pi i}\int_{\gamma} \frac{g'(z)}{g(z)}}_{\in \Z} = nk,\hspace{1em} k\in \Z.
+\end{array}\]
+Finally, we proved that $\ind_\gamma(0) \neq 0$ because $n \geq 2$.

@@ -4,3 +4,52 @@
 Let \(\gamma: [0, 1] \to \mathbb{C}\) be a path, and let \(( f_{t}, U_{t} )_{t \in [0, 1]}\) be an analytic continuation along \(\gamma\). For \(t \in [0, 1]\), let \(R(t)\) be the radius of convergence of the Taylor series of \(f_t\) centered at \(\gamma(t)\). Prove that either \(R(t) = \infty\) for all \(t\), or that \(R: [0, 1] \to (0, \infty)\) is continuous.
 
 \textbf{Solution:}
+
+For the sake of contradiction assume that $R(t) < \infty$ and that there exists a discontinuity of $R$ at $t_0$. Then, define the Taylor series of $f_{t_0}$ centered at $\gamma(t_0)$
+\[ f_{t_0} ( z ) = \sum_{n = 0}^{\infty} a_n (z - \gamma(t_0))^n. \]
+Since $t_0$ is a discontinuity, there exists $\{t_n\}_{n = 1}^{\infty} \subset [0,1]$ such that $\lim_n t_n = t_0$, but the limit for $r_n = R(t_n)$ doesn't coincide with $r_0$:
+\[ \lim_n \underbrace{R(t_n)}_{r_n} =: r \neq r_0 := R(t_0). \]
+There are 2 possible scenarios:
+
+\textbf{$\boldsymbol{\bullet}$ If $\boldsymbol{r < r_0}$,} then fix $0 < \varepsilon \leq r_0 - r$, let $N_1 \in \N$ such that $|\gamma(t_n) - \gamma(t_0)| < \varepsilon/4$ for every $n \geq N_1$ and let $N_2 \in \N$ such that $|r-r_n| < \varepsilon/4$ for every $n \geq N_2$.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=0.45\textwidth]{../pictures/ex4_1.svg}
+\end{figure} 
+
+Then, define $ N = \max(N_1, N_2)$ and note that for every $y \in B_{r_N}(\gamma(t_N))$,
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    |y - \gamma(t_0)| & = & |y - \gamma(t_N) + \gamma(t_N) - \gamma(t_0)|\\
+    & \leq & |y - \gamma(t_N)| + |\gamma(t_N) - \gamma(t_0)|\\
+    & < & r_N + \frac{\varepsilon}{4}\\
+    & <^{(\star)} & r + \frac{\varepsilon}{2}\\
+    & \leq & r_0 - \frac{\varepsilon}{2} \leq r_0.
+\end{array} \]
+
+$(\star)$: If $r_N > r$, then use $r_N \leq r + \varepsilon/4$, else, for the case $r_N \leq r \leq r + \varepsilon/4$ the inequality is still true.
+
+Therefore, $y \in B_{r_0}(\gamma(t_0))$. Now, using Identity theorem, we can conclude that the Taylor series of $f_N$ can be extended to $B_{r_N + \varepsilon/2}(\gamma(t_N)) \subset B_{r_0}(\gamma(t_0))$ meaning $r_N$ is not the actual radius of convergence of $f_N$.
+
+\textbf{$\boldsymbol{\bullet}$ If $\boldsymbol{r > r_0}$,} then the principle is similar, fix $0 < \varepsilon \leq r - r_0$, let $N_1 \in \N$ such that $|\gamma(t_n) - \gamma(t_0)| < \varepsilon/4$ for every $n \geq N_1$ and let $N_2 \in \N$ such that $|r-r_n| < \varepsilon/4$ for every $n \geq N_2$
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=0.45\textwidth]{../pictures/ex4_2.svg}
+\end{figure} 
+
+Then, define $ N = \max(N_1, N_2)$ and note that for every $y \in B_{r_0}(\gamma(t_0))$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    |y - \gamma(t_N)| & = & |y - \gamma(t_0) + \gamma(t_0) - \gamma(t_N)|\\
+    & \leq & |y - \gamma(t_0)| + |\gamma(t_0) - \gamma(t_N)|\\
+    & < & r_0 + \frac{\varepsilon}{4}\\
+    & \leq & (r-\varepsilon) + \frac{\varepsilon}{4}\\
+    & <^{(\star)} & r_N - \frac{\varepsilon}{2} \leq r_N.
+\end{array}  \] 
+
+Again, this implies we can extend $f_{t_0}$ to the ball $B_{r_0 + \varepsilon/2}(\gamma(t_0))$ implying that $r_0 = R(t_0)$ is not the actual convergence radius at $\gamma(t_0)$.
