@@ -14,7 +14,7 @@ f \left( \mathrm{e}^{2 \pi \mathrm{i} / 2^{n}} z \right) = P_{n}(z) + f(z).
 
 \subsection*{Solution}
 
-Assume, for the sake of contradiction, that there exists an open set $G$ with $G \supsetneq U$ for which $f$ can be analytically extended. In the first place, for every $m\in \N$, $\exp\left( 2\pi i \frac{2^n}{2^m} \right) = 1$ for every $n \geq m$. Thus,
+Assume, for the sake of contradiction, that there exists an open set $G$ with $G \supsetneq U$ for which $f$ can be analytically extended to a function $\tilde{f}$. In the first place, for every $m\in \N$, $\exp\left( 2\pi i \frac{2^n}{2^m} \right) = 1$ for every $n \geq m$. Thus,
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{2.5}
 \begin{array}{rcl}
@@ -24,7 +24,8 @@ Assume, for the sake of contradiction, that there exists an open set $G$ with $G
     & = & \underbrace{\sum_{n = 1}^{\infty} 2^{-n^2} z^{2^n}}_{f(z)} + \underbrace{\sum_{n = 1}^{m-1} 2^{-n^2} z^{2^n} \left( \exp\left( 2\pi i \frac{2^n}{2^m} \right) - 1 \right)}_{P_m(z)}
 \end{array} \]
 
-
+Now, since $ \tilde{f}$ coincides with $f$ on $U$, it follows (uniqueness of power series expansion) that for every $z$ in $G$, 
+\[  \tilde{f}(e^{2\pi i / 2^m } z) = \tilde{f}(z) + P_m(z) \]
 
 \begin{multicols}{2}
     \begin{figure}[H]
@@ -32,11 +33,10 @@ Assume, for the sake of contradiction, that there exists an open set $G$ with $G
         \includesvg[width=0.45\textwidth]{../pictures/ex2pic1.svg}
     \end{figure}
 
-    Then, this implies that if $f(z)$ exists, then $f(e^{\theta i} z)$ exists for any rotation of $z$ by $\theta = 2\pi \frac{k}{2^m}$ radians for $k \in \{1,\ldots, 2^m-1\}$. 
+    Then, this implies that if $\tilde{f}(z)$ is defined, then $\tilde{f}(e^{\theta i} z)$ can be defined for any rotation of $z$ by $\theta = 2\pi \frac{k}{2^m}$ radians for $k \in \{1,\ldots, 2^m-1\}$. 
     
     If there exists an open set $V \subset G$ such that $V \cap \d U \neq \emptyset$, we can find a suitable $m$ for which the union of the rotations by $2\pi \frac{k}{2^m}$ can cover $\d U = \{z \in \C : |z| = 1\}$. Look the picture on the left for reference.
     \[ W = \bigcup_{k = 0}^{2^m - 1} e^{2\pi \frac{k}{2^m}} V \supseteq \d B_1(0). \]
 \end{multicols}
 
-Finally, this implies that since $W$ is open and $1\in W$, there exists $\varepsilon > 0$ such that $1+\varepsilon \in W$. Thus, there exists $z \in V$ and $\theta = 2\pi \frac{k}{2^m}$ such that $1+\varepsilon = e^{i\theta} z$. Therefore, $f(1+\varepsilon) = f(e^{i\theta} z) = f(z) + P_m(z)$ exists, but this contradicts the fact that (by the ratio test):
-\[ f(1+\varepsilon) = \sum_{n = 1}^{\infty} 2^{-n^2} (1+\varepsilon)^{2^n}\mbox{ diverges to $\infty$.} \] 
+Finally, this implies that since $W$ is open and $1\in W$, there exists $\varepsilon > 0$ such that $G \supseteq B_{1+\varepsilon}(0)$. Since the power series expansion of $\tilde{f}$ is the same for $f$, this would imply that the radius of convergence of the power series of $\tilde{f}$ is strictly greater than 1. But this is a contradiction to the fact that the ratio test gives us radius of convergence equal to 1 for $f$.
