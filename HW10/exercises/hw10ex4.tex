@@ -1,0 +1,64 @@
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+
+\section*{Exercise 4.}
+
+Let $\mathit{X}$ be a metric space. A sequence $(f_{n})_{n \in \mathbb{N}}$ of functions $U \to \mathbb{C}$ is called continuously convergent if for every convergent sequence $(x_{n})_{n \in \mathbb{N}} \subset X$, the limit $\lim_{n \to \infty} f_{n}(x_{n})$ exists.
+
+
+\begin{enumerate}[label=(\alph*)]
+    \item Let $X$ be a metric space and $(f_{n})_{n \in \mathbb{N}}$ a sequence of functions in $X$ that converges continuously. Prove that $f : X \to \mathbb{C}, \quad f(x) = \lim_{n \to \infty} f_{n}(x_{n})$ is well-defined (i.e., it is independent of the chosen sequence $(x_{n})_{n \in \mathbb{N}}$) and that $f$ is continuous (even if the $f_{n}$ are not).
+    \item Let $U \subseteq \mathbb{C}$ be open and $(f_{n})_{n \in \mathbb{N}}$ a sequence of functions in $\mathit{U}$. Prove that the following are equivalent:
+    \begin{itemize}
+        \item[(i)] $(f_{n})_{n \in \mathbb{N}}$ converges compactly to a function $f \in C(U)$.
+        \item[(ii)] $(f_{n})_{n \in \mathbb{N}}$ converges continuously.
+    \end{itemize}
+    In particular, a continuously converging sequence of holomorphic functions converges to a holomorphic function.
+\end{enumerate}
+
+\subsection*{Solution Item (a)}
+
+Let $(x_n)_{n\in \N} \subseteq U$ be any sequence that converge to $x \in U$. Assume for the sake of contradiction that $f_n(x_n) \to c \neq f(x)$, then, define $y_n = (x_1,x,x_3,x,\ldots)$ and note that $y_n \to x$ so $f_n(y_n)$ has a limit. However, $f_{2n+1}(y_{2n+1}) \to c$ and $f_{2n}(y_{2n}) \to f(x)$ which contradicts the fact the limit of $f_n(y_n)$ exists. Therefore, for every $(x_n) \to x$ it must happen that $f_n(x_n) \to f(x)$, so $f$ is well defined.
+
+In order to prove that $f(x)$ is continuous we want to show that for every $(x_n) \to x$, $f(x_n) \to f(x)$. In the first place, note that for every $m\in \N$
+\[ |f(x)-f(x_n)| \leq |f(x)- f_{m}(x_n)| + |f_{m}(x_n) - f(x_n)|. \]
+Then, fix $\varepsilon > 0$ and note that since $f_m \to f$ pointwise, it follows that for every $n\in \N$ there exists $N_n$ such that
+\[ |f_{m}(x_n) - f(x_n)| < \varepsilon,\hspace{2em} \forall m \geq N_n. \]
+So define a subsequence $(f_{m_n})_{n\in \N}$ such that $m_n \geq N_n$ and $m_n > m_{n-1}$. This way,
+\[  |f(x)-f(x_n)| < |f(x)- f_{m_n}(x_n)| + \varepsilon. \]
+Then, define the following sequence
+\[ y_k =\begin{cases}
+    x_1 & k \in [0,m_1]\\
+    x_n & k \in [m_{n}-m_{n-1}, m_n]
+\end{cases} \]
+Since $y_n \to x$, it follows that $f_n(y_n) \to f(x)$. Then, $y_{m_n} = x_{n}$, so $f_{m_m}(x_n) = f_{m_n}(y_{m_n}) \to f(x)$. So for every $\varepsilon > 0$ we can find $N \in \N$ such that $|f(x)- f_{m_m}(x_n)| < \varepsilon$ for $n \geq N$. So finally,
+\[ |f(x)-f(x_n)| < 2 \varepsilon,\hspace{2em}  \forall n \geq N\]
+\[ f(x_n) \to f(x),\hspace{1em}  \forall (x_n)_{n\in \N} \subset U \]
+
+\subsection*{Solution Item (b)}
+
+\textbf{(i) $\boldsymbol{\implies}$ (ii):} In the previous item we showed that if $f_n$ converges continuously, then there exists a continuous function $f$, such that $f_n(x) \to f(x)$ for each $x \in U$. Now, for the sake of contradiction assume that there exists a compact set $K \subset U$ such that $f_n$ doesn't converges uniformly to $f$ when restricted to $K$. The statement for \textit{Not uniformly convergent} is the following:
+\[ \exists \varepsilon > 0 \;:\; \forall M \in \N, \exists n \geq M, \exists x_n \in K \;:\; |f_n(x_n) - f(x_n)| \geq \varepsilon. \]
+Fix $\varepsilon > 0,\; (x_n)_{n\in\N} \subset K$ from this definition and define a subsequence $(f_{n_k})$ that satisfies $|f_{n_k}(y_k) - f(y_k)| \geq \varepsilon$ for every $k \in \N$ (with $y_k = x_{n_k}$). Note that there exists a convergent subsequence $(y_{k_j}) \to y$ because $K$ is compact. Then, from the following inequality,
+\[ \varepsilon \leq |f_{n_{k_j}}(y_{k_j}) - f(y_{k_j})| \leq |f_{n_{k_j}}(y_{k_j}) - f(y)| + |f(y) - f(y_{k_j})|, \]
+note that from the fact that $f_n$ converges continuously to $f$ it follows that
+\begin{itemize}
+    \item $|f_{n_{k_j}}(y_{k_j}) - f(y)| \to 0$ because we proved that $|f_j(z_j) - f(z)| \to 0$ whenever $z_j \to z$.
+    \item $|f(y) - f(y_{k_j})| \to 0$ because $f$ is continuous.
+\end{itemize}
+Therefore, $\varepsilon \leq |f_{n_{k_j}}(y_{k_j}) - f(y_{k_j})| \to 0$ is a contradiction.
+
+\textbf{(ii) $\boldsymbol{\implies}$ (i):} Now assume that for every compact set $K \subset U$, $f_n$ converges uniformly to a continuous function $f$ when restricted to $K$. We want to prove that for every sequence $(x_n) \to x$, $f_n(x_n)$ converges.
+
+Note that for any compact set $K$ that contains $(x_n)$, the following inequality holds,
+\[ |f_n(x_n) - f(x)| \leq |f_n(x_n)-f(x_n)| + |f(x_n) - f(x)|. \]
+\begin{itemize}
+    \item Since $f_n$ converges uniformly to $f$, it follows that $|f_n(x_n)-f(x_n)|\to 0$ as $n\to\infty$.
+    \item Since $f$ is continuous $|f(x_n) - f(x)| \to 0$ as $n \to \infty$.
+\end{itemize}
+Therefore, $|f_n(x_n) - f(x)| \to 0$ concluding the proof. 
+
+\subsection*{Final Step}
+
+Let $(f_n)$ a sequence of holomorphic functions that continuously converges to $f$. We know that $f$ is continuous so we can integrate $f$. Now, take any closed curve $\gamma$ and note that from item (b), $f_n$ converges uniformly to $f$ when restricted to $\gamma$ (which is compact). Thus,
+\[ \int_\gamma f dz = \int_\gamma \lim_n f_n dz = \lim_n \int_\gamma f_n dz = 0. \]
+Finally, by \textit{Morera's theorem} we conclude that $f$ is holomorphic.

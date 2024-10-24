@@ -1,0 +1,22 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+
+\section*{Exercise 3.}
+
+Let $U = B_{1}(0)$. Find an analytic continuation to the largest possible region for
+\[
+f : U \to \mathbb{C}, \quad f(z) = \sum_{n=0}^{\infty} (-1)^{n} (2n+1) z^{n}.
+\]
+\textit{Hint:} Consider $f(w^{2})$.
+
+\subsection*{Solution}
+
+For $|w|<1$ we have absolute convergence, and thus, using the geometric series,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    f(z) = f(w^2) & = & \sum_{n = 0}^{\infty} (-1)^n (2n+1) w^{2n}\\
+    & = & \sum_{n = 0}^{\infty} (-1)^n \frac{d}{dz} w^{2n+1}\\
+    & = & \frac{d}{dz} \left( \frac{w}{-1-w^2} \right)\\
+    & = & \frac{1-w^2}{(1+w^2)^2} = \frac{1-z}{(1+z)^2}.
+\end{array} \]
+Now, the function $f$ can be analytically extended to the function $g(z) = \frac{1-z}{(1+z)^2}$ on $z \in \C \backslash \{-1\}$. Note that $f$ cannot be extended further, otherwise $g$ could be extended to another function at $z = -1$ but that would contradict the fact that $g$ has pole at $z = -1$ with order 2. 

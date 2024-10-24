@@ -1,0 +1,42 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 2.}
+
+Let $U = B_{1}(0)$ and 
+\[
+f : U \to \mathbb{C}, \quad f(z) = \sum_{n=1}^{\infty} 2^{-n^{2}} z^{2^{n}}.
+\]
+Prove that $f$ has no analytic extension to any open set $G$ with $G \supsetneq U$.
+
+\textit{Hint:} Prove that for every $n \in \mathbb{N}$ there exists a polynomial $P_{n}$ such that
+\[
+f \left( \mathrm{e}^{2 \pi \mathrm{i} / 2^{n}} z \right) = P_{n}(z) + f(z).
+\]
+
+\subsection*{Solution}
+
+Assume, for the sake of contradiction, that there exists an open set $G$ with $G \supsetneq U$ for which $f$ can be analytically extended. In the first place, for every $m\in \N$, $\exp\left( 2\pi i \frac{2^n}{2^m} \right) = 1$ for every $n \geq m$. Thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    f\left( e^{2\pi i / 2^m } z \right) & = & \sum_{n = 1}^{\infty} 2^{-n^2} \exp\left( 2\pi i \frac{2^n}{2^m} \right) z^{2^n}\\
+    & = & \sum_{n = m}^{\infty} 2^{-n^2} z^{2^n} + \sum_{n = 1}^{m-1} 2^{-n^2} \exp\left( 2\pi i \frac{2^n}{2^m} \right) z^{2^n}\\
+    & = & \sum_{n = m}^{\infty} 2^{-n^2} z^{2^n} + \sum_{n = 1}^{m-1} 2^{-n^2} \left( z^{2^n} - z^{2^n} + \exp\left( 2\pi i \frac{2^n}{2^m} \right) z^{2^n} \right)\\
+    & = & \underbrace{\sum_{n = 1}^{\infty} 2^{-n^2} z^{2^n}}_{f(z)} + \underbrace{\sum_{n = 1}^{m-1} 2^{-n^2} z^{2^n} \left( \exp\left( 2\pi i \frac{2^n}{2^m} \right) - 1 \right)}_{P_m(z)}
+\end{array} \]
+
+
+
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includesvg[width=0.45\textwidth]{../pictures/ex2pic1.svg}
+    \end{figure}
+
+    Then, this implies that if $f(z)$ exists, then $f(e^{\theta i} z)$ exists for any rotation of $z$ by $\theta = 2\pi \frac{k}{2^m}$ radians for $k \in \{1,\ldots, 2^m-1\}$. 
+    
+    If there exists an open set $V \subset G$ such that $V \cap \d U \neq \emptyset$, we can find a suitable $m$ for which the union of the rotations by $2\pi \frac{k}{2^m}$ can cover $\d U = \{z \in \C : |z| = 1\}$. Look the picture on the left for reference.
+    \[ W = \bigcup_{k = 0}^{2^m - 1} e^{2\pi \frac{k}{2^m}} V \supseteq \d B_1(0). \]
+\end{multicols}
+
+Finally, this implies that since $W$ is open and $1\in W$, there exists $\varepsilon > 0$ such that $1+\varepsilon \in W$. Thus, there exists $z \in V$ and $\theta = 2\pi \frac{k}{2^m}$ such that $1+\varepsilon = e^{i\theta} z$. Therefore, $f(1+\varepsilon) = f(e^{i\theta} z) = f(z) + P_m(z)$ exists, but this contradicts the fact that (by the ratio test):
+\[ f(1+\varepsilon) = \sum_{n = 1}^{\infty} 2^{-n^2} (1+\varepsilon)^{2^n}\mbox{ diverges to $\infty$.} \] 

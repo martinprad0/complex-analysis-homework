@@ -1,0 +1,26 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+
+Let $B_{j} := B_{r_{j}}(z_{j}) \quad (j = 0, 1, \ldots, n)$ be open disks with $z_{j-1}, z_{j} \in B_{j-1} \cap B_{j}$ for all $j = 1, \dots, n$. Then, $(B_{0}, B_{1}, \ldots, B_{n})$ is called a \textit{chain of disks}. If $f_{j} \colon B_{j} \to \mathbb{C}$ are holomorphic functions such that $f_{j-1} = f_{j}$ on $B_{j-1} \cap B_{j}$ for all $j = 1, \ldots, n$, then $f_{n}$ is called \textit{the analytic extension of $f_{0}$ along the chain of disks $B_{0}, \ldots, B_{n}$.}
+
+\section*{Exercise 1.}
+
+Let $\mathcal{B} = (B_{0}, \ldots, B_{n})$ be a chain of disks and let $f_{0} : B_{0} \to \mathbb{C}$ be an analytic function. Suppose that $f_{0}^{\prime}$ has an analytic extension along $\mathcal{B}$. Prove that $f_{0}$ also has an analytic extension along $\mathcal{B}$.
+
+\subsection*{Solution}
+
+According to the previous definition, let $g_j$ be the analytic continuation of $f_0'$ along the chain $B_0,\ldots, B_j$ ($g_0 = f_0'$) until we have $g_n$ with is the extension along $\BB$.
+
+Now, let $w \in B_0$, define the holomorphic function $h_0(w) = \int_{\gamma_w}g_0(z) dz$ for a smooth path $\gamma_w$ that starts at $z_0$ and ends at $w$. 
+
+This function is well defined because if we take two different paths $\gamma_w^{(1)}$ and $\gamma_w^{(2)}$ that start at $z_0$ and end at $w$, then $\Gamma = \gamma_w^{(1)} + (-\gamma_w^{(2)})$ is a closed path in a simply connected domain $B_0$. Therefore, by \textit{Cauchy Integral Formula},
+\[ \int_\Gamma g_0(z) dz = 0 \implies \int_{\gamma_{w}^{(1)}} g_0(z) dz = \int_{\gamma_{w}^{(2)}} g_0(z) dz \]
+
+Then, note that by the \textit{Fundamental Theorem of Calculus}, $f_0'(w) = h_0'(w)$ for any $w \in B_0$, and thus, $f_0$ and $h_0$ differ only by a constant:
+\[ f_0(w) = h_0(w) - h_0(z_0) + f_0(z_0).  \]
+For $w \in B_1$, define $h_1(w) = \int_{\gamma_w} g_1(z) dz$ for any smooth path that starts at $z_1$ and ends at $w$. For every $w \in B_0 \cap B_1$, $g_1(w) = g_0(w)$, and thus, it follows that $f_0'(w) = h_1'(w)$ so $f_0$ differs from $h_1$ only by a constant. Then, define for $w \in B_1$
+\[ f_1(w) = h_1(w) - h_1(z_1) + f_0(z_1), \]
+which coincides with $f_0(w)$ for $w\in B_0\cap B_1$.
+
+Recursively, define for $w \in B_j$, $h_j(w) = \int_{\gamma_w} g_j(z) dz$ for any smooth path that starts at $z_j$ and ends at $w$, to then define
+\[ f_j(w) = h_j(w) - h_j(z_j) + f_{j-1}(z_j). \]
+Applying a similar argument to before, we can prove that $f_j$ is well defined (using \textit{Cauchy Integral Formula}) and that $f_j$ coincides with $f_{j-1}$ at $B_{j-1} \cap B_j$ (using \textit{Fundamental Theorem of Calculus}). This gives us the analytic extension $f_n$ of $f_0$ along $\BB$ we're looking for.
