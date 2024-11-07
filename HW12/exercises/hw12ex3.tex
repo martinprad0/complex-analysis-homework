@@ -10,7 +10,7 @@ Let $V_1 := \{z \in \C \;:\; |z| < 1,\,\re(z) > 0\}$ be the right half (unit) di
 
 \textbf{Claim 1.} Let $h: \E \to U_1$ be the Cayley transform $h(z) = i \frac{1-z}{1+z}$ from the previous exercise. Then, $h|_{V_2}$ is a bijection between the upper half disk $V_2 := \{z \in \C \;:\; |z| < 1,\;\im(z) > 0\}$ and the first quadrant $ V_3 := \{z \in \C \;:\; \re(z)>0,\; \im(z)>0\}$.
 
-\textit{Proof:} It's clear from the first homework that the restriction to $V_2$ of the Cayley transform is injective. Now, let $w = x+iy \in V_3$ with $x,y \in \R^+$. We want to show that $h^{-1}(w) = \frac{i-w}{i+w} \in V_1$, that is, $\im(h^{-1}(w)) > 0$ (because $h^{-1}(w) \in B_1(0)$). Note that
+\textit{Proof:} It's clear from the first homework that the restriction to $V_2$ of the Cayley transform is injective. Now, let $w = x+iy \in V_3$ with $x,y \in \R^+$. We want to show that $h^{-1}(w) = \frac{i-w}{i+w} \in V_2$, that is, $\im(h^{-1}(w)) > 0$ (because $h^{-1}(w) \in B_1(0)$). Note that
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{1.8}
 \begin{array}{rcl}
@@ -18,7 +18,7 @@ Let $V_1 := \{z \in \C \;:\; |z| < 1,\,\re(z) > 0\}$ be the right half (unit) di
     & = & \frac{i(1-y)-x}{i(1+y)+x} \cdot \frac{i(1+y)-x}{i(1+y)-x}\\
     & = & \frac{1-x^2-y^2}{(1+y)^2+x^2} + i \frac{2x}{(1+y)^2+x^2}
 \end{array} \]
-Therefore, $\im(h^{-1}(w)) = \frac{2x}{(1+y)^2+x^2} > 0$.
+Therefore, $\im(h^{-1}(w)) = \frac{2x}{(1+y)^2+x^2} > 0$ so $h|_{V_2}$ is surjective.
 
 Now, $z\mapsto z^2$ is a bijection between $V_3$ and the upper half plane $V_4 := \{z\in\C \;:\; \im(z) > 0\}$. Finally, from the previous exercise we know that the Inverse Cayley transform maps $V_4$ to the unit disk $V_5 := B_0(1)$. The map we're looking for is the following
 

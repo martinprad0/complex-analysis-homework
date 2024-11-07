@@ -6,8 +6,8 @@ Let \( U \subseteq \mathbb{C} \) be an open, connected, and bounded set with clo
 
 \subsection*{Solution}
 
-Since $(f_n)$ converges uniformly at $\d U = \ol{U} \backslash U$
+Since $(f_n)$ converges uniformly at $\d U = \ol{U} \backslash U$, $\sup_{z \in \d U} |f_n(z) - f_m(z)| \to 0$ as $n, m \to \infty$.
 
-Define $g_{n,m} = f_n - f_m$ and note that by the Maximum Modulus Principle, since $g_{n,m}$ is a holomorphic function and $U$ is bounded, it follows that $g_{n,m}$ attains its maximum at the boundary of $U$:
+Define $g_{n,m} = f_n - f_m$ and note that by the Maximum Modulus Principle, since $g_{n,m}$ is a holomorphic function at $U$ and $U$ is bounded, it follows that $g_{n,m}$ attains its maximum at the boundary of $U$:
 \[ \max_{z\in \ol{U}} |g_{n,m}(z)| \leq \max_{z \in \d U} |g_{n,m}(z)| \to 0. \]
 Therefore, $(f_n)$ is a Cauchy sequence of functions in the metric space $X = (H(\ol{U}), \|\cdot\|_\infty)$. Now, since $(H(\ol{U}), \|\cdot\|_\infty)$ is a closed subspace of $(C(\ol{U}), \|\cdot\|_\infty)$ which is a Banach space because every function in $C(\ol{U})$ is bounded, it follows that $X$ is a Banach space too, and thus, $(f_n)$ converges uniformly in $\ol{U}$.
