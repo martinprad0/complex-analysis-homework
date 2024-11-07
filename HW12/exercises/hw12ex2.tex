@@ -1,0 +1,18 @@
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+
+\section{Exercise 2.}
+
+Let $U_1 = \{z\in \C \;:\; \im(z) > 0\}$, $U_2 = \C \backslash (-\infty,0]$ and $\E = \{z \in \C \;:\; |z| < 1\}$, find biholomorphic functions
+\[ f : U_1 \to \E,\hspace{2em} g: U_2 \to \E. \]
+
+\subsection*{Solution Item (a)}
+
+For the first homework we proved that the Cayley transform $f^{-1}: \E \to U_1,\; f^{-1}(z) = i\frac{1-z}{1+z}$ is a bijection with inverse function
+\[ f(z) = \frac{i-z}{i+z}. \]
+Since the only singularity is outside its domain, it follows that $f$ is holomorphic too.
+
+\subsection*{Solution Item (b)}
+\textbf{Remark.} Note that the 2 solutions for $z^2 = a^2$ are: $a$ and $e^{i\pi}a$. If $\re(a) \neq 0$, then one of the 2 solutions is in $U_3 :=\{z\in\C \;:\; \re(z) > 0\}$ and the other in $e^{i\pi} U_3 = \{z\in\C \;:\; \re(z) < 0\}$ (the other half plane). Therefore, the branch of $\sqrt{\cdot} = z\mapsto \sqrt{|z|} \cdot \exp(i \arg(z)/2)$ defined for $\arg(z) \in (-\pi,\pi)$ is a biholomorphic map between $U_2$ and $U_3$.
+
+In the first place, note that by taking $g_1 = \sqrt{\cdot}$ as the branch of the square root defined for $\arg(z) \in (-\pi,\pi)$, we obtain a biholomorphic function from $U_2$ to $\{z \in \C \;:\; \re(z) > 0\}$. Now, rotate $90^\circ$ with the function $g_2(z) = iz$ to obtain $U_1$ and finally apply $f$ to obtain $\E$:
+\[ g(z) = f\circ g_2 \circ g_1(z) = \frac{i-i\sqrt{z}}{i+i\sqrt{z}} = \frac{1-\sqrt{z}}{1+\sqrt{z}}. \]

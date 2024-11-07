@@ -1,0 +1,48 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+\section*{Exercise 2.}
+
+Let $U \subseteq \C$ be an open set and $(f_n)_{n\in\N}$ be a sequence of holomorphic functions $U \to\C$. Suppose that $f_n \to f$ compactly and that $f$ is not constant. Show:
+\begin{enumerate}[label=(\alph*)]
+    \item If there exists $W \subset \C$ such that $f_n(U) \subset W$ for every $n \in \N$, then $f(U) \subseteq W$ too.
+    \item If all $f_n$ are injective, then $f$ is injective too.
+    \item If all $f_n$ are locally biholomorphic, then $f$ is locally biholomorphic too.
+\end{enumerate}
+
+\subsection*{Solution Item (a)}
+
+Let $W \subset \C$ such that $f_n(U) \subset W$.
+
+For the sake of contradiction, assume that there exists $z_0 \in U$ such that $f(z_0) \not\in W$. Now, use \textbf{Exercise 1} to obtain a sequence $(z_n)_{n\in \N} \to z_0$ such that $f_n(z_n) = f(z_0)$ for $n \geq N$ for some $N\in \N$. Since $f_N(z_N) \in W$, it follows that $f(z_0) = f_N(z_N) \in W$ which leads to a contradiction.
+
+\subsection*{Solution Item (b)}
+
+Fix any $z_0 \in U$, define $g(z) = f(z) - f(z_0)$ and $g_n(z) = f_n(z) - f_n(z_0)$. Note that the injectivity of $f_n$ implies that $z_0$ is the only zero of $g_n$. Then, by \textbf{Hurwitz's Theorem}, the number of zeroes of $g$ is less or equal than one, and thus, it's injective too (because $z_0$ is arbitrary).
+
+\subsection*{Solution Item (c)}
+
+For the sake of contradiction, assume that there exists $z_0 \in U$ for which $f$ is not biholomorphic (injective) at any neighborhood of $z_0$.
+
+\textbf{Claim 1.} $f'(z_0) = 0$.
+
+\textit{Proof:} The contrapositive of this claim is the inverse function theorem.
+\begin{center}
+    \vspace*{-1em}
+    \textbf{Inverse Function Theorem:} If $f'(z_0) \neq 0$, then there exists a neighborhood of $z_0$ in $U$ for which $f$ is injective (locally holomorphic). 
+
+    $ $\hfill $\square$
+\end{center}
+
+\textbf{Claim 2.} For every $w \in U$ $f_n'(w) \neq 0$ for all $n$.
+
+\textit{Proof:} For the sake of contradiction, assume otherwise. For some $w \in U$, if $f_n'(w) = 0$ for some $n$, then $g_n(z) = f_n(z) - f_n(w)$ has a zero of order two at $w$ because $g^{(0)}(w) = g^{{(1)}}(w)$, and thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    g_n(z) & = & \sum_{k=2}^{\infty} \frac{g^{(k)}(z_0)}{k!} (z-z_0)^k \\
+    & = & (z-z_0)^{2} \sum_{k=0}^{\infty} \frac{g^{(k+2)}(z_0)}{(k+2)!} (z-z_0)^k\\
+    & = & (z-z_0)^2 h(z), \hspace{1em} h\in H(U).
+\end{array}\]
+Therefore, since $w$ is a zero of order 2 of $g_n$, by \textbf{Theorem 3}, for any $\varepsilon > 0$ sufficiently small, $f_n$ is not injective at $B_\varepsilon(w) \subset U$, contradicting the assumption that $f_n$ is locally biholomorphic.
+
+Finally, by \textbf{Theorem 2} $f_n'$ converges compactly to $f'$, and thus, there's a contradiction with the fact that $f'$ has more zeros than $(f_n')_{n\in\N}$ (which has none) and \textbf{Hurwitz's Theorem}.
+

@@ -1,0 +1,33 @@
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+
+\section*{Exercise 4.}
+
+Let \( U \subset \mathbb{C} \) be an open and connected set, and let \( (f_n)_{n \in \mathbb{N}} \) be a sequence of holomorphic functions that is locally bounded in \( U \to \mathbb{C} \). Suppose that there exists a point \( z_0 \in U \) such that the sequence \( (f_n^{(k)}(z_0))_{n \in \mathbb{N}} \) converges for every \( k \in \mathbb{N}_0 \). Prove that \( (f_n)_{n \in \mathbb{N}} \) converges compactly.
+
+\subsection*{Solution}
+
+By Montel's theorem, there exists a subsequence $(f_{n_j})_{j\in\N}$ that converges compactly to a holomorphic function $f$. Then, by \textbf{Theorem 2}, $f_{n_j}^{(k)}$ converges compactly to $f^{(k)}$, and thus,
+\[ \lim_n f_n^{(k)}(z_0) = \lim_j f_{n_j}^{(k)}(z_0) = f^{(k)}(z_0) \]
+\[ \implies \lim_{n,m} |f_n^{(k)}(z_0) - f_m^{(k)}(z_0)| = 0. \]
+Let $R > 0$ such that $\ol{B_R(z_0)} \subset U$ and
+\[ |f_n(z)| \leq M,\hspace{1em} \forall z \in \ol{B_R(z_0)},\; n\in \N. \]
+Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |f_n^{(k)}(z_0) + f_m^{(k)}(z_0)| & \leq & |f_n^{(k)}(z_0)| + |f_m^{(k)}(z_0)|\\
+    & \leq & 2  \left| \frac{k!}{2\pi i} \int_{\d B_R(z_0)}\frac{M}{(z-z_0)^{k+1}} dz \right|\\
+    & \leq & k! \frac{2M}{R^k}
+\end{array} \]
+Therefore, for $z \in B_{R/2}$ and any $N \in \N$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rclcl}
+    \lim_{n,m}|f_n(z) - f_m(z)| & \leq & \lim_{n,m}\left| \sum_{k = 0}^{N} \frac{f_n^{(k)}(z_0)-f_m^{(k)}(z_0)}{k!} (z-z_0)^k \right| & + & \lim_{n,m}\left| \sum_{k = N+1}^{\infty} \frac{f_n^{(k)}(z_0)-f_m^{(k)}(z_0)}{k!} (z-z_0)^k \right|\\
+    & \leq & \sum_{k = 0}^{N} \frac{\lim_{n,m}\left| f_n^{(k)}(z_0)-f_m^{(k)}(z_0) \right|}{k!} (R/2)^k & + & \sum_{k = N+1}^{\infty} \frac{2M}{R^k}(R/2)^k\\
+    & \leq & \hfill 0 \hfill+ \hfill 2M \frac{2^{-N-1}}{2^{-1}}\hfill\\
+    & = & \hspace{2.2em} M 2^{-N+1}.
+\end{array} \]
+Therefore, $\lim_{n,m}|f_n(z) - f_m(z)| = 0$ because $N$ can be arbitrarily large.
+
+Finally, for every $z \in B_{R/2}(z_0)$, the sequence $(f_n(z))_{n\in\N}$ is a Cauchy sequence with a convergent subsequence $(f_{n_j}(z))_{j\in\N}$. Therefore, $(f_n(z))_{n\in\N}$ converges for every $z \in B_{R/2}(z_0)$ which has accumulation points, so by \textbf{Vitali's Theorem}, $(f_n)_{n\in\N}$ converges compactly.

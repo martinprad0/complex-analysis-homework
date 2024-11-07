@@ -1,0 +1,86 @@
+% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+
+\section*{Exercise 3.}
+\begin{enumerate}[label=(\alph*)]
+    \item Let \( R > 1 \) and \( f : B_R(0) \to \mathbb{C} \) be a holomorphic function with Taylor series \( f(z) = \sum_{n=0}^{\infty} c_n z^n \). Suppose that \( \| f \|_{B_1(0)}^2 := \int_{B_1(0)} |f(z)|^2 \, dz = M < \infty \).
+    Prove that for every \( 0 < r < 1 \)
+    \[
+    \| f \|_{B_r(0)}^2 = \pi \sum_{n=0}^{\infty} \frac{|c_n|^2 r^{2n+2}}{n + 1}
+    \quad \text{and} \quad
+    |f(0)| \leq \frac{\| f \|_{B_1(0)}}{\sqrt{\pi}}.
+    \]
+    \item Let \( U \subset \mathbb{C} \) be a bounded region and let \( (f_n)_{n \in \mathbb{N}} \) be a sequence of holomorphic functions \( U \to \mathbb{C} \). Suppose that there exists \( C > 0 \) such that
+
+    \[
+    \| f_n \|_U < C, \quad n \in \mathbb{N}.
+    \]
+    
+    Show that the sequence \( (f_n)_{n \in \mathbb{N}} \) is locally bounded. Conclude that it contains a subsequence that converges uniformly on compact subsets of \( U \).
+\end{enumerate}
+
+
+\subsection*{Solution Item (a)}
+
+For $z \in \d B_r(0)$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |f(z)|^2 = \ol{f(z)}f(z) & = & \left( \sum_{n=0}^{\infty} \ol{c_n} \ol{z}^n \right) \cdot \left( \sum_{n=0}^{\infty} c_n z^n \right)\\
+    & = & \sum_{n = 0}^{\infty} \sum_{m = 0}^\infty \ol{c_n}c_{m} \ol{z}^n z^{m}\\
+   (z = r e^{i\theta}) & = & \sum_{n = 0}^{\infty} \sum_{m = 0}^\infty \ol{c_n}c_{m} r^{m+n} e^{i\theta(m-n)}
+\end{array} \]
+Then, $\int_{0}^{2\pi} e^{i\theta (n-m)} d\theta = 2\pi$ when $n = m$ and $0$ otherwise. Thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \|f\|^2_{B_r(0)} & = & \int_{B_r(0)}|f(z)|^2 dz\\
+    & = & \int_0^r \int_0^{2\pi} f(re^{i\theta}) r \, d\theta\, d r\\
+    & = & \int_0^r \sum_{n = 0}^{\infty} \sum_{m = 0}^\infty \ol{c_n}c_{m} r^{m+n+1} \int_{0}^{2\pi} e^{i\theta (n-m)} d\theta dr\\
+    & = & \int_0^r \sum_{n = 0}^{\infty} |c_n|^2 r^{2n+1} 2\pi dr\\
+    & =^{(\star)} & 2\pi \sum_{n = 0}^{\infty} |c_n|^2  \int_0^r r^{2n+1} dr\\
+    & = & \pi \sum_{n = 0}^{\infty} \frac{|c_n|^2 r^{2n+2}}{n+1}.
+\end{array} \]
+
+The equality on $(\star)$ is obtained using Tonelli's theorem with the fact that $2\pi |c_n|^2 r^{2n+1} \geq 0$ for $r \geq 0$ and $n\in \N$. On the other hand,
+\[ |f(0)|^2 = |c_0|^2 \leq |c_0|^2 + \sum_{n = 1}^{M} \frac{|c_n|}{n+1} \leq \frac{\|f\|^2_{B_1(0)}}{\pi} < \infty. \]
+Therefore, $|f(0)| \leq \frac{\|f\|_{B_1(0)}}{\sqrt{\pi}}$.
+
+
+\subsection*{Solution Item (b)}
+
+\textbf{Note:} For this solution, I'm assuming that
+\[  \|g\|_U =  \|g|_U\|_2 = \left( \iint_{U} |g(z)|^2 dA \right)^{1/2} \]
+
+Once we show that for every $z\in U$ there exists a neighborhood $V \subseteq U$ of $z$ and a constant $K > 0$ for which
+\[ |f_n(w)| \leq K,\hspace{1em}  \forall w \in V,\; \forall n \in \N \]
+we are done because we can then use \textbf{Montel's theorem} to find a compactly convergent subsequence. Now, we're going to prove that the sequence is locally bounded with the following claim:
+
+\textbf{Claim 1:} Let $z_0 \in U$ and let $g: U \to\C$ be a holomorphic function. Now, let $0< \alpha < \beta$ such that $\ol{B_\beta (z_0)} \subseteq U$, then, there exists $M > 0$ that only depends on $\alpha,\beta$ such that
+\[ \sup_{z\in B_\alpha(z_0)}|g(z)| = \|g|_{B_\alpha (z_0)}\|_\infty \leq M \|g|_{B_\beta (z_0)}\|_2 = M \left( \iint_{B_\beta (z_0)} |g(z)|^2 dA \right)^{1/2}\]
+
+\textit{Proof:} Fix $z \in B_\alpha(z_0)$ and let $\gamma_r(\theta) = z + r e^{i\theta},\; \theta \in [0,2\pi]$. By Cauchy Integral formula, since $\gamma_r \subseteq U$ for $ r \in [0,\beta-\alpha)$, it follows that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |g(z)|^2 = |g^2(z)| & = & \left| \frac{1}{2\pi i}\int_{\gamma_r} \frac{g^2(w)}{w-z} dw \right|\\
+    & = & \left| \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{g^2(z + r e^{i\theta }) \cdot ir e^{i\theta}}{z + r e^{i\theta }-z} d\theta \right|\\
+    & = & \left| \frac{1}{2\pi} \int_{0}^{2\pi} g^2(z + r e^{i\theta })  d\theta \right|\\
+    & \leq & \frac{1}{2\pi} \int_{0}^{2\pi} |g(z + r e^{i\theta })|^2 d\theta.
+\end{array} \]
+
+Therefore, by vector calculus, for every $z \in B_\alpha(z_0)$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    2\pi |g(z)|^2 \cdot \frac{ (\beta - \alpha)^2}{2} & \leq & \int_{0}^{2\pi} |g(z + r e^{i\theta })|^2 d\theta \cdot \int_{0}^{(\beta - \alpha)}r\; dr\\
+    & = & \int_{0}^{2\pi}\int_{0}^{(\beta - \alpha)} |g(z + r e^{i\theta })|^2 r\; dr d\theta\\
+    & = & \iint_{B_{\beta - \alpha}(z)} |g(z)|^2\, dA\\
+    \mbox{\tiny $\left( B_{\beta - \alpha}(z) \subseteq B_{\beta}(z_0) \right)$ }& \leq & \iint_{B_{\beta}(z_0)} |g(z)|^2\, dA = \|g|_{B_\beta(z_0)}\|_2^2.
+\end{array} \]
+Thus, it follows that if $M = \frac{1}{\sqrt{\pi}(\beta-\alpha)}$, then
+\[ \|g|_{B_\alpha (z_0)}\|_\infty \leq M \|g|_{B_\beta (z_0)}\|_2.\]
+$ $\hfill $\square$
+
+Finally, fix any $z_0 \in U$ and let $\varepsilon > 0$ such that $\ol{B_\varepsilon(z_0)} \subset U$ (it exists because $U$ is open). Then, by the previous claim, let $M := \frac{2}{\sqrt{\pi} \varepsilon}$ ($\alpha = \varepsilon/2,\; \beta = \varepsilon$), so for every $n \in \N$,
+\[ \|f_n|_{B_{\varepsilon/2} (z_0)}\|_\infty \leq M \|f_n|_{B_{\varepsilon} (z_0)}\|_2 \leq M  \|f_n|_{U}\|_2 \leq M \cdot C.\]
+Hence, $(f_n)_{n\in\N}$ is locally bounded.

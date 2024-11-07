@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  26 OCT 2024 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  7 NOV 2024 01:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW10/src/hw10.tex
-(/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW10/src/hw10.tex
+**/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW12/src/hw12.tex
+(/home/martin/Documents/VSCode/Latex/complex-analysis-homework/HW12/src/hw12.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2022/10/12 v3.38 KOMA-Script document class (article)
@@ -733,10 +733,10 @@ Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "hw10.w18")...executed.
+runsystem(uname -s > "hw12.w18")...executed.
 
- (./hw10.w18)
-runsystem(rm -- "hw10.w18")...executed.
+ (./hw12.w18)
+runsystem(rm -- "hw12.w18")...executed.
 
 )
 \c@svg@param@lastpage=\count339
@@ -746,7 +746,19 @@ runsystem(rm -- "hw10.w18")...executed.
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
  (/usr/share/texlive/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
 Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)
-)) (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sys-shell/l3sys-shell.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
+ (/usr/share/texlive/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen293
+\pgfarrowlength=\dimen294
+\pgfarrowwidth=\dimen295
+\pgfarrowlinewidth=\dimen296
+))) (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sys-shell/l3sys-shell.sty
 Package: l3sys-shell 2023-01-24 L3 Experimental system shell functions
 ) (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
@@ -760,46 +772,46 @@ Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 \c@theorem=\count341
 \c@definition=\count342
 \c@corollary=\count343
- (./hw10.aux)
-\openout1 = `hw10.aux'.
+ (./hw12.aux)
+\openout1 = `hw12.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-Package scrbase Info: activating english \abstractname on input line 83.
-Package scrbase Info: activating english \partname on input line 83.
-Package scrbase Info: activating english \figurename on input line 83.
-Package scrbase Info: activating english \tablename on input line 83.
-Package scrbase Info: activating english \contentsname on input line 83.
-Package scrbase Info: activating english \listfigurename on input line 83.
-Package scrbase Info: activating english \listtablename on input line 83.
-Package scrbase Info: activating english \refname on input line 83.
-Package scrbase Info: activating english \indexname on input line 83.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+Package scrbase Info: activating english \abstractname on input line 84.
+Package scrbase Info: activating english \partname on input line 84.
+Package scrbase Info: activating english \figurename on input line 84.
+Package scrbase Info: activating english \tablename on input line 84.
+Package scrbase Info: activating english \contentsname on input line 84.
+Package scrbase Info: activating english \listfigurename on input line 84.
+Package scrbase Info: activating english \listtablename on input line 84.
+Package scrbase Info: activating english \refname on input line 84.
+Package scrbase Info: activating english \indexname on input line 84.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count344
-\scratchdimen=\dimen293
+\scratchdimen=\dimen297
 \scratchbox=\box117
 \nofMPsegments=\count345
 \nofMParguments=\count346
 \everyMPshowfont=\toks48
 \MPscratchCnt=\count347
-\MPscratchDim=\dimen294
+\MPscratchDim=\dimen298
 \MPnumerator=\count348
 \makeMPintoPDFobject=\count349
 \everyMPtoPDFconversion=\toks49
@@ -809,7 +821,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 83.
+Package hyperref Info: Link coloring ON on input line 84.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -850,42 +862,34 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 85.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 86.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (|ls -1 ../exercises/*) (../exercises/hw10ex1.tex [1
+) (|ls -1 ../exercises/*) (../exercises/hw12ex1.tex) (../exercises/hw12ex2.tex [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw10ex2.tex [2]
-Package svg Info: Last page of `./svg-inkscape/ex2pic1_svg-tex.pdf' is 1 on input line 33.
- (./svg-inkscape/ex2pic1_svg-tex.pdf_tex
-<./svg-inkscape/ex2pic1_svg-tex.pdf, id=34, page=1, 536.20645pt x 441.36053pt>
-File: ./svg-inkscape/ex2pic1_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/ex2pic1_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/ex2pic1_svg-tex.pdf , page1 used on input line 56.
-(pdftex.def)             Requested size: 195.12767pt x 160.607pt.
-)) (../exercises/hw10ex3.tex [3 <./svg-inkscape/ex2pic1_svg-tex.pdf>]) (../exercises/hw10ex4.tex [4] [5]) [6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./hw10.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw12ex3.tex [2]) (../exercises/hw12ex4.tex [3]) (../exercises/hw12ex5.tex) [4] (./hw12.aux) ) 
 Here is how much of TeX's memory you used:
- 27471 strings out of 476041
- 531119 string characters out of 5793164
- 1864388 words of memory out of 6000000
- 47388 multiletter control sequences out of 15000+600000
- 526163 words of font info for 85 fonts, out of 8000000 for 9000
+ 28459 strings out of 476041
+ 561990 string characters out of 5793164
+ 1866388 words of memory out of 6000000
+ 48379 multiletter control sequences out of 15000+600000
+ 522659 words of font info for 74 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 110i,15n,133p,10670b,757s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on hw10.pdf (6 pages, 219108 bytes).
+ 110i,14n,133p,10670b,1000s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hw12.pdf (4 pages, 165775 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

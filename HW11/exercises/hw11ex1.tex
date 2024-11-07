@@ -1,0 +1,64 @@
+% chktex-file 3 chktex-file 18 chktex-file 36
+
+\textbf{Theorem 1. (Hurwitz's Theorem)} Let \( U \subset \mathbb{C} \) be open and connected, and let \( f_n,\, f \;:\; U \to \mathbb{C} \) be holomorphic functions. Suppose that \( f_n \to f \) compactly. Suppose there exists \( m \in \mathbb{N}_0 \) such that for all \( n \in \mathbb{N} \):
+\[ \text{the number of zeros of } f_n \text{ (counted with multiplicities) } \leq m. \]
+Then \( f \) is constant or the number of zeros of \( f \) (counted with multiplicities) \( \leq m \).
+
+$ $\hfill $\square$
+
+\textbf{Theorem 2.} If $(f_n)_{n\in\N}$ converges compactly to $f$, then $(f_{n}^{(k)})_{n\in\N}$ converges compactly to $f^{(k)}$.
+
+\textit{Proof:} Fix a compact set $K\subset U$. Then, $U$ is an open metric space, we can find a slightly larger compact set by making a thickening of $K$ with some $R > 0$:
+\[ K' = \ol{\bigcup_{z\in K} B_{2R}(z)} \]
+in such way that $K \subset K'^\circ \subset K' \subset U$. Then, since $K'$ is compact, any circle of radius $R$ centered at $z \in K$: $\gamma = \d B_R(z) \subset K'^{\circ}$ has length $2\pi R$. Also, for every $z \in K$ and $w \in \d B_R(z)$, $|z-w| = R > 0$.
+
+By compact convergence, since $K'$ is a compact set, for any $\varepsilon > 0$ there exists $N$ such that for $n \geq N$
+\[ |f_{n}(w) - f(w)| < \varepsilon,\hspace{1em}  \forall w \in K'.\]
+
+Therefore, by Cauchy Integral Formula, for every $z \in K$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |f^{(k)}_{n}(z) - f^{(k)}(z)| & = & \frac{k!}{2\pi}\left| \int_{\gamma} \frac{f_{n}(w) - f(w)}{(z-w)^{k+1}} dw\right|\\
+    & \leq & \frac{k!}{2\pi} 2\pi R \cdot \frac{\max_{w\in K'}|f_{n}(w) - f(w)|}{R^{k+1}}\\
+    (n\geq N) & < & \frac{k!}{R^k} \cdot \varepsilon.
+\end{array} \]
+$R$ only depends in the set $K$ we've chosen at the beginning, so $f^{(k)}_{n}$ compactly converges to $f^{(k)}$ for every $k \in \N$.
+
+$ $\hfill $\square$
+
+\textbf{Theorem 3. (Ahlfors' Chapter 4.3.3 Theorem 11.)} Suppose that \( f(z) \) is analytic at \( z_0 \), \( f(z_0) = w_0 \), and that \( f(z) - w_0 \) has a zero of order \( n \) at \( z_0 \). If \( \varepsilon > 0 \) is sufficiently small, there exists a corresponding \( \delta > 0 \) such that for all \( a \) with \( |a - w_0| < \delta \) the equation \( f(z) = a \) has exactly \( n \) roots in the disk \( |z - z_0| < \varepsilon \).
+
+$ $\hfill $\square$
+
+\textbf{Theorem 4. (Vitali's Convergence Theorem)} Let $(f_n)_{n\in \N}$ be a sequence of locally bounded holomorphic functions. If $\lim_n f_n(z)$ exists for every $z \in V\subset U$ with $V$ having an accumulation point, then $(f_n)_{n\in \N}$ converges compactly.
+
+$ $\hfill $\square$
+
+
+\section*{Exercise 1.}
+
+Let $U \subseteq \C$ be an open set and $(f_n)_{n\in\N}$ be a sequences of holomorphic functions $U \to \C$. Suppose that $f_n \to f$ compactly and that $f$ is not constant. Show that for every $z_0 \in U$ there exists a sequence $(z_n)_{n\in\N}$ and $N_0 \in \N$ with $\lim_{n\to\infty} z_n = z_0$ and $f_n(z_n) = f(z_0)$ for every $n \geq N_0$.
+
+\subsection*{Solution:}
+
+Fix $z_0 \in U$ and without restriction assume that $f(z_0) = 0$, else repeat the following argument with $F(z) = f(z) - f(z_0)$. 
+
+\textbf{Hypothesis 1:} For the sake of contradiction suppose that for every sequence $(z_n)_{n\in\N}$, such that $z_n\to z_0$, there exists a subsequence $(z_{n_k})_{k\in\N}$ such that $f_{n_k}(z_{n_k}) \neq 0$ for every $k\in\N$. 
+
+
+Note that $f$ is holomorphic, and thus, its zeroes are isolated.
+
+\textbf{Claim 1:} Let $V$ be an open neighborhood of $z_0$ such that $\ol{V}$ doesn't contain any other zero of $f$ different from $z_0$. Then, there must exist a subsequence $(f_{n_k})_{k\in \N}$ for which $f_{n_k}$ doesn't have any zero in $V$. 
+
+\textit{Proof:} Otherwise, assume there exists $N\in \N$ such that $f_n$ has at least a zero in $V$ for every $n \geq N$, and thus, we can choose $z_n \in f_n^{-1}(\{0\}) \neq \emptyset$ for $n \geq N$ and build the following sequence
+\[ (w_n)_{n\in\N} = (\underbrace{z_0, z_0,\ldots, z_0}_{\mbox{\tiny{$N-1$ times}}}, z_N, z_{N+1},\ldots) \]
+The sequence $(w_n)_{n\in\N}$ must converge to $z_0$, otherwise, if $w_n \to w \neq z_0$, then
+\[ f(w) = \lim_n f_n(w_n) = \lim_n f_n(z_n) = 0. \]
+However that would contradict the fact that $\ol{V}$ doesn't contain any other zero of $f$. Since $f(w_n) = f(z_n) = 0$ for $n \geq N$, it follows that $(w_n)_{n\in\N}$ contradicts \textbf{Hypothesis 1} because it only has finely many $n\in \N$ for which $f_n(w_n) \neq 0$, and thus, \textbf{Claim 1} is proved.
+
+$ $\hfill $\square$
+
+Let $(f_{n_k})_{k\in \N}$ be the subsequence from \textbf{Claim 1}. Define $g_{n_k} = f_{n_k} |_V$ and $g = f|_V$. Note that $g_{n_k}$ converges compactly to $g$ because $f_{n_k}$ converges uniformly to $f$ when restricted to any compact $K\subset V$. However, for every $k \in \N$, $g_{n_k}$ doesn't have any zero while $g$ does have exactly one contradicting \textbf{Hurwitz's Theorem:}
+
+The number of zeroes of $g$ must be less or equal to the number of zeroes of $g_{n_k}$ for each $k \in \N$.
