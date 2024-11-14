@@ -2,12 +2,37 @@
 
 \section{Exercise 1.}
 
-Let \( U \subseteq \mathbb{C} \) be an open, connected, and bounded set with closure \(\overline{U}\). Let \((f_n)_{n \in \mathbb{N}}\) be a sequence of continuous functions \( \overline{U} \to \mathbb{C} \) whose restrictions to \( U \) are holomorphic. Suppose the sequence converges uniformly on \(\overline{U} \setminus U\). Prove that \((f_n)_{n \in \mathbb{N}}\) converges uniformly on \(\overline{U}\).
+1. Determine whether the following products converge:
+   \[
+   \prod_{n=1}^{\infty} \left( 1 + \frac{(-1)^n}{n} \right), \quad \prod_{n=1}^{\infty} \left( 1 + \frac{(-1)^n}{\sqrt{n}} \right).
+   \]
 
-\subsection*{Solution}
+2. Prove the class theorem:  
+   Let \((X, d)\) be a compact metric space and let \(g_n : X \to \mathbb{C}\) be continuous functions such that \(\sum_{n=1}^{\infty} |g_n|\) converges uniformly. Define \(f_n : X \to \mathbb{C}\) by
+   \[
+   f_n(x) = \prod_{j=1}^{n} (1 + g_j(x)).
+   \]
+   We already know that for every \(x \in X\), the product \(\prod_{n=1}^{\infty} (1 + g_j(x))\) is absolutely convergent. Then
+   \[
+   f : X \to \mathbb{C}, \quad f(x) := \lim_{n \to \infty} f_n(x)
+   \]
+   is well-defined.
 
-Since $(f_n)$ converges uniformly at $\d U = \ol{U} \backslash U$, $\sup_{z \in \d U} |f_n(z) - f_m(z)| \to 0$ as $n, m \to \infty$.
+   Show that \(f_n \to f\) uniformly and that there exists \(N \in \mathbb{N}\) such that for all \(x \in X\),
+   \[
+   f(x) = 0 \iff g_n(x) = -1 \text{ for some } n \leq N.
+   \]
 
-Define $g_{n,m} = f_n - f_m$ and note that by the Maximum Modulus Principle, since $g_{n,m}$ is a holomorphic function at $U$ and $U$ is bounded, it follows that $g_{n,m}$ attains its maximum at the boundary of $U$:
-\[ \max_{z\in \ol{U}} |g_{n,m}(z)| \leq \max_{z \in \d U} |g_{n,m}(z)| \to 0. \]
-Therefore, $(f_n)$ is a Cauchy sequence of functions in the metric space $X = (H(\ol{U}), \|\cdot\|_\infty)$. Now, since $(H(\ol{U}), \|\cdot\|_\infty)$ is a closed subspace of $(C(\ol{U}), \|\cdot\|_\infty)$ which is a Banach space because every function in $C(\ol{U})$ is bounded, it follows that $X$ is a Banach space too, and thus, $(f_n)$ converges uniformly in $\ol{U}$.
+3. Let \(U \subset \mathbb{C}\) be open and let \(g_n : U \to \mathbb{C}\) be holomorphic functions such that \(\sum_{n=1}^{\infty} |g_n|\) converges compactly in \(U\). Define
+   \[
+   f_n(x) = \prod_{j=1}^{n} (1 + g_j(x)).
+   \]
+   (a) Show that \((f_n)_{n \in \mathbb{N}}\) converges compactly to a holomorphic function \(f : U \to \mathbb{C}\).
+
+   (b) Let \(z_0 \in U\). Show that \(f(z_0) = 0\) if and only if there exists \(j \in \mathbb{N}\) such that \(g_j(z_0) = -1\), that there are finitely many such \(j\), and that the order of the zero \(z_0\) for \(f\) is equal to the sum of the multiplicities of \(z_0\) as a zero of all the functions \(1 + g_j\).
+
+4. Let \(U \subset \mathbb{C}\) be a region, let \(f_n : U \to \mathbb{C}\) be holomorphic functions, and assume that \(\prod_{j=1}^{\infty} f_n\) converges absolutely and compactly in \(U\). Show that
+   \[
+   \frac{f'}{f} = \sum_{j=1}^{\infty} \frac{f_j'}{f_j}
+   \]
+   where the sum on the right side converges compactly in its domain.
