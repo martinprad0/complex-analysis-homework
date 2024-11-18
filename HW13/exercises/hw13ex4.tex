@@ -2,8 +2,28 @@
 
 \section{Exercise 4.}
 
-Let \(U \subset \mathbb{C}\) be a region, let \(f_n : U \to \mathbb{C}\) be holomorphic functions, and assume that \(\prod_{j=1}^{\infty} f_n\) converges absolutely and compactly in \(U\). Show that
+Let \(U \subset \mathbb{C}\) be a region, let \(f_n : U \to \mathbb{C}\) be holomorphic functions, and assume that \(\prod_{j=1}^{\infty} f_j\) converges absolutely and compactly in \(U\). Show that
 \[
 \frac{f'}{f} = \sum_{j=1}^{\infty} \frac{f_j'}{f_j}
 \]
 where the sum on the right side converges compactly in its domain.
+
+\subsection*{Solution}
+
+$f$ is holomorphic because is the compact limit of holomorphic functions (Weierstrass theorem).
+
+Let $g_n = \prod_{j = 1}^n f_j$, since $(g_n)_{n\in\N}$ is a sequence of holomorphic functions that converges compactly to $f$, by Weierstrass' theorem, the sequence of derivatives $(g_n')_{n\in \N}$ also converge compactly to $f'$. Now, by the product rule
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \frac{g_n'}{g_n} & = & \frac{\sum_{k = 1}^n f_k' \times \prod_{j \neq k}^n f_j}{\prod_{j = 1}^n f_j}\\
+    & = & \sum_{k = 1}^n f_k' \times \frac{\prod_{j \neq k}^n f_j}{\prod_{j = 1}^n f_j}\\
+    & = & \sum_{k = 1}^n \frac{f_k'}{f_k}.
+\end{array} \]
+Then domain of $\frac{f'}{f}$ is $U_0$ which is equal to $U$ excluding the zeros of $f$ (which are isolated). For every $n \in \N$, $g_n$ cannot have more zeros than $f$, otherwise there would be a contradiction with
+\[ \underbrace{f(z)}_{\neq 0} = \underbrace{g_n(z)}_{ = 0} \times \underbrace{\prod_{j = n+1}^{\infty} f_j(z)}_{< \infty}. \]
+Finally, $\frac{g_n'}{g_n}$ is defined on $U_0$, and in every compact set of $U_0$, $\frac{1}{g_n}$ converges compactly to $\frac{1}{f}$ because: 
+
+For any $K \subset U_0$, there exists a constant $M > 0$ for which $|g_n(z)|, |f(z)| < M$ for every $z \in K$, and thus,
+\[ \sup_{z\in K}\left| \frac{1}{g_n(z)} - \frac{1}{f(z)} \right| = \sup_{z\in K} \left| \frac{g_n(z) - f(z)}{g_n(z)f(z)} \right| < \frac{1}{M^2} \cdot \sup_{z\in K}|g_n(z) - f(z)| \to 0. \]
+Therefore, $\frac{g_n'}{g_n}$ converges compactly to $\frac{f'}{f}$.

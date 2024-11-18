@@ -13,7 +13,62 @@ f : X \to \mathbb{C}, \quad f(x) := \lim_{n \to \infty} f_n(x)
 \]
 is well-defined.
 
-Show that \(f_n \to f\) uniformly and that there exists \(N \in \mathbb{N}\) such that for all \(x \in X\),
+Show that (a) \(f_n \to f\) uniformly and (b) that there exists \(N \in \mathbb{N}\) such that for all \(x \in X\),
 \[
 f(x) = 0 \iff g_n(x) = -1 \text{ for some } n \leq N.
 \]
+
+\subsection*{Solution Item (a)}
+
+\textbf{Claim 1:} for any real number $x$, $x+1\leq e^x$.
+
+\textit{Proof:} The function $F(x) = e^x - x - 1$ has derivative $F'(x) = e^x - 1$ which has a critical point at $x = 0$. The function is convex because $F''(x) = e^x > 0$ and thus, $x= 0$ is a global minimum of $F$. Since $F(0) = 0$, it follows that for any $x \in \R$, $F(x) \geq F(0) = 0$, and thus, $e^x - x - 1 \geq 0$.\\.\hfill $\square$
+
+\textbf{Claim 2:} For an absolutely convergent sequence $(a_n)_{n\in \N}$, that is $\sum_{n = 1}^{\infty} |a_n| < \infty$,
+\[ \left| \prod_{k = 1}^{n} (1+a_k) - 1\right| \leq \prod_{k = 1}^n (1+ |a_k|) - 1. \]
+
+\textit{Proof:} By the triangle inequality, any polynomial $P(a_1,\ldots, a_n)$ satisfies
+\[ |P(a_1,\ldots, a_n)| \leq P(|a_1|,\ldots, |a_n|). \]
+Therefore, by taking the polynomial $P_n(a_1,\ldots, a_n) = \prod_{k = 1}^{n} (1+a_k) - 1$, we obtain the desired result.\\.\hfill $\square$
+
+\textbf{Claim 3:} For an absolutely convergent sequence $(a_n)_{n\in \N}$,
+\[ \left| \prod_{k = 1}^{\infty} (1+a_k) - 1 \right| \leq \exp\left( \sum_{k = 1}^{\infty} |a_k| \right) - 1. \]
+
+\textit{Proof:} we know that both $\lim_n \prod_{k = 1}^{n} (1+a_k)$ and $\lim_n \sum_{k = 1}^{n}|a_k|$ exist from the hypothesis that $a_n$ is absolutely convergent. Use \textbf{Claim 2} and \textbf{Claim 1} to conclude that
+\[ \left| \prod_{k = 1}^{n} (1+a_k) - 1 \right| \leq  \prod_{k = 1}^{n} (1+|a_k|) - 1 \leq \exp\left( \sum_{k = 1}^n |a_k|\right) - 1.\]
+Therefore, after taking limits on both sides we obtain the desired result. In fact, this exact same argument also works on the tails:
+\[ \left| \prod_{k = N+1}^{\infty} (1+a_k) - 1 \right| \leq \exp\left( \sum_{k = N+1}^{\infty} |a_k| \right) - 1,\quad \forall N \in \N. \]
+.\hfill $\square$
+
+Now, note that we can factorize the first $n$ product terms of $f_n$ from $f$ 
+\[ f(z) - f_n(z) =  \left( \frac{f(z)}{f_n(z)} - 1 \right)\cdot f_n(z) = \underbrace{\left( \prod_{j = n+1}^{\infty} (1+g_j(z)) - 1 \right)}_{(1)} \cdot \underbrace{\left( \prod_{j = 1}^{n} 1+g_j(z) \right)}_{(2)}. \]
+For (1) apply \textbf{Claim 3} to conclude that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \left| \prod_{j = n+1}^{\infty} (1+g_j(z)) - 1 \right| & \leq & \exp \left( \sum_{k = n+1}^{\infty} |g_j(z)| \right) - 1.
+\end{array} \]
+Since $\sum_{k = n+1}^{\infty} |g_j(z)|$ converges uniformly to 0 (tail of a uniformly convergent sequence), for any $\varepsilon > 0$, there exists $N \in \N$ such that $\sum_{k = n+1}^{\infty} |g_j(z)| < \varepsilon$ for every $z \in X,\; n \geq N$, and thus,
+\[ \exp \left( \sum_{k = n+1}^{\infty} |g_j(z)| \right) - 1 < e^{\varepsilon} - 1 \quad \forall z \in X,\; n \geq N. \]
+so it follows that $\prod_{j = n+1}^{\infty} (1+g_j(z)) - 1$ converges uniformly to 0.
+
+On the other hand, for (2), since $h := \sum_{j = 1}^{\infty} |g_j|$ is the uniform limit of continuous functions on a compact set, it follows that there exists $M > 0$ such that $h(z) < M$ for every $z \in X$. In fact, since $|g_j| \geq 0$, it follows that the sequence $h_n := \sum_{j = 1}^n|g_j|$ is increasing and $h_n \leq h < M$. Then, by \textbf{Claim 1}
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \left|\prod_{j = 1}^{n} 1+g_j(z) \right| & = & \prod_{j = 1}^{n} |1+g_j(z)|\\
+    & \leq & \prod_{j = 1}^{n} 1+|g_j(z)|\\
+    & \leq & \exp\left( \sum_{j = 1}^n |g_j(z)| \right)\\
+    & < & e^M\quad \forall z \in X.
+\end{array}\]
+
+Finally, (1) converges uniformly to 0 and (2) is uniformly bounded, so it follows that $|f_n(z) - f(z)|$ converges uniformly to 0.
+
+\subsection*{Solution Item (b)}
+
+Since $X$ is compact and $f$ is holomorphic, the number of zeros of $f$ is finite, otherwise, the set of zeros would have an accumulation point on $X$. If $\{z_1,\ldots, z_p\}$ is the set of zeros of $f$, the goal is to find $\forall j \leq p$, $N_j$ for which $g_{N_j}(z_j) = -1$ and then take $N = \max_j N_j$.
+
+Let $z$ be one of those zeros and assume for the sake of contradiction that $g_j(z) \neq -1$ for every $j\in \N$. Then, we would obtain a contradiction with the fact that for a convergent product $\prod_{j= 1}^\infty a_j$ to be zero, one of the elements in the sequence is zero, so let $a_j = (1+g_j(z))$ to obtain the contradiction. Therefore, for every $j$, there exists $N_j\in N$ for which $g_{N_j}(z_j) = -1$.
+
+If $g_n(z) = -1$ for some $n \leq N$, then it's clear from the pointwise convergence that $z$ is a zero of $f$:
+\[ f(z) = (1 - g_n(z)) \times \prod_{j\neq n} (1-g_j(z)). \]
