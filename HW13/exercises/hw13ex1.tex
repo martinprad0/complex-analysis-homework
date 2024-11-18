@@ -2,37 +2,67 @@
 
 \section{Exercise 1.}
 
-1. Determine whether the following products converge:
-   \[
-   \prod_{n=1}^{\infty} \left( 1 + \frac{(-1)^n}{n} \right), \quad \prod_{n=1}^{\infty} \left( 1 + \frac{(-1)^n}{\sqrt{n}} \right).
-   \]
+Determine whether the following products converge:
+\[
+(\mbox{a})\;\prod_{n=1}^{\infty} \left( 1 + \frac{(-1)^n}{n} \right), \quad (\mbox{b})\;\prod_{n=1}^{\infty} \left( 1 + \frac{(-1)^n}{\sqrt{n}} \right).
+\]
 
-2. Prove the class theorem:  
-   Let \((X, d)\) be a compact metric space and let \(g_n : X \to \mathbb{C}\) be continuous functions such that \(\sum_{n=1}^{\infty} |g_n|\) converges uniformly. Define \(f_n : X \to \mathbb{C}\) by
-   \[
-   f_n(x) = \prod_{j=1}^{n} (1 + g_j(x)).
-   \]
-   We already know that for every \(x \in X\), the product \(\prod_{n=1}^{\infty} (1 + g_j(x))\) is absolutely convergent. Then
-   \[
-   f : X \to \mathbb{C}, \quad f(x) := \lim_{n \to \infty} f_n(x)
-   \]
-   is well-defined.
+\textbf{Note:} The first term in both products is 0, so we are going to skip and show that the tails from $n = 2$ forward converge (or diverge) for both cases.
 
-   Show that \(f_n \to f\) uniformly and that there exists \(N \in \mathbb{N}\) such that for all \(x \in X\),
-   \[
-   f(x) = 0 \iff g_n(x) = -1 \text{ for some } n \leq N.
-   \]
+\subsection*{Solution Item (a)}
 
-3. Let \(U \subset \mathbb{C}\) be open and let \(g_n : U \to \mathbb{C}\) be holomorphic functions such that \(\sum_{n=1}^{\infty} |g_n|\) converges compactly in \(U\). Define
-   \[
-   f_n(x) = \prod_{j=1}^{n} (1 + g_j(x)).
-   \]
-   (a) Show that \((f_n)_{n \in \mathbb{N}}\) converges compactly to a holomorphic function \(f : U \to \mathbb{C}\).
+We are going to prove that $\sum_{n = 2}^{\infty}\log\left( 1+\frac{(-1)^n}{n} \right)$ converges. In fact, if $M$ is even,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{n = 2}^{M}\log\left( 1+\frac{(-1)^n}{n} \right) & = & 
+    \sum_{k = 1}^{M/2}\log\left( \frac{2k+1}{2k}\right) + \log\left(\frac{2k}{2k+1}\right)\\
+    & = & \sum_{k = 1}^{M/2} \log\left( \frac{2k+1}{2k}\cdot\frac{2k}{2k+1}\right)\\
+    & = & 0,
+\end{array} \]
+and if $M = 2K+1$ is odd,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{n = 2}^{M}\log\left( 1+\frac{(-1)^n}{n} \right) & = & \log\left(\frac{2K}{2K+1}\right) + 
+    \sum_{k = 1}^{(M-1)/2}\log\left( \frac{2k+1}{2k}\right) + \log\left(\frac{2k}{2k+1}\right)\\
+    & = & \log\left(\frac{2K}{2K+1}\right).
+\end{array} \]
+Since $\log$ is continuous at 1 and $\frac{2K}{2K+1} \to 1$ when $K\to \infty$, we conclude that $\log\left(\frac{2K}{2K+1}\right)$ converges to 0. Since the entire log-series converges to 0, it must follow that
+\[ \prod_{n=2}^{\infty} \left( 1 + \frac{(-1)^n}{n} \right) = \exp\left[ \sum_{n = 2}^{\infty}\log\left( 1+\frac{(-1)^n}{n} \right)  \right] = 1. \]
 
-   (b) Let \(z_0 \in U\). Show that \(f(z_0) = 0\) if and only if there exists \(j \in \mathbb{N}\) such that \(g_j(z_0) = -1\), that there are finitely many such \(j\), and that the order of the zero \(z_0\) for \(f\) is equal to the sum of the multiplicities of \(z_0\) as a zero of all the functions \(1 + g_j\).
+\subsection*{Solution Item (b)}
 
-4. Let \(U \subset \mathbb{C}\) be a region, let \(f_n : U \to \mathbb{C}\) be holomorphic functions, and assume that \(\prod_{j=1}^{\infty} f_n\) converges absolutely and compactly in \(U\). Show that
-   \[
-   \frac{f'}{f} = \sum_{j=1}^{\infty} \frac{f_j'}{f_j}
-   \]
-   where the sum on the right side converges compactly in its domain.
+Now, we are going to prove that $\sum_{n = 2}^{\infty}\log\left( 1+\frac{(-1)^n}{\sqrt{n}} \right)$ diverges. We are going to be restricted to the even case to show that this sum diverges. Note that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \log\left( 1+\frac{1}{\sqrt{2n}} \right) +  \log\left( 1-\frac{1}{\sqrt{2n+1}} \right) & = & \log \left[ \left( 1+\frac{1}{\sqrt{2n}} \right) \cdot \left( 1-\frac{1}{\sqrt{2n+1}} \right) \right]\\
+    & = & \log\left[1 + \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}} \right]
+\end{array} \]
+
+By the limit comparison test $\log(1+x) = x - O(x^{2}) \approx x$ for $x$ near to 0. Then, we can compare the series of $ a_n = \log\left[1 + \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}} \right]$ with the series of $b_n = \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}}$. 
+
+\textbf{Remark:} Note that for $n \geq 1$, $\sqrt{2n+1}-\sqrt{2n}-1 < 0 $. The limit comparison test only applies if $a_n, b_n > 0$, but for our case,
+\[ a_n = \log\left[1 + \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}} \right] < 0 \mbox{ and } b_n = \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}} < 0 \]
+and thus, the same argument can be applied to $-a_n, -b_n > 0$ to conclude that $-\sum_n a_n$ diverges because $-\sum_n b_n$ does.
+
+Since $a_n = \log(1+b_n)$ and $b_n \to 0$ when $n\to \infty$, by uniqueness of limit and then L-hôspital rule,
+\[ \lim_{n\to\infty} \frac{a_n}{b_n} = \lim_{x\to 0} \frac{\log(1+x)}{x} = \lim_{x\to 0} \frac{1}{1+x} = 1. \]
+Then, we can also compare $b_n$ with $c_n = \frac{-1}{2n}$ because
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \frac{b_n}{c_n} & = & \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}} \cdot (-2n) \\
+    & = & \underbrace{\sqrt{\frac{2n}{2n+1}}}_{\to 1} + \underbrace{\frac{2n}{\sqrt{2n+1}} - \sqrt{2n}}_{\to 0}\\
+    & \to & 1,\quad n\to \infty
+\end{array} \]
+
+Finally, since $\sum_{n = 1}^{\infty} c_n = \sum_{n = 1}^{\infty} \frac{-1}{2n} $ diverges to $-\infty$, it follows that $\sum_{n = 1}^{\infty} b_n$ diverges, and thus, $\sum_{n = 1}^{\infty} a_n$ diverges to $-\infty$ too. Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{n = 2}^{2M}\log\left( 1+\frac{(-1)^n}{\sqrt{n}} \right) & = & \sum_{n = 1}^{M} \log\left[1 + \frac{\sqrt{2n+1}-\sqrt{2n}-1}{\sqrt{2n} \cdot \sqrt{2n+1}} \right]\\
+     & = & \sum_{n = 1}^{M} a_n \to -\infty,\quad M \to \infty.
+\end{array}  \]
+That implies that $\prod_{n = 2}^{\infty} \log\left( 1+\frac{(-1)^n}{\sqrt{n}} \right)$ has a subsequence that diverges to 0.
