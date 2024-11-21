@@ -2,3 +2,23 @@
 
 \section{Exercise 3.}
 
+Let \( f : \mathbb{C} \to \mathbb{C} \) be a non-constant holomorphic function. For every \( z \in \mathbb{C} \), let \( m(z) \in \mathbb{N}_0 \) denote the multiplicity of \( z \) as a zero of \( f \).  
+Prove that for every \( k \in \mathbb{N} \), the following is equivalent:  
+\begin{itemize}
+    \item[(a)] There exists a holomorphic function \( g : \mathbb{C} \to \mathbb{C} \) such that \( g^k = f \).  
+    \item[(b)] \( m(z) \in \mathbb{N} \) is divisible by \( k \).
+\end{itemize}
+
+\subsection*{Solution}
+
+Since $f$ is non-constant, then $k > 0$.
+
+$\boldsymbol{(a) \implies (b)}$: Let $z_0$ be a zero of $f$ with multiplicity $m$, then, note that $f(z_0) = g(z_0)^k = 0$. Since the only solution of $w^k = 0$ is $w = 0$, it follows that $g^k(z_0) = 0$ if $g(z_0) = 0$. Now, $z_0$ is a zero of $g$ with multiplicity $n$ for some $n\in \N^+$, and thus, it follows that $z_0$ is a zero of $f = g^k$ with multiplicity $k\cdot n$. Therefore, $m = k\cdot n$.
+
+$\boldsymbol{(b) \implies (a)}$:
+
+If the number of zeros is infinite, let $z_1,z_2,\ldots$ be the zeros (without multiplicities, so $z_j \neq z_k$ if $j\neq k$) of $f$. If the multiplicity of every zero is a multiple of $k$, then, $\mult(f,z_n) = k \cdot a_n$ for some $a_n \in \N$. Now make a sequence $(w_j)_{j\in\N}$, where for every $n\in \N$, there exists exactly $a_n$ indices $(j_{1},\ldots,j_{a_n})$ for which $z_n = w_{j_1} = \cdots = w_{j_{a_n}}$ and $f(w_j) = 0$ for every $j\in \N$. Since the zeros of $f$ are unbounded, then $(w_j)_{j\in\N}$ is unbounded too. Therefore, using a similar argument to exercise 2,
+\[ \sum_{n = 1}^{\infty} \left| \frac{r}{w_n} \right|^n < \infty,\quad \forall r\in \R, \]
+and thus, the function $h(z) = \prod_{n = 1}^{\infty} E\left( \frac{z}{w_n} \right)$ is an entire function where $z_n$ is a zero of multiplicity $a_n$. Now, $h(z)^k$ is also an entire function where $z_n$ is a zero of multiplicity $k\cdot a_n$, so $f/h^k$ only has removable singularities and can be extended to an entire function with no zeros $e^{r} := \widetilde{f/h^k} $. The entire function we are looking for is $g:\C \to \C,\; g(z) = h(z) \cdot e^{r(z)/k}$.
+
+If the number of zeros is finite, then, let $z_1, \ldots, z_n$ be the zeros with multiplicities $k\cdot a_1, \ldots, k\cdot a_n$. Now, define $h(z) = (z-z_1)^{a_1} \cdots (z-z_n)^{a_n}$ and procede similarly to the previous argument to define $g = h \cdot e^{r/k}$.

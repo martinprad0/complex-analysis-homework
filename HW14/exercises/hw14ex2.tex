@@ -2,3 +2,30 @@
 
 \section{Exercise 2.}
 
+Show that for any meromorphic function $h:\C \to \C$ the exists entire functions $f,g: \C \to \C$ with no common zeros such that $h = f/g$.
+
+\subsection*{Solution}
+
+\textbf{Note:} Assume that the set of poles of $h$ is infinite (and thus unbounded). Otherwise, let $p_1,\ldots, p_n$ be the poles with order $k_1,\ldots, k_n$. Then, $h(z) \cdot \prod_{j = 1}^n(z-p_j)^{k_j}$ is a entire function with the same zeros as $h(z)$
+
+In the first place, either 0 is a pole or $f(0)$ is defined. So let
+\[ m = \begin{cases}
+    -\ord(f,0) & \mbox{if 0 is a pole},\\
+    \mult(f,0) & \mbox{if 0 is a zero},\\
+    0 & \mbox{otherwise,}
+\end{cases} \]
+and note that the map $z\mapsto z^{-m} h(z)$ has a removable singularity at 0.
+
+Let $Z = \{z\in \C\backslash\{0\} \;:\; h(z) = 0\} $ be the set of (non-zero) zeros and $P = \{z\in \C\backslash\{0\} \;:\; \lim_{w\to z}\frac{1}{h(w)} = 0\}$ be the set of (non-zero) poles of $h$. Note that $Z \cap P = \emptyset$ and both sets are countable because they have no isolated points (discrete). 
+Now, define a sequence $(z_n)_{n\in \N} \subset Z$ and $(p_n)_{n\in \N} \subset P$ where: 
+\begin{itemize}
+    \item If $k$ is the multiplicity of $z\in P$ at $h$, then there are exactly $k$ elements $z_{n_1},\ldots, z_{n_k}$ such that $z = z_{k_j}$ for $j\in\{1,\ldots, k\}$.
+    \item If $k$ is the order of $z\in P$ at $h$, then there are exactly $k$ elements $p_{n_1},\ldots, p_{n_k}$ such that $z = p_{k_j}$ for $j\in\{1,\ldots, k\}$.
+\end{itemize}
+Since $p_n$ is not bounded, it follows that for any $r\in \R$ there exists $N\in \N$ such that $|p_n| = 2r$ for $n \geq N$, and thus, 
+\[ \sum_{n = 1}^{\infty} \left| \frac{r}{a_n} \right|^n \leq \sum_{n = 1}^{N-1} \left| \frac{r}{a_n} \right|^n + \sum_{n = N}^{\infty} \frac{1}{2^n } < \infty,\]
+
+so define the entire function $g:\C\to \C$, $g(z) = \prod_{n = 1}^{\infty} E_n\left( \frac{z}{p_n} \right)$ with zeros at $P$. The multiplicity of any given zero of $g$ is, by the Weierstrass factorization theorem, the same as its order as a pole of $h$. Therefore, the map $z \mapsto z^{-m} h(z) g(z)$ can be extended to an entire function $f$ with zeros in $Z$. Then,
+
+\[ h(z) = z^m \cdot \frac{f(z)}{g(z)}. \]
+The set of zeros of $f$ is $Z$ and the set of zeros of $g$ is $P$ so they don't intersect and don't contain 0.

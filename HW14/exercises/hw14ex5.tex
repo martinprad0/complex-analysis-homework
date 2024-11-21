@@ -2,3 +2,40 @@
 
 \section{Exercise 5.}
 
+Let \( (a_n)_{n \in \mathbb{N}} \subset \mathbb{C} \) be a sequence of distinct points such that \( \lim_{n \to \infty} |a_n| = \infty \). Let \( (w_n)_{n \in \mathbb{N}} \subset \mathbb{C} \) be a sequence. Find an entire function \( f \) such that \( f(a_n) = w_n \) for all \( n \in \mathbb{N} \).  
+
+\textbf{Hint:} \( f = \sum f_n \), where \( f_n(a_1) = f_n(a_2) = \cdots = f_n(a_{n-1}) = 0 \).
+
+
+\subsection*{Solution}
+
+Without restriction, assume that $0 \not \in (a_n)_{n\in\N}$. Otherwise, translate every point in $(a_n)$ by a constant so $0$ is not in the sequence anymore.
+
+In the first place, if $\lim_{n \to \infty} |a_n| = \infty$, then $(a_n)_{n\in \N}$ doesn't have accumulation points. Then, by Weierstrass factorization theorem, the function
+\[ h(z) = \prod_{n = 1}^{\infty} E_n\left( \frac{z}{a_n} \right) \]
+is entire and only has zeros of multiplicity 1 at $a_n$ for every $n\in \N$. Note that $h(z)/(z-a_n)$ can be extended to an entire function that doesn't vanish at $a_n$. Therefore,
+\[ h'(a_n) = \lim_{z\to a_n} \frac{h(z) - \overbrace{h(a_n)}^{0}}{z-a_n} \neq 0. \]
+
+Now, we must introduce the Mittag-Leffler theorem in order to proceed
+
+\textbf{Theorem 4 Chapter 5.2 (Ahlfors')} Let $(b_n)_{n\in\N}$ be a sequence such that $\lim_{n\to\infty} |b_n| = \infty$, and let $P_n(z)$ be polynomials such that $P_n(z) = 0$ for every $n \in \N$. Then, there exists a function $F$ with poles at $b_n$ and the corresponding principal part is $P_n\left( \frac{1}{z-b_n} \right)$. In particular, one can find polynomials $p_n$ and an entire function $g$ for which
+\[ F(z) = g(z) + \sum_{n = 1}^{\infty} P_n\left( \frac{1}{z-b_n} \right) - p_n(z). \]
+$P_n(1/(z-b_n))$ is holomorphic for $|z| < |b_n|$ so it has a Taylor series at the origin. If we define $p_n$ as the partial Taylor sum with $m_n$ coefficients and $M_n = \max_{|z|\leq |b_n|/2}|P_n(z)|$, then we obtain the following approximation error bound:
+\[ \left| P_n\left( \frac{1}{z-b_n} \right) - p_n(z) \right| \leq 2M_n \left( \frac{2|z|}{|b_n|} \right)^{m_n+1},\quad |z| \leq |b_n|/4\]
+One can choose $m_n$ in such way that $2^{m_n} \geq M_n 2^n$.
+.\hfill $\square$
+
+For our case, I want $P_n(z) = z$ so
+\[ F(z) = \sum_{n = 1}^{\infty} \left( \frac{w_n/h'(a_n)}{z-a_n} - p_n(z)  \right) \]
+and $p_n = -\frac{w_n}{h'(a)a_n}\sum_{k = 0}^{m_n} (z/a_n)^k $ (partial geometric series of $\frac{w_n/h'(a_n)}{z-a_n}$) with an appropriate sequence of powers $(m_n)_{n\in \N} \subset \N$ for which $\sum_{n=1}^M \frac{w_n/h'(a_n)}{z-a_n} - p_n(z)$ converges absolutely when $M \to \infty$ so $F$ is well defined. Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \lim_{z \to a_n} F(z) \cdot h(z) & = & \lim_{z \to a_n} \left( \frac{w_n/h'(a_n)}{z-a_n} - p_n \right) \cdot h(z) + \sum_{k\neq n}^{\infty} \left( \frac{w_k/h'(a_k)}{z-a_k} - p_k(z) \right) \cdot h(z)\\
+    & = & \lim_{z \to a_n} \left( \frac{w_n/h'(a_n)}{z-a_n} - p_n \right) \cdot h(z) + 0\\
+    & = & \lim_{z \to a_n} \frac{w_n/h'(a_n)}{z-a_n} \cdot h(z) - 0\\
+    & = & \lim_{z \to a_n} \frac{w_n}{h'(a_n)} \frac{h(z) - \overbrace{h(a_n)}^{0} }{z-a_n}\\
+    & = & w_n \cdot \frac{h'(a_n)}{h'(a_n)} = w_n.
+\end{array}\]
+
+Finally, $F\cdot h$ only has removable singularities so it can be extended to an entire function $f$ that satisfies $f(a_n) = w_n$.
