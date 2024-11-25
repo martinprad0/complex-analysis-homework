@@ -160,3 +160,10 @@ This relation shows that $(\lambda_i I - T)^{v(\lambda_i)} E(\lambda_i)X = (\lam
 \begin{proof}
     In the previous paragraph we proved that $E(\lambda)X \subseteq A_{\lambda}$
 \end{proof}
+
+As we originally intended to show, the algebraic eigenspaces of $T$ give us a direct sum decomposition of the space $X$, and thus, the sum of the algebraic multiplicities give us the dimension of $X$. On the other hand, we also proved that $E(\lambda)$ is a projection to each eigenspace, so the functions of $T$ can be expressed as follows
+
+\begin{theorem}
+    For $f \in \F(T)$,
+    \[ f(T) = \sum_{\lambda \in \sigma(T)} \sum_{k = 0}^{v(\lambda)-1} \frac{(T-\lambda I)^k}{k!} f^{(k)}(\lambda) E(\lambda). \]
+\end{theorem}
