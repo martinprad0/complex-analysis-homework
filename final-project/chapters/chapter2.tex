@@ -188,4 +188,17 @@ As we originally intended to show, the algebraic eigenspaces of $T$ give us a di
     \[ g(T) = f(T). \]
 \end{proof}
 
-To end this chapter, we're going to introduce the notion of contour integral
+For a fixed $\lambda \in \rho(T)$, by taking $f_\lambda(z) = (\lambda - z)^{-1}$ we obtain that
+\[ (\lambda I - T)^{-1} = f_\lambda(T) = \sum_{j = 1}^{q} \sum_{k = 0}^{v(\lambda)-1} \frac{(T-\lambda_j I)^k }{(\lambda -\lambda_j I)^k} E(\lambda_j). \]
+
+Now, let $\lambda_0 \in \sigma(T)$, and an open ball $V_0$ that contains only $\lambda_0$ with no other eigenvalue of $T$. If $\gamma = \ol{V_0}$, then by the Cauchy Integral Theorem, for $z \in \C \backslash \gamma$
+\[ \ind_\gamma(z) = \frac{1}{2\pi i}\int_\gamma \frac{1}{\lambda - z} d\lambda. \]
+Similar to $e_{\lambda_0}$, the function $\ind_\gamma$ satisfies $\ind_\gamma(T) = E(\lambda_0)$ because $\ind_\gamma(\lambda_0) = 1$ and $\ind_\gamma(\lambda_j) = 0$ for any $\lambda_j \in \sigma(T)\backslash\{\lambda_0\}$.
+
+\textbf{Note:} For the person reviewing this work, I'm planning to reduce some of the content in this document to leave space for the following theorem and further generalizations to closed operators in infinite dimensional spaces.
+
+\begin{theorem}
+    $f(T) = \frac{1}{2\pi i} \int_{\gamma} f(\lambda) (\lambda I - T)^{-1} d\lambda$.
+\end{theorem}
+
+I ran out of time, and in general, I believe I lost time reviewing topics that may not be as relevant as the topics I left outside of this version. But, I also believe that I'm on the schedule to finish the document. Sorry if this is not what you expected.
