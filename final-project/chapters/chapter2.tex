@@ -108,7 +108,7 @@ Let $\F(T)$ be the family of all functions that are holomorphic at some open set
 \[ f^{(m)} (\lambda) = P^{(m)}(\lambda),\quad \lambda \in \sigma(T),\; m < v(\lambda), \]
 and with the previous corollary, we can be sure that there are no ambiguities if we define $f(T) = P(T)$ because any other polynomial that satisfies these equations would yield the same result. The following theorem immediately follows from the previous discussion.
 
-\begin{theorem} If $f,g$ are functions in $\F(T)$ and $\alpha,\beta$ are complex numbers, then
+\begin{theorem}~\label{ch2t3} If $f,g$ are functions in $\F(T)$ and $\alpha,\beta$ are complex numbers, then
     \begin{enumerate}[label = (\alph*)]
         \item $\alpha f + \beta g \in \F(T)$ and is defined as $(\alpha f + \beta g) (T) = \alpha f(T) + \beta g(T)$.
         \item $f \cdot g \in \F(T)$, is defined as $(f \cdot g) (T) = f(T)\cdot g(T)$, and also this implies $f(T)\cdot g(T) = g(T)\cdot f(T)$.
@@ -123,7 +123,7 @@ Let $\lambda_0 \in \C$ and define $e_{\lambda_0}(z)$ to be a function that is eq
 
 Now define $E(\lambda_0) = e_{\lambda}(T)$, and apply the previous theorem to the following proposition
 
-\begin{theorem} For the operator $E(\cdot)$ defined previously and $\lambda_0,\lambda_1 \in \C$:
+\begin{theorem}~\label{ch2t4} For the operator $E(\cdot)$ defined previously and $\lambda_0,\lambda_1 \in \C$:
     \begin{enumerate}[label = (\alph*)]
         \item $E(\lambda_0) = 0$ if and only if $\lambda_0 \in \rho(T)$.
         \item $E(\lambda_0)^2 = \E(\lambda_0) $.
@@ -134,7 +134,7 @@ Now define $E(\lambda_0) = e_{\lambda}(T)$, and apply the previous theorem to th
 
 \begin{proof}Note that $e_{\lambda_0}$ is locally constant so all of its derivatives are zero, so according to the previous theorem, the only thing that matters is whether $e_{\lambda_0}(\lambda) = 0$ for every $\lambda \in \sigma(T)$ or not.
     \begin{enumerate}[label = (\alph*)]
-        \item  If $\lambda \in \rho(T)$, then the neighborhood $V_0$ that contains $\lambda_0$ doesn't contain any eigenvalue of $T$, and thus, $e_{\lambda_0}(\lambda) = \1_{\lambda \in V_0} = 0$ for every $\lambda \in \sigma(T)$. If $E(\lambda) = 0$, then $e_{\lambda_0}(\lambda) = \1_{\lambda \in V_0} = 0$ for every $\lambda \in \sigma(T)$, and thus, all the eigenvalues are outside of $V_0$, implying that $\lambda_0$ is not an eigenvalue.
+        \item  If $\lambda_0 \in \rho(T)$, then the neighborhood $V_0$ that contains $\lambda_0$ doesn't contain any eigenvalue of $T$, and thus, $e_{\lambda_0}(\lambda) = \1_{\lambda \in V_0} = 0$ for every $\lambda \in \sigma(T)$. If $E(\lambda_0) = 0$, then $e_{\lambda_0}(\lambda) = \1_{\lambda \in V_0} = 0$ for every $\lambda \in \sigma(T)$, and thus, all the eigenvalues are outside of $V_0$, implying that $\lambda_0$ is not an eigenvalue.
         \item The function $e_{\lambda_0}$ only takes two values $\{0,1\}$ and the squares of both values are equal to themselves. Thus, $e_{\lambda_0}^2(\lambda) = e_{\lambda_0}(\lambda)$ for every $\lambda_0, \lambda \in \C$ and $e_{\lambda_0}^2$ is also locally constant, so it follows that $e_{\lambda_0}^2(T) = e_{\lambda_0}(T)$.
         \item If $\lambda_0 \in \rho(T)$ or $\lambda_1 \in \rho(T)$, then $E(\lambda_0)E(\lambda_1) = 0$ by item (a), so assume without restriction that $\lambda_0,\lambda_1 \in \sigma(T)$. Note that $e_{\lambda_1}(\lambda_0) = e_{\lambda_0}(\lambda_1) = 0$ and $e_{\lambda_0}(\lambda) = e_{\lambda_1}(\lambda) = 0$ for any other eigenvalue of $T$ different from $\lambda_0$ and $\lambda_1$. Finally, $e_{\lambda_0}(z)\cdot e_{\lambda_1}(z)$ is identically 0 for any $z \in \sigma(T)$ and all the derivatives are 0, so it follows that, $e_{\lambda_0}(T)\cdot e_{\lambda_1}(T) = 0$.
         \item Let $V_1,\ldots, V_q$ be the disjoint neighborhoods for $\lambda_1, \ldots, \lambda_q$ for which $e_{\lambda_j}(\lambda) = \1_{\lambda \in V_j}$. Then, since all the sets are disjoint every eigenvalue is exactly in one of this sets, so $f(\lambda) := \sum_{j = 1}^{q}e_{\lambda_j}(\lambda) = 1$ for every $\lambda \in \sigma(T)$. Therefore, since $I = 1(T)$, and both $f$ and $1$ are locally constant functions, it follows that $\sum_{j = 1}^{q}e_{\lambda_j}(T) = I$.
@@ -152,18 +152,40 @@ On the other hand, note that for every $\lambda \neq \lambda_i \in \sigma(T)$, $
 
 This relation shows that $(\lambda_i I - T)^{v(\lambda_i)} E(\lambda_i)X = (\lambda_i I - T)^{v(\lambda_i)} X_i = \{0\}$, and thus, since for every $y \in X_i$, $(\lambda_i I - T)^{v(\lambda_i)} y = 0$, it follows that $X_i \subseteq N_{\lambda_i}^{v(\lambda_i)} = A_{\lambda_i}$. The other inclusion is part of the following theorem
 
-\begin{theorem}
+\begin{theorem}~\label{ch2t5}
     For $\lambda \in \sigma(T)$,
     \[ E(\lambda)X = N_\lambda^{v(\lambda)} = A_\lambda. \]
 \end{theorem}
 
 \begin{proof}
-    In the previous paragraph we proved that $E(\lambda)X \subseteq A_{\lambda}$
+    In the previous paragraph we proved that $E(\lambda)X \subseteq A_{\lambda}$. Now, in the previous corollary we stated that
+    \[ X = \bigoplus_{\lambda \in \sigma(T)} E(\lambda) X, \]
+    so in order to show the other inclusion, we only need to prove that $A_\lambda \cap A_\mu = \{0\}$ for $\lambda \neq \mu$, $\lambda,\mu \in \sigma(T)$. Suppose for the sake of contradiction that there exists $x \in A_\lambda \cap A_\mu = N_\lambda^{v(\lambda)} \cap N_\mu^{v(\mu)}$ such that $x \neq 0$. Let $\alpha < v(\lambda)$ be a integer that satisfies
+    \[ z := (\lambda I - T)^{\alpha} x \neq 0 ,\quad  (\lambda I - T)^{\alpha+1} x = 0.\]
+    Thus, we have:
+    \begin{itemize}
+        \item First, it is clear that we can conmute the factors to obtain
+        \[ (\lambda I - T)^{v(\mu)} z = (\lambda I - T)^{v(\mu)}(\lambda I - T)^{\alpha} x = (\lambda I - T)^{\alpha}\underbrace{(\lambda I - T)^{v(\mu)} x}_{ x \in A_\mu} = 0.  \]
+        \item On the other hand, since $(\lambda I - T)z = (\lambda I - T)^{\alpha+1} x = 0$, it follows that $Tz = \lambda z$, and thus,
+        \[ (\lambda I - T)^{v(\mu)} z = (\lambda I - \mu I)^{v(\mu)} z = \underbrace{(\lambda - \mu)^{v(\mu)}}_{\neq 0} \underbrace{z}_{\neq 0} \neq 0. \]
+    \end{itemize}
+    This is a contradiction, so $x = 0$.
 \end{proof}
 
-As we originally intended to show, the algebraic eigenspaces of $T$ give us a direct sum decomposition of the space $X$, and thus, the sum of the algebraic multiplicities give us the dimension of $X$. On the other hand, we also proved that $E(\lambda)$ is a projection to each eigenspace, so the functions of $T$ can be expressed as follows
+As we originally intended to show, the algebraic eigenspaces of $T$ give us a direct sum decomposition of the space $X$, and thus, the sum of the algebraic multiplicities give us the dimension of $X$. We also proved that $E(\lambda)$ is a projection to each eigenspace, so the functions of $T$ can be expressed as follows
 
 \begin{theorem}
     For $f \in \F(T)$,
     \[ f(T) = \sum_{\lambda \in \sigma(T)} \sum_{k = 0}^{v(\lambda)-1} \frac{(T-\lambda I)^k}{k!} f^{(k)}(\lambda) E(\lambda). \]
 \end{theorem}
+
+\begin{proof}
+    The function $g \in \F(T)$, $g(z) = \sum_{\lambda \in \sigma(T)} \sum_{k = 0}^{v(\lambda)-1} \frac{(z-\lambda)^k}{k!} f^{(k)}(\lambda) e_\lambda(z)$ interpolates $f$ and its derivatives at each point $\lambda \in \sigma(T)$. In fact, for $\lambda_0 \in \sigma(T)$ and $m = 1,\ldots, v(\lambda) - 1$, 
+    \[ e_\lambda(\lambda_0) = 0,\; \lambda \neq \lambda_0,\quad e_\lambda(\lambda_0) = 1,\; \lambda = \lambda_0,  \]
+    and thus,
+    \[ g^{(m)}(\lambda_0) = \sum_{k = m}^{v(\lambda)-1} \frac{(\lambda_0-\lambda_0)^{k-m}}{(k-m)!} f^{(k)}(\lambda_0) = f^{(m)}(\lambda_0).\]
+    Finally, by Theorem~\ref{ch2t3}, it follows that
+    \[ g(T) = f(T). \]
+\end{proof}
+
+To end this chapter, we're going to introduce the notion of contour integral
