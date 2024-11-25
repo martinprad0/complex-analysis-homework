@@ -1,4 +1,5 @@
-\documentclass[parskip=full]{scrartcl}
+\documentclass[11pt]{article}
+\setlength{\parskip}{0.6 em}
 
 %%--PACKAGES-----------------------------------------------------
 \usepackage[dvipsnames]{xcolor} % color
@@ -34,6 +35,7 @@
 \def\C{\ensuremath{\mathbb{C}}}
 \def\S{\ensuremath{\mathbb{S}}}
 \def\D{\ensuremath{\mathbb{D}}}
+\def\F{\ensuremath{\mathscr{F}}}
 
 \usepackage{bbm,dsfont}
 \def\1{\ensuremath{\mathds{1}}}
@@ -44,6 +46,7 @@
 \def\AA{\ensuremath{\mathscr{A}}}
 \def\BB{\ensuremath{\mathcal{B}}}
 \def\CC{\ensuremath{\mathcal{C}}}
+\def\span{\ensuremath{\mbox{span}}}
 \def\re{\ensuremath{\mbox{Re}}}
 \def\im{\ensuremath{\mbox{Im}}}
 \def\ord{\ensuremath{\mbox{ord}}}
@@ -56,7 +59,8 @@
 % Theorems and more
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}[theorem]
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{remark}{Remark}
@@ -69,25 +73,25 @@
 \def\ul{\ensuremath{\underline}}
 
 % Section Numbering Fixes
-\makeatletter
-\renewcommand\thesection{}
-\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
-\makeatother
+% \makeatletter
+% \renewcommand\thesection{}
+% \renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+% \makeatother
 
 % Title Info
-\title{Complex Analysis: Homework 14}
+\title{Holomorphic Functional Calculus}
 \author{Martín Prado}
 \date{\AdvanceDate[-1]\today} % For cheating deadlines change 0 to -1
-\publishers{Universidad de los Andes $-$ Bogotá Colombia}
+% \publishers{Universidad de los Andes $-$ Bogotá Colombia}
 
 
 %%--DOCUMENT-----------------------------------------------------
 \begin{document}
-\maketitle
 
+\maketitle
 % \tableofcontents 
 
-\inputfiles{../exercises/*}
+\inputfiles{../chapters/*}
 
 % \bibliography{refs}
  
