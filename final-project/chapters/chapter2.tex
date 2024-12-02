@@ -193,7 +193,9 @@ For a fixed $\lambda \in \rho(T)$, by taking $f_\lambda(z) = (\lambda - z)^{-1}$
 
 Now, let $\lambda_0 \in \sigma(T)$, and an open ball $V_0$ that contains only $\lambda_0$ with no other eigenvalue of $T$. If $\gamma = \ol{V_0}$, then by the Cauchy Integral Theorem, for $z \in \C \backslash \gamma$
 \[ \ind_\gamma(z) = \frac{1}{2\pi i}\int_\gamma \frac{1}{\lambda - z} d\lambda. \]
-Similar to $e_{\lambda_0}$, the function $\ind_\gamma$ satisfies $\ind_\gamma(T) = E(\lambda_0)$ because $\ind_\gamma(\lambda_0) = 1$ and $\ind_\gamma(\lambda_j) = 0$ for any $\lambda_j \in \sigma(T)\backslash\{\lambda_0\}$.
+Similar to $e_{\lambda_0}$, the function $\ind_\gamma$ satisfies $\ind_\gamma(T) = E(\lambda_0)$ because $\ind_\gamma(\lambda_0) = 1$ and $\ind_\gamma(\lambda_j) = 0$ for any $\lambda_j \in \sigma(T)\backslash\{\lambda_0\}$. The intended goal is to show that
+\[ E(\lambda_0) = \frac{1}{2\pi i}\int_\gamma R(\lambda; T) d\lambda, \]
+and from that point define the general Cauchy Integral Formula for any function $f$ and  curves. 
 
 \textbf{Note:} For the person reviewing this work, I'm planning to reduce some of the content in this document to leave space for the following theorem and further generalizations to closed operators in infinite dimensional spaces.
 

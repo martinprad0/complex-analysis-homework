@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1732568524.32256 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/final-project/src/main.tex" "main.pdf" "main" 1732568526.35202 0
+["pdflatex"] 1732568884.56395 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/final-project/src/main.tex" "main.pdf" "main" 1732568886.6637 0
   "../chapters/chapter1.tex" 1732513535.10332 6002 ee6594d095e861557714457de4e49e64 ""
-  "../chapters/chapter2.tex" 1732568523.84387 18753 b789a4176be1a36937eedaa3b7afa5e2 ""
+  "../chapters/chapter2.tex" 1732568884.10602 18958 32dda01f02b75ff82509d3623e9d9fc3 ""
   "../chapters/chapter3.tex" 1732488046.90716 75 cb9dbfc2c9c1bb6310d7775a656eac22 ""
   "/dev/null" 1731015810.38925 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/final-project/src/main.tex" 1732523679.98733 3309 bab0305dd22c8f8ae3a1331cedc9b88a ""
@@ -229,7 +229,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "main.aux" 1732568526.02388 1790 7e9fd04ab14085edbf35f9d4bd68de8f "pdflatex"
+  "main.aux" 1732568886.27303 1790 7e9fd04ab14085edbf35f9d4bd68de8f "pdflatex"
   "main.tex" 1732523679.98733 3309 bab0305dd22c8f8ae3a1331cedc9b88a ""
   (generated)
   "main.aux"
