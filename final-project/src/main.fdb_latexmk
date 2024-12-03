@@ -1,17 +1,17 @@
 # Fdb version 4
-["bibtex main"] 1733218990.24991 "main.aux" "main.bbl" "main" 1733219117.39623 0
+["bibtex main"] 1733236593.87591 "main.aux" "main.bbl" "main" 1733236644.19511 0
   "./refs.bib" 1733185626.48388 1613 2608f14842fa97339109821f02884b80 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1733219117.00713 5285 da9239f7296e3f70632dea416fc2d523 "pdflatex"
+  "main.aux" 1733236643.82998 5285 da9239f7296e3f70632dea416fc2d523 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1733219115.60185 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/final-project/src/main.tex" "main.pdf" "main" 1733219117.39657 0
+["pdflatex"] 1733236642.37328 "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/final-project/src/main.tex" "main.pdf" "main" 1733236644.19532 0
   "../chapters/chapter1.tex" 1733214136.84889 4530 593ed341d375bcaf2a95b7c69f33f16a ""
   "../chapters/chapter2.tex" 1733199507.88609 9158 6af351cd884f02794506d39dda993c40 ""
   "../chapters/chapter3.tex" 1733201540.42457 8288 a1fd327d765e427ffaf5d4b122e94343 ""
-  "../chapters/chapter4.tex" 1733219115.33511 8435 036e2324a96d6dbeddd0f14d970b3114 ""
+  "../chapters/chapter4.tex" 1733236642.11997 8614 eb59bcd03f45d783bced63e64107c9e1 ""
   "../chapters/chapter5.tex" 1733208244.79568 22342 7c76a11d7b72312db2fabace34e7972f ""
   "/dev/null" 1731015810.38925 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/martin/Documents/VSCode/Latex/complex-analysis-homework/final-project/src/main.tex" 1733213050.53525 3395 1c0f6e232bfdee9b10f7a6b66fd72296 ""
@@ -242,8 +242,8 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "main.aux" 1733219117.00713 5285 da9239f7296e3f70632dea416fc2d523 "pdflatex"
-  "main.bbl" 1733218990.34683 1599 8b99b4a66b324c2d352a50cb8bb8a7d4 "bibtex main"
+  "main.aux" 1733236643.82998 5285 da9239f7296e3f70632dea416fc2d523 "pdflatex"
+  "main.bbl" 1733236593.96649 1599 8b99b4a66b324c2d352a50cb8bb8a7d4 "bibtex main"
   "main.tex" 1733213050.53525 3395 1c0f6e232bfdee9b10f7a6b66fd72296 ""
   (generated)
   "main.aux"
