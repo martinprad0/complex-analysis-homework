@@ -42,25 +42,44 @@ In the next theorem, we are going to prove that the mapping $\lambda \mapsto R_\
     \end{array} \]
 \end{proof}
 
-\begin{corollary} The following consequences follow from the previous theorem. For $\lambda \in \rho(T)$,
+\begin{corollary}\label{cor:resolvent_analytic} The following consequences follow from the previous theorem. For $\lambda \in \rho(T)$,
     \begin{itemize}
-        \item  The mapping $\lambda \mapsto f(\lambda)R_{\lambda}$ is analytic (as an operator in $L(X)$).
-        \item  For a holomorphic function $f$, the mapping $\lambda \mapsto f(\lambda)R_{\lambda}$ is analytic (as an operator in $L(X)$).
+        \item  The mapping $\lambda \mapsto R_{\lambda}$ is analytic (as an operator in $L(X)$).
+        \item  For a holomorphic function $f$, the mapping $\lambda \mapsto f(\lambda)R_{\lambda}$ is analytic in any open set at the complement of $\sigma^2$ (as an operator in $L(X)$).
         % \item The $n$-th derivative of $R_{\lambda}$ exists for $n = 1,2,\ldots$,
         % \[ \frac{d^n}{d \lambda^n} R_\lambda = (-1)^n n! R_{\lambda}^{n+1}. \]
     \end{itemize}
     \hfill $\square$
 \end{corollary}
 
+Therefore, the following theorem follows from the fact that $\sigma(T)$ is compact for a bounded operator $T$.
+
+\begin{theorem}\label{thm:cauchy_integral_well_defined}
+    Let $f: U \to \C$ be a complex function that is holomorphic at a bounded Cauchy domain $D \supseteq \sigma(T)$ and let $C_1,C_2$ be two rectifiable simple curves that form the boundary of two open sets $U_1, U_2 \subseteq D$ such that $U_1, U_2 \supseteq \sigma(T)$. Then,
+    \[ \int_{C_1} f(\lambda) R_\lambda\, d\lambda = \int_{C_2} f(\lambda) R_\lambda\, d\lambda. \]
+\end{theorem}
+
+\begin{proof}
+    $C_1,C_2$ are compact. Let $-C_2$ be the negatively oriented version of $C_2$. If we join $C_1$ and $-C_2$, then, we obtain another compact curve $C = C_1-C_2$ that can be contained at an open set $U$ that is at the complement of $\sigma(T)$. Therefore, by \hyperref[cor:resolvent_analytic]{Corollary~\ref*{cor:resolvent_analytic}} since the function $\lambda \mapsto \lambda f(\lambda)R_\lambda$ is analytic at $U$, it follows by the Cauchy Integral Formula that
+    \[ 0 = \int_{C} f(\lambda)R_\lambda\, d\lambda = \int_{C_1} f(\lambda)R_\lambda\, d\lambda - \int_{C_2} f(\lambda)R_\lambda\, d\lambda \]
+\end{proof}
+
 \subsection*{Closing statements}
 
-From this discussion we justified the methods to calculate the Cauchy Integral for closed operators, when $\sigma(T)$ is contained at a domain $D$ where $f$ is holomorphic,
-\[ \int_{\d D} f(\lambda) R_\lambda\, d\lambda,\quad \sigma(T) \subsetneq D. \]
-In fact, since we proved that, for a bounded operator $T$, the spectrum is bounded, we can find $R > 0$ such that $R(\lambda; T)$ is defined,
+From this discussion we justified the methods to calculate the Cauchy Integral for bounded operators. When $\sigma(T)$ is contained at a bounded Cauchy domain $D$ where $f: U \to \C$ is holomorphic,
+\[ f(T) = \int_{\d D} f(\lambda) R_\lambda\, d\lambda, \]
+is well defined and independent of the choice of $D$. Also since we proved that, for a bounded operator $T$, the spectrum is bounded, we can find $R > 0$ such that $R(\lambda; T)$ is defined,
 \[ R(\lambda; T) = \sum_{n = 1}^{\infty} \lambda^{-n} T^{n-1},\quad |\lambda| > R. \]
-Now, for any function $f$ that is holomorphic over an open set containing $\sigma(T)$ and $C$ any rectifiable closed curve that encloses $\sigma(T)$ where $f$ is defined, the proposed definition for $f(T)$,
-\[ f(T) := \frac{1}{2\pi i} \int_C f(\lambda) R_\lambda\, d\lambda,\]
-makes sense. There are many important repercussions that require further investigation. For example, the next consequence of this integral formula would be the following theorem
+There are many important repercussions that require further investigation. For example, the next consequence of this integral formula would be the following theorems
+
+\begin{theorem}
+    \[ T^p := \int_{\d D} \lambda^{p}R_\lambda d\lambda,\quad p = 0,1,\ldots. \]
+    \hfill $\square$
+\end{theorem}
+
+\begin{theorem}
+    Let $f_1,f_2$ be holomorphic functions that satisfy the conditions stated in \hyperref[thm:cauchy_integral_well_defined]{Theorem~\ref*{thm:cauchy_integral_well_defined}}. Then, $(\alpha f_1 + f_2)(T) = \alpha f_1(T) + f_2(T)$ and $(f_1f_2)(T) = f_1(T)f_2(T)$.\hfill $\square$
+\end{theorem}
 
 \begin{theorem}
     Let $T \in L(X)$. If $f,g$ are two holomorphic function defined on an open set that contains $\sigma(T)$ and $f(\lambda) = g(\lambda)$ for every $\lambda \in U$ for an open set $U$ contained in their domains, then $f(T) = g(T)$.\hfill $\square$
@@ -76,7 +95,8 @@ For unbounded closed operators, since $\sigma(T)$ might not be bounded, more det
 In fact, for $f\in \F(T)$ with $f: U \to \C$, if $D$ is an unbounded Cauchy domain such that $\ol{D} \subset U$, then $\d B$ is compact and the Cauchy Integral Formula would hold as follows
 \[ f(\lambda_0) = f(\infty) + \int_{\d D}  \frac{f(\lambda)}{\lambda_0-\lambda}\, d\lambda. \]
 Therefore, according to the previous discussion, the appropriate definition of $f(T)$ would be the following
-\[ f(T) :=  f(\infty) + \int_{\d D} f(\lambda) R_\lambda\, d\lambda.\]
+\[ f(T) :=  f(\infty) I + \int_{\d D} f(\lambda) R_\lambda\, d\lambda.\]
+From this point forward, many of the results for bounded operators, follow similarly with closed operators.
 % \[ T^p = \frac{1}{2\pi i} \int_C \lambda^p R_\lambda d\lambda,\quad  p = 0,1,2,\ldots\] 
 % Therefore, 
 
