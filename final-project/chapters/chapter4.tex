@@ -1,0 +1,99 @@
+% chktex-file 3 chktex-file 9 chktex-file 12 chktex-file 17 chktex-file 18 chktex-file 36
+\section{The Resolvent}
+
+To conclude the discussion we are going to describe some properties of the resolvent operator. Similar to the discussion in~\cite{taylor1986introduction}, for this section, we use the notation $T_\lambda = (\lambda I - T)$ and $R_\lambda = R(\lambda; T)$. Using Lemma 3.33 from~\cite{winklmeier2013functional}, we can assert that if $T:X\to X$ is a closed operator and $\lambda \in \rho(T)$, then $R_\lambda$ is bounded. So from this point forward, assume that $T: X \to X$ is a closed linear operator. 
+
+In the first place, for $S \in L(X)$ note that if $\|S\| < 1$, the Neumann series gives us
+\[ (I-S)^{-1} = \sum_{n = 0}^{\infty} S^n. \]
+Now, for $\lambda_0 \in \rho(T)$ and $\lambda \in \C$, we have that since 
+\[ T_{\lambda} = T_{\lambda_0} - (\lambda_0 - \lambda) I = (I - (\lambda_0-\lambda)R_{\lambda_0})T_{\lambda_0}. \]
+So if we choose $\lambda$ such that $\|(\lambda_0-\lambda)R_{\lambda_0}\| < 1$, that is $|\lambda_0-\lambda|< \|R_{\lambda_0}\|^{-1}$, then we can invert the previous expression using the Neumann series to obtain
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    R_{\lambda} & = & R_{\lambda_0} (I - (\lambda_0-\lambda)R_{\lambda_0})^{-1}\\
+    & = & R_{\lambda_0} \sum_{n = 0}^{\infty} (\lambda_0-\lambda)^n R_{\lambda_0}^n\\
+    & = & \sum_{n = 0}^{\infty} (\lambda_0-\lambda)^n R_{\lambda_0}^{n+1}.
+\end{array} \]
+
+This proves that for $\lambda_0 \in \rho(T)$, the ball of radius $\|R_{\lambda_0}\|^{-1}$ is contained at $\rho(T)$, and thus, the resolvent set is open. On the other hand, note that if $T$ is bounded and $|\lambda| > \|T\|$, then $\|\lambda^{-1} T\| < 1$, so it follows that
+\[ T_{\lambda} = \lambda(I - \lambda^{-1} T) \mbox{ is invertible.} \]
+Therefore, $\sigma(T) \subseteq \ol{B_{\|T\|}(0)}$ implying that $\sigma(T)$ is compact when $T \in L(X)$. 
+
+\begin{theorem}\label{thm:resolvent_is_open}
+    The resolvent of a closed linear operator is open. Also, for $\lambda_0 \in \rho(T)$, if $|\lambda_0 - \lambda| < \|R_{\lambda_0}\|^{-1}$, then $\lambda \in \rho(T)$.\hfill $\square$
+\end{theorem}
+
+
+In the next theorem, we are going to prove that the mapping $\lambda \mapsto R_\lambda$ is analytic in its domain.
+
+\begin{theorem}
+    For $y\in X$ and $x' \in X'$, the mapping $\lambda \mapsto x'R_{\lambda}y$ is holomorphic.
+\end{theorem}
+
+\begin{proof}
+    Let $\lambda_0$. Then, note that the Neumann series provided by \hyperref[thm:resolvent_is_open]{Theorem~\ref*{thm:resolvent_is_open}} is absolutely convergent for $\lambda \in B_{\|R_{\lambda_0}\|^{-1}}(\lambda_0)$. Thus, by continuity of $x'$,
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        x'R_{\lambda}y & = & x'\left( \sum_{n = 0}^{\infty} (\lambda_0-\lambda)^n R_{\lambda_0}^{n+1} y \right)\\
+        & = & \sum_{n = 0}^{\infty} (\lambda_0-\lambda)^{n} \underbrace{x' R_{\lambda_0}^{n+1}y}_{a_n}\\
+        & = & \sum_{n = 0}^{\infty} a_n (\lambda_0-\lambda)^{n}.
+    \end{array} \]
+\end{proof}
+
+\begin{corollary} The following consequences follow from the previous theorem. For $\lambda \in \rho(T)$,
+    \begin{itemize}
+        \item  The mapping $\lambda \mapsto f(\lambda)R_{\lambda}$ is analytic (as an operator in $L(X)$).
+        \item  For a holomorphic function $f$, the mapping $\lambda \mapsto f(\lambda)R_{\lambda}$ is analytic (as an operator in $L(X)$).
+        % \item The $n$-th derivative of $R_{\lambda}$ exists for $n = 1,2,\ldots$,
+        % \[ \frac{d^n}{d \lambda^n} R_\lambda = (-1)^n n! R_{\lambda}^{n+1}. \]
+    \end{itemize}
+    \hfill $\square$
+\end{corollary}
+
+\subsection*{Closing statements}
+
+From this discussion we justified the methods to calculate the Cauchy Integral for closed operators, when $\sigma(T)$ is contained at a domain $D$ where $f$ is holomorphic,
+\[ \int_{\d D} f(\lambda) R_\lambda\, d\lambda,\quad \sigma(T) \subsetneq D. \]
+In fact, since we proved that, for a bounded operator $T$, the spectrum is bounded, we can find $R > 0$ such that $R(\lambda; T)$ is defined,
+\[ R(\lambda; T) = \sum_{n = 1}^{\infty} \lambda^{-n} T^{n-1},\quad |\lambda| > R. \]
+Now, for any function $f$ that is holomorphic over an open set containing $\sigma(T)$ and $C$ any rectifiable closed curve that encloses $\sigma(T)$ where $f$ is defined, the proposed definition for $f(T)$,
+\[ f(T) := \frac{1}{2\pi i} \int_C f(\lambda) R_\lambda\, d\lambda,\]
+makes sense. There are many important repercussions that require further investigation. For example, the next consequence of this integral formula would be the following theorem
+
+\begin{theorem}
+    Let $T \in L(X)$. If $f,g$ are two holomorphic function defined on an open set that contains $\sigma(T)$ and $f(\lambda) = g(\lambda)$ for every $\lambda \in U$ for an open set $U$ contained in their domains, then $f(T) = g(T)$.\hfill $\square$
+\end{theorem}
+
+For unbounded closed operators, since $\sigma(T)$ might not be bounded, more details have to be taken into consideration. A plausible alternative is to only consider a set of functions $\F(f)$ that satisfies the following conditions:
+\begin{itemize}
+    \item For $f \in \F(T)$, $f$ is holomorphic on its domain $U\subset \C$ which is an open set that contains $\sigma(T)$.
+    \item The complement of $U$ is compact.
+    \item $f(\lambda)$ is bounded and the limit $f(\infty) = \lim_{|\lambda|\to\infty}f(\lambda)$ exists.
+\end{itemize}
+
+In fact, for $f\in \F(T)$ with $f: U \to \C$, if $D$ is an unbounded Cauchy domain such that $\ol{D} \subset U$, then $\d B$ is compact and the Cauchy Integral Formula would hold as follows
+\[ f(\lambda_0) = f(\infty) + \int_{\d D}  \frac{f(\lambda)}{\lambda_0-\lambda}\, d\lambda. \]
+Therefore, according to the previous discussion, the appropriate definition of $f(T)$ would be the following
+\[ f(T) :=  f(\infty) + \int_{\d D} f(\lambda) R_\lambda\, d\lambda.\]
+% \[ T^p = \frac{1}{2\pi i} \int_C \lambda^p R_\lambda d\lambda,\quad  p = 0,1,2,\ldots\] 
+% Therefore, 
+
+
+% \begin{proof}
+%     The first 2 items follow directly from the previous theorem. For the last item we require an identity
+%     \begin{lemma}[Resolvent Infodentity]\label{lem:resolvent_identity}
+%         \[ R_{\lambda} - R_{\mu} = (\mu-\lambda)R_{\lambda}R_{\mu},\quad \lambda,\mu \in \rho(T). \]
+%     \end{lemma}
+%     \begin{proof}
+%         \[ \everymath{\displaystyle}
+%         \arraycolsep=1.8pt\def\arraystretch{1.5}
+%         \begin{array}{rcl}
+%             R_{\lambda} - R_{\mu} & = & R_{\lambda}(I- T_\lambda R_\mu)\\
+%             & = & R_{\lambda}(T_\mu - T_\lambda)R_\mu\\
+%             & = & R_{\lambda}(\mu - T - \lambda + T)R_\mu\\
+%             & = & (\mu - \lambda)R_{\lambda}R_\mu
+%         \end{array} \]
+%     \end{proof}
+% \end{proof}

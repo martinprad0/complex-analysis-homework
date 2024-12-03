@@ -1,0 +1,35 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Hyt{\"o}nen et~al.(2016)Hyt{\"o}nen, van Neerven, Veraar, and Weis]{hytönen2016analysis}
+T.~Hyt{\"o}nen, J.~van Neerven, M.~Veraar, and L.~Weis.
+\newblock \emph{Analysis in Banach Spaces: Volume I: Martingales and Littlewood-Paley Theory}.
+\newblock Ergebnisse der Mathematik und ihrer Grenzgebiete. 3. Folge / A Series of Modern Surveys in Mathematics. Springer International Publishing, 2016.
+\newblock ISBN 9783319485201.
+\newblock URL \url{https://books.google.com.co/books?id=GyecDQAAQBAJ}.
+
+\bibitem[Taylor(2012)]{taylor2012general}
+A.E. Taylor.
+\newblock \emph{General Theory of Functions and Integration}.
+\newblock Dover Books on Mathematics Series. Dover Publications, Incorporated, 2012.
+\newblock ISBN 9780486152141.
+\newblock URL \url{https://books.google.com.co/books?id=cM5oR8orpcAC}.
+
+\bibitem[Taylor and Lay(1986)]{taylor1986introduction}
+A.E. Taylor and D.C. Lay.
+\newblock \emph{Introduction to Functional Analysis}.
+\newblock Krieger, 1986.
+\newblock ISBN 9780898749519.
+\newblock URL \url{https://books.google.com.co/books?id=_LENHUbZOP0C}.
+
+\bibitem[Winklmeier(2013)]{winklmeier2013functional}
+M.~Winklmeier.
+\newblock Functional analysis: Lecture notes, 2013.
+\newblock URL \url{https://math.uniandes.edu.co/~mwinklme/teaching/FuncAna/FA-lecture_notes.pdf}.
+\newblock Accessed: 2024-12-02.
+
+\end{thebibliography}

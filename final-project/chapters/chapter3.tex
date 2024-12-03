@@ -1,1 +1,104 @@
-% chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
+% chktex-file 3 chktex-file 9 chktex-file 12 chktex-file 17 chktex-file 18 chktex-file 36
+
+\section{Cauchy Integral Formula for Banach Spaces}
+
+In this section we're going to discuss the generalization of the integral formula for functions with values in Banach spaces. The discussion of Bochner integrals is based entirely on section 1.2 of~\cite{hytönen2016analysis}, but the version of the Cauchy Integral formula is adapted from section V.1 of~\cite{taylor1986introduction} and section 9.5 of~\cite{taylor2012general}. For this section, we assume that $(S,\Sigma, \mu)$ is a measure space and $X$ is a complex Banach space
+
+\begin{definition}[Simple functions]\label{def:simple_function}\label{def:indicator_function}
+    For $A\subset S$, let $\1_{A}: S \to \{0,1\}$ be the \textit{indicator function} of the set $A$, that is,
+    \[ \1_A(x) = \begin{cases}
+        1 & x\in A,\\
+        0 & x \not\in A.
+    \end{cases} \]
+    For a sequence $x_1,\ldots, x_n \in X$ and a sequence of measurable sets $A_1,\ldots, A_n$, the function $f: S \to X$,
+    \[ f(x) = \sum_{k = 1}^n \1_{A_k}(x) \cdot x_k, \]
+    is called a \textit{simple function}.
+\end{definition}
+
+\begin{definition}[Bochner Integral]\label{def:bochner_integral}\label{def:bochner_integrable}\label{def:strongly_measurable}
+    For a simple function $f(x) = \sum_{k = 1}^n \1_{A_k}(x) \cdot x_k$, we define the \textit{Bochner integral} as
+    \[ \int_S f \, d\mu := \sum_{k = 1}^n \mu(A_k) \cdot x_k \in X. \]
+    Now, for a measurable function $f:S\to X$, we say that $f$ is \textit{Bochner integrable} with respect to $\mu$, if there exists a sequence of simple functions $\{f_n\}_{n\in \N}$ such that two conditions are met:
+    \begin{itemize}
+        \item $\displaystyle \lim_{n\to\infty} f_n(s) = f(s)$ for almost every $s \in S$. In particular, we say that $f$ is \textit{strongly measurable} if $f$ satisfies this property for some sequence of simple functions.
+        \item $\displaystyle \lim_{n\to\infty} \int_{S} \|f - f_n\|\, d\mu = 0$.
+    \end{itemize}
+    In such case, since $X$ is complete, the sequence $\int_S f_n\, d\mu$ converges to what we call the \textit{Bochner integral of} $f$,
+    \[ \int_S f \, d\mu = \lim_{n\to\infty} \int_S f_n\, d\mu,\]
+    and this integral is an element of $X$. There's another characterization of Bochner integrability in the following theorem.
+\end{definition}
+
+\begin{theorem}\label{thm:bochner_integral_equivalent_definition}
+    A strongly measurable function $f$ is Bochner integrable if and only if
+    \[ \int_S \|f\|\, d\mu < \infty. \]
+\end{theorem}
+\begin{proof}
+    Proposition 1.2.2.~\cite{hytönen2016analysis}.
+\end{proof}
+
+\begin{remark} From the previous theorem, some of the properties of Riemann and Lebesgue integrals immediately transfer for the Bochner integral. For Bochner integrable functions $f,g: S \to X$ and $\lambda \in \C$,
+    \begin{itemize}
+        \item $\displaystyle \int_S f+\lambda g \, d\mu =\int_S f \, d\mu + \lambda \int_S  g \, d\mu $. (Linearity)
+        \item $\displaystyle \left\| \int_S f \, d\mu \right\| \leq \int_S \|f\| \, d\mu $. (Triangle inequality)
+        \item If $f = g$ almost everywhere, then $\displaystyle \int_S f\, d\mu = \int_S  g \, d\mu $.
+        \item $\displaystyle \int_S \1_A f\, d\mu = \int_A f|_A\, d\mu|_A$. (Truncation)
+    \end{itemize}
+    Finally, there's one last theorem we require before returning to the discussion of operators.
+\end{remark}
+
+\begin{theorem}\label{th:closed_bochner_integral_limit}
+    Let $f: S \to X$ be Bochner integrable. If $X_0 \subset X$ is a closed subspace such that $f(s) \in X_0$ for almost every $s \in S$, then $\int_S f\, d\mu \in X_0$.
+\end{theorem}
+\begin{proof}
+    Proposition 1.2.3. of~\cite{hytönen2016analysis}.
+\end{proof}
+
+From this theorem, we can conclude that if $T: X \to y$ is a bounded linear operator between Banach spaces and $f$ is Bochner integrable, then
+\[ T \int_S f\, d\mu = \int_S Tf \, d\mu.\]
+
+Furthermore, as we stated at the start of the document, we want to use the Cauchy Formula in a broader set of operators. The operators of interested at the moment are called closed operators.
+
+\begin{definition}[Closed linear operator]\label{def:closed_linear_operator}\label{def:graph}
+    A linear operator $T : \D (T) \to Y$ defined on a subspace $\D (T) \subseteq X$ (the \textit{domain} of $T$) and taking values in a Banach space $Y$, is said to be \textit{closed} if its graph is a closed subspace of $X\times Y$. The \textit{graph} of $T$ is defined as follows,
+    \[ G(T) := \{(x, Tx) \;:\; x\in \D(T)\} \subseteq X\times Y. \]
+\end{definition}
+
+\begin{remark}
+    There are some important facts about closed operators:
+    \begin{itemize}
+        \item For a closed linear operator $T$, $\D(T)$ is a Banach space with respect to the graph norm:
+    \[ \|x\|_{\D(T)} := \|x\| + \|Tx\|. \]
+        \item An equivalent definition for a closed operator is a linear operator $T$ that satisfies the following: for every sequence $(x_n)_{n\in\N} \subseteq \D(T)$, if $(x_n)_{n\in \N}$ and $(Tx_n)_{n\in \N}$ converge in $X$ and $Y$ respectively, then, there exists $x_0 \in \D(T)$ such that
+        \[ x_0 := \lim_{n\to\infty} x_n,\quad \mbox{and} \quad \lim_{n\to\infty} Tx_n = Tx_0. \]
+        \item Any bounded operator is closed. Also, the \textit{closed graph theorem} asserts that for a closed linear operator $T : \D(T) \subseteq X \to Y$, if $\D(T) = X$, then $T$ is bounded, so whether a closed operator is bounded depends on $\D(T)$.
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}[Hille's theorem]\label{thm:hille} Let $f: S\to X$ be Bochner integrable and let $T: \D(T) \subseteq X \to Y$ be a closed linear operator. Suppose that $f(S) \subseteq \D(T)$ and the function $Tf: S \to Y$ is Bochner integrable too. Then, $\int_S f\, d\mu \in \D(T)$ and,
+    \[ T\int_S f\, d\mu = \int_S Tf\, d\mu. \]    
+\end{theorem}
+
+\begin{proof}
+    Theorem 1.2.4.~\cite{hytönen2016analysis}
+\end{proof}
+
+Now, define $f: U \to X$ to be an analytic function from an open set $U \subset \C$ with values in $\D(T) \subseteq X$ and $S$ to be a complex rectifiable curve $C \subseteq U$. Note that since $f$ is continuous and $C$ is a compact set, it follows that
+\[ \int_{C} \|f(\lambda)\| d\lambda \leq \sup_{\lambda\in C}\|f(\lambda)\| +\mbox{len}(C) < \infty. \]
+Therefore, by \hyperref[thm:bochner_integral_equivalent_definition]{Theorem~\ref*{thm:bochner_integral_equivalent_definition}}, every analytic function is Bochner integrable on a rectifiable curve. The version of Hille's theorem we're looking for is:
+\[ T\int_C f(\lambda)\, d\lambda = \int_C Tf(\lambda)\, d\lambda. \]
+
+A direct application of Hille's Theorem is the generalization of Cauchy Integral Formula for analytic functions with values over a Banach space. Let $y:= \int_{C} f(\lambda) d\lambda$. Using \hyperref[cor:analytic_equivalences]{Corollary~\ref*{cor:analytic_equivalences}}, we have that, for every $x' \in X'$, $x'f$ is a holomorphic function, and thus, by \hyperref[thm:hille]{Hille's Theorem} and \hyperref[thm:cauchy_integral_formula_basic]{Cauchy Integral Formula},
+\[ x'y = x'\left( \int_{C} f(\lambda) d\lambda \right) = \int_{C} x'f(\lambda) d\lambda = 0. \]
+Therefore, by the \hyperref[lem:hahn_banach_thm]{Hahn-Banach Theorem}, since $x'y = 0$ for every $x'\in X'$, it follows that $y = 0$. This is the proof of the first part of the following theorem,
+
+\begin{theorem}[General Cauchy Integral Formula]\label{cauchy_integral_formula} 
+    Let $U\subset \C$ be an open set, $X$ a Banach space and $f:U\to X$ an analytic function. Let $D$ be a Cauchy domain such that $\ol{D} \subseteq U$. Then,
+    \[ \int_{\d D} f(\lambda) d\lambda = 0, \]
+    where $\d D$ denotes a curve that encloses the boundary of $D$. Also, the $n$-th derivative of $f$, $f^{(n)}$ exists on $D$, and for $\lambda \in D$,
+    \[ f^{(n)}(\lambda) = \frac{n!}{2\pi i} \int_{\d D} \frac{f(\zeta)}{(\zeta - \lambda)^{n+1}} \, d\zeta. \] 
+\end{theorem}
+
+
+% \begin{definition}
+%     Let $(X,\|\cdot\|)$ be a Banach space and $\gamma: [a,b] \to X$ be a continuous function from an interval $[a,b]\subset \R$ to $X$ (also called a \textit{curve}). Let $\Delta = (a = x_0,x_1, \ldots, x_n = b)$ with $x_i < x_{i+1}$ be a partition of $[a,b]$, define
+% \end{definition}

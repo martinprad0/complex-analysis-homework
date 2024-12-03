@@ -2,66 +2,52 @@
 
 \section{Introduction}
 
-The goal of this project is to describe how the definition of holomorphic complex functions can be extended to operators in Banach spaces. For instance, if $P(z) = a_0 + a_1 z +\cdots + a_n z^n$ is a \textit{polynomial} defined for the complex numbers, then it's natural to define for a linear operator $T : X \to X$,
+The goal of this project is to describe how the definition of holomorphic complex functions can be extended to linear operators in Banach spaces. For instance, if $P(z) = a_0 + a_1 z +\cdots + a_n z^n$ is a \textit{polynomial} defined for the complex numbers, then it's natural to define for a linear operator $T : X \to X$,
 \[ P(T) = a_0 I + a_1 T + \cdots + a_n T^n, \]
 \[ \underbrace{T^0 x := I x = x}_{\mbox{\tiny identity operator}},\quad \underbrace{T^k x = T(\cdots(T(x)))}_{\mbox{\tiny $k$ times composition}},\; \forall x \in X. \]
 
-Now, for a holomorphic function $f: \C \to \C$ with a power series $f(z) = \sum_{n = 0}^{\infty} a_n z^n$ that absolutely converges for $|z| < R$ and a bounded linear operator $T$ such that $\|Tx\| < R\|x\|$ for any $x \in X$, the operator $f(T) := \sum_{n = 0}^{\infty} a_n T^n$ is well defined because
-\[ \forall x \in X:\; \|f(T)(x)\| \leq \sum_{n = 0}^{\infty} |a_n| \|T^n x\| < \|x\| \sum_{n = 0}^{\infty} |a_n| R^n < \infty. \tag*{$(\star)$}  \]
-
-There are some notions of spectral theory that will be useful for extending this definition to a broader set of functions. For example, for a holomorphic function $f : U \to \C$ in a domain $U$ one might define $f(T)$ using a version of the Cauchy Integral formula for some curve $\gamma \in U$,
-\[ f(T) = \frac{1}{2\pi i} \int_{\gamma} \frac{f(\lambda)}{\lambda - T} \; d \lambda, \]
-where $1/(\lambda - T) := (\lambda I - T)^{-1}$ is called the \textit{resolvent} of $T$ at $\lambda$ and it's defined if the operator $(\lambda I - T)$ is \textit{regular} (invertible). The resolvent is defined for every $\lambda \in \C$ except for a closed set $\sigma(T)$ called the \textit{spectrum} of $T$. These definitions are the cornerstone of this project, so let's take some time to work on them.
-
-\begin{definition} 
-    The \textit{resolvent set} of a linear operator $T: X \to X$ in a Banach space $X$ is defined as
-    \[ \rho(T) := \{\lambda \in \C \;:\; (\lambda I - T) \mbox{ is bijective}\}. \]
-    If $\lambda \in \rho(T)$, then the \textit{resolvent of $T$ at $\lambda$} is $R(\lambda , T) := (\lambda I - T)^{-1}$. $\sigma(T) := \C \backslash \rho(T)$ is called the \textit{spectrum of $T$} and is the complement of the resolvent set.
+\begin{definition}\label{def:bounded_linear_operator}\label{def:operator_norm}
+    A linear operator between two Banach spaces $T: X \to Y$ is called bounded if there exists $M > 0$ such that, for every $x \in X$,
+    \[ \|Tx\|_Y \leq M \|x\|_X. \]
+    The space of these functions is called $L(X,Y)$, and it's a Banach space if $Y$ is. Also, it can be shown that a linear operator is bounded if and only if is continuous. The operator's norm is defined as
+    \[ \|T\| = \sup_{\|x\| = 1} \|Tx\|_Y. \]
 \end{definition}
 
-The following theorem is used some times in the following propositions, but the proof might be out of the scope of this document, so we're just going to state it.
+Now, for a holomorphic function $f: \C \to \C$ with a power series $f(z) = \sum_{n = 0}^{\infty} a_n z^n$ that absolutely converges for $|z| < R$ and a bounded linear operator $T$ such that $\|T\| < R$, the operator $f(T) := \sum_{n = 0}^{\infty} a_n T^n$ is well defined because
+\[ \forall x \in X:\; \|f(T)(x)\| \leq \sum_{n = 0}^{\infty} |a_n| \|T^n x\| < \|x\| \sum_{n = 0}^{\infty} |a_n| R^n < \infty. \]
+However, the tools provided by the power series are limited, and thus, we require another method that allow us to use similar versions of the theorems 
+%  the clear limitation of this method is that we are restricted only to bounded operators. There are some notions of functional analysis that will be useful for extending this definition to a broader set of operators.
 
-\begin{theorem}
-    For a Banach space $X$ and a bounded operator $T: X \to X$, that is $\|Tx\| \leq M \|x\|$ for some $M> 0$, the \textit{resolvent set} $\rho(T) \subset \C$ is an open set, and thus, the spectrum $\sigma(T)$ is closed.
+\begin{definition}\label{def:cauchy_domain}
+    An open set $D\subset \C$ is said to be a \textit{Cauchy domain} if these two conditions are met:
+    \begin{itemize}
+        \item $D$ has a finite number of connected components.
+        \item The boundary of $D$ is composed of a finite number of simple closed rectifiable curves that don't intersect with each other.
+    \end{itemize}
+\end{definition}
+\begin{theorem}[Cauchy Integral Formula]\label{thm:cauchy_integral_formula_basic} 
+    Let $U\subset \C$ be an open set and $f:U\to \C$ a holomorphic function. Let $D$ be a Cauchy domain such that $\ol{D} \subseteq U$. Then,
+    \[ \int_{C} f(\lambda) d\lambda = 0, \]
+    where $C$ denotes any positively oriented curve that encloses the boundary of $D$. Also, the $n$-th derivative of $f$, $f^{(n)}$ exists on $D$, and for $\lambda_0 \in D$,
+    \[ f^{(n)}(\lambda_0) = \frac{n!}{2\pi i} \int_{C} \frac{f(\lambda)}{(\lambda - \lambda_0)^{n+1}} \, d\lambda. \] 
+    \hfill $\square$
 \end{theorem}
 
-$ $\hfill $\square$
+Therefore, we find a more general way to define $f(T)$ using a version of the Cauchy Integral formula,
+\[ f(T) = \frac{1}{2\pi i} \int_{C} \frac{f(\lambda)}{\lambda - T} \; d \lambda, \]
+where $1/(\lambda - T) := (\lambda I - T)^{-1}$ is called the \textit{resolvent} of $T$ at $\lambda$ and it's defined only if the operator $(\lambda I - T)$ is \textit{invertible}. The scope of this project is to formalize this particular definition of the Cauchy Formula, which requires the introduction of a more general notion of complex differentiation and integration for functions with values on Banach spaces.
 
-\begin{definition} 
-    Let $\sigma_p(T) := \{\lambda \in \C \;:\; (\lambda I - T) \mbox{ is not injective}\}$. This set may be called the \textit{point spectrum} or the \textit{eigenvalues} of $T$ and it is a subset of $\sigma(T)$.
+\begin{definition}\label{def:resolvent}\label{def:spectrum}
+    The \textit{resolvent set} of a linear operator $T: X \to X$ in a Banach space $X$ is defined as
+    \[ \rho(T) := \{\lambda \in \C \;:\; (\lambda I - T) \mbox{ is bijective}\}. \]
+    If $\lambda \in \rho(T)$, then the \textit{resolvent of $T$ at $\lambda$} is $R(\lambda , T) := (\lambda I - T)^{-1}$. Also, the complement of the resolvent set, $\sigma(T) := \C \backslash \rho(T)$ is called the \textit{spectrum of $T$}.
 \end{definition}
 
-Note that for an operator $T$ and $x \neq y \in X$, $T(x) = T(y) \iff T(x-y) = 0$. Therefore $T$ is injective if and only if $\ker(T) := \{x \;:\; Tx = 0\} = \{0\}$.
+% The following theorem is used some times in the following propositions, but the proof might be out of the scope of this document, so we're just going to state it.
 
-\begin{remark}
-    If $X$ has a basis with $n$-elements $\{x_1, \ldots, x_n\}$ and $\ker(T) = \{0\}$, then, for such given basis, let $M$ be the $n\times n$ matrix representation of $T$. It follows that $M$ is full rank, and therefore, the set with the $n$ columns of $M$ is linearly independent. This set of columns is the vector representation of $\{Tx_1, \ldots, Tx_n\} \subset X$ which is also linearly independent, and thus, 
-    \[ \dim TX = n = \dim X \implies TX = X. \]
-    In the finite dimensional case, a linear operator $T: X \to X$ is bijective if and only if $T$ is injective, so $\sigma_p(T) = \sigma(T)$. However, if $X$ is infinite dimensional, then that might not be necessarily the case.
-\end{remark}
+% \begin{theorem}\label{thm:resolvent_open_for_bounded}
+%     For a Banach space $X$ and a bounded linear operator $T: X \to X$, the \textit{resolvent set} $\rho(T) \subset \C$ is an open set, and thus, the spectrum $\sigma(T)$ is closed.
+%     $ $\hfill $\square$
+% \end{theorem}
 
-\begin{example} 
-    In this example we're going to show a case of an operator in an infinite dimensional space for which $\sigma_p(T) \neq \sigma(T)$. Define $X = \ell^2(\N \to \C)$ as the set of sequences $x = (x_1,x_2,\ldots)$ that satisfy
-    \[ \|x\|_2 = \sum_{n=1}^{\infty} |x_n|^2 < \infty,\quad x_n \in \C. \]
-    Now, define the left shift operator as follows
-    \[ L(x_1,x_2,x_3,\ldots) = (x_2,x_3,x_4,\ldots), \]
-    and note that for any $x = (x_1,x_2,\ldots) \in X$,
-    \[ \|L x\|_2 = \sum_{n = 2}^{\infty}|x_n|^2 \leq \sum_{n = 1}^{\infty}|x_n|^2 = \|x\|_2. \]
-    Then, note that the function $f_\lambda(z) = \frac{1}{\lambda - z}$ has a power series given by the geometric series when $|\lambda| > 1$:
-    \[ f_\lambda(z) = \frac{\lambda^{-1}}{1-\lambda^{-1}z} = \sum_{n = 0}^{\infty} \lambda^{-n-1} z^n, \]
-    and thus, since $\|\lambda^{-1} L x\| \leq \lambda^{-1}\|x\|$, the resolvent of $L$ at $\lambda$ given by the $(\star)$ equation is
-    \[ R(\lambda, L) = (\lambda I - L)^{-1} = f_\lambda(L) = \sum_{n = 0}^{\infty} \lambda^{-n-1} L^n,\quad |\lambda| > 1 \]
-    \[ \implies \sigma(T) \subseteq \{\lambda \in \C \;:\; |\lambda| \leq 1\}. \]
-    On the other hand, note that $(\lambda I - L) x = 0$ if and only if for every $n \in \N$,
-    \[ (\lambda I - L) x = (\lambda x_1 - x_2, \lambda x_2 - x_3, \lambda x_3 - x_4, \ldots) = 0 \]
-    \[ \iff  x_n = \lambda x_{n-1} \iff x_n = \lambda^{n-1} x_1.  \]
-    Therefore, since $p_\lambda = (1,\lambda,\lambda^2,\ldots) \in X$ only if $|\lambda| < 1$, it follows that
-    \[ \ker(\lambda I - L) = \begin{cases}
-        \span\{p_\lambda\} & |\lambda| < 1\\
-        \{0\} & |\lambda| \geq 1
-    \end{cases} \]
-    \[ \implies \sigma_p(L) = \{\lambda \in \C \;:\; |\lambda| < 1\}. \]
-    Finally, since $\sigma(L)$ is a closed set and
-    \[ \sigma_p(L) = \{\lambda \in \C \;:\; |\lambda| < 1\} \subseteq \sigma(L) \subseteq \{\lambda \in \C \;:\; |\lambda| \leq 1\}, \]
-    it follows that $\sigma(L) = \{\lambda \in \C \;:\; |\lambda| \leq 1\}$ which has more elements than $\sigma_p(L)$.
-\end{example}
 

@@ -1,12 +1,16 @@
-\documentclass[11pt]{article}
-\setlength{\parskip}{0.6 em}
+\documentclass[11pt]{scrarticle}
+% \setlength{\parskip}{0.6 em}
+% \usepackage{eulervm}
 
 %%--PACKAGES-----------------------------------------------------
 \usepackage[dvipsnames]{xcolor} % color
-\usepackage[colorlinks=true, allbordercolors={0 0 0}, pdfborderstyle={/S/U/W 1}, linkcolor=blue,urlcolor=blue,bookmarksopen=true, urlbordercolor=cyan]{hyperref}  % hyperlinks
+\usepackage[colorlinks=true, allbordercolors={0 0 0}, pdfborderstyle={/S/U/W 1}, linkcolor=blue,urlcolor=blue,bookmarksopen=true, urlbordercolor=cyan, citecolor=red]{hyperref}  % hyperlinks
 \usepackage[a4paper, total={6in, 9in}]{geometry} % margins
 \usepackage{bookmark, breakurl, amsfonts, amsthm, amsmath, amssymb, cancel, mathrsfs, enumitem, advdate} % quality of life packages.
 \usepackage{tikz, subfig, subcaption, graphicx, float, wrapfig, multicol, svg, tikz-cd} % tikz, graphics and positioning.
+
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
 
 
 %%--CORRECTIONS--------------------------------------------------
@@ -34,7 +38,7 @@
 \def\R{\ensuremath{\mathbb{R}}}
 \def\C{\ensuremath{\mathbb{C}}}
 \def\S{\ensuremath{\mathbb{S}}}
-\def\D{\ensuremath{\mathbb{D}}}
+\def\D{\ensuremath{\mathcal{D}}}
 \def\F{\ensuremath{\mathscr{F}}}
 
 \usepackage{bbm,dsfont}
@@ -62,7 +66,7 @@
 \newtheorem{definition}{Definition}[]
 \newtheorem{example}{Example}[]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{lemma}{Lemma}
 \newtheorem*{remark}{Remark}
 
 % Custom Commands
@@ -90,9 +94,6 @@
 
 \maketitle
 % \tableofcontents 
-
 \inputfiles{../chapters/*}
-
-% \bibliography{refs}
- 
+\bibliography{refs}
 \end{document}

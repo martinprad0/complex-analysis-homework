@@ -1,206 +1,103 @@
 % chktex-file 3 chktex-file 9 chktex-file 17 chktex-file 18 chktex-file 36
 
-\section{Spectral Theory in Finite Dimensional Spaces}
+\section{Complex Derivatives for Vector Valued Functions}
 
-We're going to begin with the case where $X$ is a finite dimensional Banach space of complex numbers and $T: X \to X$ is an operator. According to the remark in the previous section for this chapter we are allowed to call $\sigma(T)$ the eigenvalues of $T$. For $\lambda \in \sigma(T)$ there exists multiple solutions $x \in X$, $x\neq 0$ for the equation $(\lambda I -T)x = 0$. These solutions are called the \textit{eigenvectors} and the set that contains all the solutions for the previous equation: $N_\lambda(T) := \ker(\lambda I - T)$ is called the \textit{geometric eigenspace} in $\lambda$. 
+The goal of this section is to extend the notion of analyticity to a broader set of functions. We're basing this discussion mainly on Chapter V of~\cite{taylor1986introduction}, but some definitions and proofs were adapted from Chapter 5 of~\cite{winklmeier2013functional}.
 
-Also, for a positive integer $v$ define the set $N_\lambda^v := \ker ((\lambda I - T)^v)$ and note that if $n = \dim(X)$, then $N_\lambda^{v} \subseteq N_\lambda^{v+1}\subseteq N_\lambda^n = N_\lambda^{n+1}$. Let $v(\lambda) \leq n$ be a positive integer such that
-\[ N_\lambda^{v(\lambda)-1} \subsetneq N_\lambda^{v(\lambda)} = N_\lambda^{v(\lambda) + 1} \]
-and define the set $A_\lambda := N_\lambda^{v(\lambda)}$ which is called the \textit{algebraic eigenspace} in $\lambda$. Note that since $N_\lambda^0 = \ker(I) = \{0\}$ and $N_\lambda^1 \supsetneq \{0\}$ only when $\lambda\in \sigma(T)$, it follows that
-\[ v(\lambda) > 0 \iff \lambda \in \sigma(T).  \]
+Let $X$ be a complex Banach space, and let $f: U\subseteq \C \to X$ be a function that is defined on an open set $U$ with values in $X$.
 
-The dimension of the eigenspaces in $\lambda$ are called \textit{geometric multiplicity} and \textit{algebraic multiplicity} of $\lambda$ respectively. The following examples will illustrate how this concepts work.
+\begin{definition}\label{def:analytic}
+    We say that $f: U \to X$ is \textit{analytic} on $U$ if for every $\lambda_0 \in U$, there exists an element of $X$ called $f'(\lambda_0)$ such that
+    \[ \lim_{\lambda \to \lambda_0} \left\| \frac{f(\lambda_0)-f(\lambda)}{\lambda_0 - \lambda} - f'(\lambda_0) \right\| = 0. \]
+\end{definition}
 
-\begin{example} ($v(\lambda)$ and the algebraic multiplicity in $\lambda$ are not the same)
+In order for the previous definition to be relevant with our problem, there must exist a bridge between functions from $\C \to X$ and holomorphic functions $\C \to \C$. The bridge in mind is the dual space of $X$, which provides an interesting way to translate analyticity in this context to complex differentiability.
 
-    \noindent Let $X = \C^3$ and define $T$ by its matrix representation:
-    \[ T = \left[ \begin{matrix}
-        0 & 0 & 1\\
-        0 & 0 & 0\\
-        0 & 0 & 0
-    \end{matrix} \right].\]
-    Note that $\sigma(T) = \{0\}$, $N_0 = \span\{(1,0,0)',(0,1,0)'\}$ and since $T^2 = 0$, $A_0 = N_0^2 = \span\{(1,0,0)',(0,1,0)', (0,0,1)\}$. Therefore, $v(0) = 2$ and the algebraic multiplicity in 0 is 3. 
-\end{example}
+\begin{definition}\label{def:dual_space}\label{def:functional}
+    Let $X$ be a Banach space. We define $X' = L(X,\C)$ as the dual space of $X$, which consists of all bounded operators from $X$ to $\C$. The elements of the dual space are called \textit{functionals}. Similarly to how we treat operators in general, for $x'\in X'$ and $y \in X$, we use the notation
+    \[ x'y = x'(y) .\]
+    For $x' \in X'$, the norm $\|x'\|$ is defined as the operator's norm of $x'$.
+\end{definition}
 
-\begin{example} (The geometric and algebraic multiplicities are not the same)
+\begin{remark} Since functionals are continuous linear functions, it follows that for an analytic function $f$ and $x' \in X$,
+    \[ \lim_{\lambda \to \lambda_0} \frac{x'f(\lambda_0)-x'f(\lambda)}{\lambda_0 - \lambda} = x'\left( \lim_{\lambda \to \lambda_0} \frac{f(\lambda_0)-f(\lambda)}{\lambda_0-\lambda}  \right) = x'f'(\lambda_0). \]
+Therefore, if $f$ is analytic, then $x'f := x'\circ f: U \to \C$ is an holomorphic function. 
+\end{remark}
 
-    \noindent Let $X = \C^3$ and define $T$ by its matrix representation:
-    \[ T = \left[ \begin{matrix}
-        i & 0 & 0\\
-        0 & 0 & 1\\
-        0 & 0 & 0
-    \end{matrix} \right]. \]
-    Note that $\sigma(T) = \{i,0\}$ with $N_i = \span\{(1,0,0)'\}$ and $N_0 = \span\{(0,1,0)'\}$ so the geometric multiplicity of both eigenvalues is 1. However, after taking $(\lambda I - T)^2$ we obtain
-    \[ (iI - T)^2 = \left[ \begin{matrix}
-        0 & 0 & 0\\
-        0 & -1 & 1\\
-        0 & 0 & -1
-    \end{matrix} \right],\quad 
-    (0I - T)^2 = \left[ \begin{matrix}
-        -1 & 0 & 0\\
-        0 & 0 & 0\\
-        0 & 0 & 0
-    \end{matrix} \right]\]
-\end{example}
-So $N_i^2 = N_i$ and $N_0^2 = \span\{(0,1,0)', (0,0,1)'\}$ implying that $v(i) = 1$ and $v(0) = 2$. 
+In function analysis, we often refer to a \textit{weak} version of a property when the property holds when evaluated using functionals in the dual space. For example, a sequence $\{x_n\}_{n\in \N} \subset X$ is said to \textit{weakly converge} to $x\in X$ if, for every $x'\in X$, the sequence $x'x_n$ converges to $x'x$. With the previous remark, we could introduce a weak version of analyticity when $x'f'(\lambda_0)$ exists for every $\lambda_0 \in U$ and $x' \in X'$. However, part of what makes everything work here is that this weak notion is equivalent to analyticity.
 
-This also shows that the algebraic multiplicity in $i$ is 1 while the algebraic multiplicity in $0$ is 2. In this case the algebraic multiplicities of the eigenvalues sum to the space's dimension and the direct sum of the algebraic eigenspaces gives us $X$.
-
-In general, we can prove that $X$ is decomposed by the direct sum of the algebraic eigenspaces of any operator $T: X \to X$. But, before that, we want to show a important theorem that states that for any polynomial $P : \C \to \C$ and an operator $T$, the operator given by $P(T)$ is identically zero if and only if for every $\lambda \in \sigma(T)$, the multiplicity of $\lambda$ as a zero of $P$ coincides with the index $v(\lambda)$.
-
-\begin{theorem}
-    For a complex polynomial $P$ and an operator $T: X \to X$ the following conditions are equivalent:
-    \begin{itemize}
-        \item[(a)] $P(T) = 0$
-        \item[(b)] $\lambda$ is a zero of $P$ with multiplicity $v(\lambda)$ for every $\lambda \in \sigma(T)$.
-    \end{itemize}
+\begin{theorem}\label{thm:weakly_analytic_implies_analytic}
+    If $x'f: U\to \C$ is holomorphic for every $x'\in X$, then $f: U \to X$ is analytic.
 \end{theorem}
 
 \begin{proof}
-    \textbf{Preliminaries:} Since we're assuming that $X$ is finitely dimensional, let $n = \dim X$ and let $\{x_1,\ldots, x_n\}$ be a basis of $X$. Then, for every $k = 1,\ldots, n$, the set $\{x_k, T x_k, \ldots, T^n x_k\}$ with $n+1$ elements is linearly dependent, so there exists a non-zero and non-constant polynomial $S_k$ such that $S_k(T)x_k = 0$. Define the operator $R = S_1 \cdot S_2 \cdots S_n$ which satisfies $R(T) x_k$ for every $k = 1,\ldots, n$, and thus, since every $x \in X$ can be written as a linear combination of basis elements $x = a_1 x_1 + \cdots + a_n x_n$. It follows that for any operator $T$ there always exists a non-zero polynomial $R:\C \to \C$ such that $R(T) x = 0$ for every $x \in X$.
+    Since $X$ is a complete space, it suffices to prove that for every $\lambda_0 \in U$,
+    \[ \frac{f(\lambda_0)-f(\lambda)}{\lambda_0 - \lambda} - \frac{f(\lambda_0)-f(\mu)}{\lambda_0 - \mu} \to 0,\quad \mbox{when $\lambda,\mu \to \lambda_0$ on any direction.} \]
+    Before proceeding, we must state a theorem that is important for this proof.
+    \begin{lemma}[Uniform Boundness Principle]\label{lem:uniform_boundness_principle}
+        Let $A$ be a subset of a linear space $X$ with a norm $\|\cdot\|$. If, for every $x'\in X'$, $x'A = \{x'a \;:\; a \in A\}$ is bounded, then there exists $M >0$ such that $\|a\| \leq M$ for every $a \in A$. In other words, if $x'A$ is bounded for every $x'\in X$, then $A$ is bounded too.\hfill $\square$
+    \end{lemma}
 
-    Let $\lambda_1, \ldots, \lambda_m \in \C$ be the zeros of the polynomial $R$ so we can factorize them as follows
-    \[ R(z) = \beta \prod_{j = 1}^{m} (\lambda_j - z)^{m_j}, \]
-    that way $R(T) = \beta \prod_{j = 1}^{m} (\lambda_j I - T )^{m_j}$ and it doesn't matter the order that we multiply these factors because after expanding we should get the same expression:
-    \[ (aI+T)(bI+T) = abI + (a+b) T + T^2 = (bI+T)(aI+T). \]
-    There are two possible scenarios for $\lambda_j$:
-    \begin{itemize}
-        \item If $\lambda_j \in \rho(T)$, then $(\lambda_j I - T)$ invertible. So after reordering the set of zeros of $R$ in such way $\{\lambda_1,\ldots,\lambda_p\} \subset \sigma(T)$ and $\{\lambda_{p+1},\ldots,\lambda_m\} \subset \rho(T)$ we obtain
-        \[ R(T) = \beta \underbrace{\prod_{j = p+1}^{m} (\lambda_j I - T )^{m_j}}_{R_1(T)}\times \underbrace{\prod_{j = 1}^{p} (\lambda_j I - T )^{m_j} }_{R_2(T)}.  \]
-        Now, note that for every $x\in X$, $R(T)(x) = R_1(T)R_2(T)(x) = 0$ and $R_1(T)$ is invertible because is the product of invertible operators. Therefore, since $R_1(T) y = 0$ if and only if $y = 0$, it follows that $R_2(T) = 0$.
-        \item For $\lambda_j \in \sigma(T)$ and $x \in X$ if $(\lambda_j I - T )^{m_j} x = 0$, then $x \in A_\lambda(T)$ so it follows that $(\lambda_j I - T )^{v(\lambda_j)} x = 0$. Therefore, if we define
-        \[ R_3(T) = \prod_{j = 1}^{p} (\lambda_j I - T )^{v(\lambda_j)}, \]
-        then $R_3(T) = 0$. 
-    \end{itemize}
-
-    $\boldsymbol{(b) \implies (a)}$: If every $\lambda \in \sigma(T)$ is a zero of $P$ with multiplicity $v(\lambda)$, then $P$ is divisible by $R_3$ and thus, for some polynomial $Q$, $P(T) = R_3(T)Q(T) = 0$.
-
-    $\boldsymbol{(a) \implies (b)}$: Now let $P(T) = 0$ and
-    \[ P(z) = \alpha \prod_{j = 1}^{q} (\lambda_j - z)^{\alpha_j}.  \]
-    Using the same argument as before, one can ignore the factors $(\lambda_j - z)$ if $\lambda_j \in \rho(T)$, so assume without restriction that $\{\lambda_1,\ldots, \lambda_q\} \subseteq \sigma(T)$. On the other hand, let $\lambda_0 \in \sigma(T)$ and note that there exists $y \neq 0$ for which $T y = \lambda_0 y$. Since
-    \[  0 = P(T) y = P(\lambda_0) y,\; y\neq 0 \implies P(\lambda_0) = 0, \]
-    it follows that $\lambda_0 \in \{\lambda_1,\ldots, \lambda_q\}$, and thus, $\sigma(T) \subseteq \{\lambda_1,\ldots, \lambda_q\}$. It is left to prove that $\alpha_j \geq v(\lambda_j)$ for every $j = 1,\ldots, q$, so for the sake of contradiction assume $\alpha_j < v(\lambda_j)$ for some $j = 1,\ldots q$. Assume without restriction that $j = 1$ and note that $N_{\lambda_1}^{\alpha_1} \subsetneq N_{\lambda_1}^{\alpha_1 + 1}$ so there exists $x_1 \in X$ such that
-    \[ (\lambda_1 I - T)^{\alpha_1 + 1}x_1 = 0,\quad y_1 = (\lambda_1 I - T)^{\alpha_1}x_1 \neq 0.  \]
-    Now, let $Q$ be a polynomial such that $P(z) = Q(z)(\lambda_1 - z)^{a_1} $ and $Q(\lambda_1) \neq 0$. Finally, since $T y_1 = \lambda_1 y_1$, it follows that
-    \[ P(T)x_1 =  Q(T)(\lambda_1 I - T)^{\alpha_1}x_1 = Q(T) y_1 = \underbrace{Q(\lambda_1)}_{\neq 0} \cdot \underbrace{y_1}_{\neq 0} \neq 0, \]
-    which leads to a contradiction with the fact that $P(T) = 0$. Therefore, every $\lambda\in \sigma(T)$ is a zero of multiplicity $v(\lambda)$ of the polynomial $P$.
+    Let $r > 0$ and let $C := \ol{B_{r}(\lambda_0)}$ be a positively oriented circe centered at $\lambda_0$ with radius $r$. Since $x'f := x'\circ f$ is a holomorphic function (and thus continuous), it follows that $x'f(C)$ is a bounded set for every $x'\in X'$. Therefore, by the \hyperref[lem:uniform_boundness_principle]{Uniform Boundness Principle}, there exists $M > 0$ such that
+    \[ \|f(\lambda)\|_X \leq M,\quad \lambda \in C. \]
+    Now, for $\lambda,\mu \in B_{r/2}(\lambda_0)$, \hyperref[thm:cauchy_integral_formula_basic]{Cauchy Integral Formula} give us
+    \[ x'f(\lambda) = \frac{1}{2\pi i}\int_{C} \frac{x' f(\zeta)}{\zeta - \lambda} d\zeta, \]
+    so we have that,
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcll}
+        x'\left[ \frac{f(\lambda_0)-f(\lambda)}{\lambda_0 - \lambda} - \frac{f(\lambda_0)-f(\mu)}{\lambda_0 - \mu} \right] & = & & \frac{1}{2\pi i} \int_C \frac{x'f(\zeta)}{(\lambda_0 - \lambda)(\zeta - \lambda_0)} - \frac{x'f(\zeta)}{(\lambda_0 - \lambda)(\zeta - \lambda)} d\zeta\\
+        & & + & \frac{1}{2\pi i} \int_C \frac{x'f(\zeta)}{(\lambda_0 - \mu)(\zeta - \lambda_0)} - \frac{x'f(\zeta)}{(\lambda_0 - \mu)(\zeta - \mu)} d\zeta\\
+        & = & & \frac{1}{2\pi i} \int_C \frac{(\lambda-\mu) x'f(\zeta) }{(\zeta - \lambda_0)(\zeta - \lambda)(\zeta - \mu)} d\zeta.
+    \end{array} \]
+    Now note that since $|\zeta - \lambda| \geq  r/2$, $|\zeta - \mu| \geq r/2$ and $|\zeta - \lambda_0| = r$, it follows that
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \left| \frac{1}{2\pi i} \int_C \frac{(\lambda-\mu) x'f(\zeta)}{(\zeta - \lambda_0)(\zeta - \lambda)(\zeta - \mu)} d\zeta \right| & \leq & \frac{4|\lambda-\mu|}{2\pi r^3} \sup_{\lambda \in C} |x' f(\lambda)| \cdot \underbrace{\mbox{len}(C)}_{2\pi r} \\
+        & \leq & \frac{4 |\lambda-\mu|}{r^2} M \|x'\|.    \end{array}\]
+    The last inequality follows from the fact that $\|x'y\| \leq \|x'\| \|y\|$. Again, before concluding this proof, we require another theorem from functional analysis.
+    \begin{lemma}[Hahn-Banach Theorem]\label{lem:hahn_banach_thm} If $y \neq 0 \in X$, then there exists $x' \in X'$ such that $\|x'\| = 1$ and $x'y = \|x\|$. In particular, if for every $x'\in X'$, $x'y = 0$, then $y = 0$.\hfill $\square$
+    \end{lemma}
+    Finally, we conclude that there exists some $x' \in X'$ with $\|x'\| = 1$ and
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \left\|  \frac{f(\lambda_0)-f(\lambda)}{\lambda_0 - \lambda} - \frac{f(\lambda_0)-f(\mu)}{\lambda_0 - \mu} \right\| & = & \left| x'\left(  \frac{f(\lambda_0)-f(\lambda)}{\lambda_0 - \lambda} - \frac{f(\lambda_0)-f(\mu)}{\lambda_0 - \mu} \right) \right| \\
+        & \leq &  \frac{4M}{r^2} \cdot |\lambda-\mu| \to 0,\quad \lambda,\mu \to \lambda_0.
+    \end{array}\]
+    so we conclude that $f$ is analytic.
 \end{proof}
 
-From this theorem there are multiple and important consequences. In the proof we also showed that there always exists a non-constant polynomial $R$ for which $R(T) = 0$. This polynomial, as the theorem implies must satisfy that each eigenvalue is a zero. Since non-constant polynomials have a finite number of zeros, but at least one, it follows that the number of eigenvalues in a finite dimensional space is finite and greater that 0.
+From the previous discussion it is relatively easy to see that all notions of analyticity for maps $U\subseteq \C \to L(X,Y)$ are equivalent.
 
-\begin{corollary}
-    For a finite dimensional space $X$, the spectrum of an operator is non-empty and finite.
-\end{corollary}
-$ $\hfill $\square$
-
-Now, if we replace $P$ in the theorem with the difference between two polynomials we obtain the following corollary:
-
-\begin{corollary}
-    If $P, Q$ are polynomials, then $P(T) = Q(T)$ if for every $\lambda \in \sigma(T)$, $\lambda$ is a zero of multiplicity $v(\lambda)$ of the polynomial $P-Q$.
-\end{corollary}
-$ $\hfill $\square$
-
-In fact, if for two polynomials $P,Q$, all their derivatives coincide at the spectrum of $T$, that is
-\[ P^{(m)} (\lambda) = Q^{(m)}(\lambda),\quad \lambda \in \sigma(T),\; m < v(\lambda), \]
-then they define the same operator $P(T) = Q(T)$. Furthermore, by generalizing this notion to a holomorphic function $f$, we have that $f(T)$ is characterized only by the values of $f$ and some of its derivatives at the spectrum of $T$.
-
-Let $\F(T)$ be the family of all functions that are holomorphic at some open set containing $\sigma(T)$. For each function we can interpolate a polynomial $P$ such that
-\[ f^{(m)} (\lambda) = P^{(m)}(\lambda),\quad \lambda \in \sigma(T),\; m < v(\lambda), \]
-and with the previous corollary, we can be sure that there are no ambiguities if we define $f(T) = P(T)$ because any other polynomial that satisfies these equations would yield the same result. The following theorem immediately follows from the previous discussion.
-
-\begin{theorem}~\label{ch2t3} If $f,g$ are functions in $\F(T)$ and $\alpha,\beta$ are complex numbers, then
-    \begin{enumerate}[label = (\alph*)]
-        \item $\alpha f + \beta g \in \F(T)$ and is defined as $(\alpha f + \beta g) (T) = \alpha f(T) + \beta g(T)$.
-        \item $f \cdot g \in \F(T)$, is defined as $(f \cdot g) (T) = f(T)\cdot g(T)$, and also this implies $f(T)\cdot g(T) = g(T)\cdot f(T)$.
-        \item If $f$ is a polynomial $f(z) = \sum_{n = 0}^{m} a_n z^n$, then $f(T) = \sum_{n = 0}^{m} a_n T^n$.
-        \item $f(T) = 0$ if and only if
-        \[ f^{(m)} (\lambda) = 0,\quad \lambda \in \sigma(T),\; m < v(\lambda). \]
+\begin{corollary}\label{cor:analytic_equivalences}
+    Let $X, Y$ be Banach spaces and let $U \subseteq \C$ be an open set. For every $\lambda \in U$, let $A_\lambda \in L(X,Y)$. The following statements are equivalent:
+    \begin{enumerate}[label=(\alph*)]
+        \item For $x\in X,\; y'\in Y'$, the mapping $\lambda \mapsto y'(A_\lambda x)$ is analytic (\textit{weak analyticity}).
+        \item For $x\in X'$, the mapping $\lambda \mapsto A_\lambda x$ is analytic (\textit{strong analyticity}).
+        \item The mapping $\lambda \mapsto A_\lambda$ is analytic (\textit{analytic in the operator norm}).
     \end{enumerate}
-\end{theorem}
-$ $\hfill $\square$
-
-Let $\lambda_0 \in \C$ and define $e_{\lambda_0}(z)$ to be a function that is equal to one at a neighborhood of $\lambda_0$ and zero at a neighborhood of each point in $\sigma(T) \backslash \{\lambda_0\}$ (the neighborhoods do not intersect). The function $e_{\lambda_0}$ is in fact holomorphic at an open set that contains $\sigma(T)$ although this set is not connected. 
-
-Now define $E(\lambda_0) = e_{\lambda}(T)$, and apply the previous theorem to the following proposition
-
-\begin{theorem}~\label{ch2t4} For the operator $E(\cdot)$ defined previously and $\lambda_0,\lambda_1 \in \C$:
-    \begin{enumerate}[label = (\alph*)]
-        \item $E(\lambda_0) = 0$ if and only if $\lambda_0 \in \rho(T)$.
-        \item $E(\lambda_0)^2 = \E(\lambda_0) $.
-        \item $E(\lambda_0)E(\lambda_1) = 0$ if $\lambda_0 \neq \lambda_1$.
-        \item $I = \sum_{\lambda \in \sigma(T)} E(\lambda)$.
-    \end{enumerate}
-\end{theorem}
-
-\begin{proof}Note that $e_{\lambda_0}$ is locally constant so all of its derivatives are zero, so according to the previous theorem, the only thing that matters is whether $e_{\lambda_0}(\lambda) = 0$ for every $\lambda \in \sigma(T)$ or not.
-    \begin{enumerate}[label = (\alph*)]
-        \item  If $\lambda_0 \in \rho(T)$, then the neighborhood $V_0$ that contains $\lambda_0$ doesn't contain any eigenvalue of $T$, and thus, $e_{\lambda_0}(\lambda) = \1_{\lambda \in V_0} = 0$ for every $\lambda \in \sigma(T)$. If $E(\lambda_0) = 0$, then $e_{\lambda_0}(\lambda) = \1_{\lambda \in V_0} = 0$ for every $\lambda \in \sigma(T)$, and thus, all the eigenvalues are outside of $V_0$, implying that $\lambda_0$ is not an eigenvalue.
-        \item The function $e_{\lambda_0}$ only takes two values $\{0,1\}$ and the squares of both values are equal to themselves. Thus, $e_{\lambda_0}^2(\lambda) = e_{\lambda_0}(\lambda)$ for every $\lambda_0, \lambda \in \C$ and $e_{\lambda_0}^2$ is also locally constant, so it follows that $e_{\lambda_0}^2(T) = e_{\lambda_0}(T)$.
-        \item If $\lambda_0 \in \rho(T)$ or $\lambda_1 \in \rho(T)$, then $E(\lambda_0)E(\lambda_1) = 0$ by item (a), so assume without restriction that $\lambda_0,\lambda_1 \in \sigma(T)$. Note that $e_{\lambda_1}(\lambda_0) = e_{\lambda_0}(\lambda_1) = 0$ and $e_{\lambda_0}(\lambda) = e_{\lambda_1}(\lambda) = 0$ for any other eigenvalue of $T$ different from $\lambda_0$ and $\lambda_1$. Finally, $e_{\lambda_0}(z)\cdot e_{\lambda_1}(z)$ is identically 0 for any $z \in \sigma(T)$ and all the derivatives are 0, so it follows that, $e_{\lambda_0}(T)\cdot e_{\lambda_1}(T) = 0$.
-        \item Let $V_1,\ldots, V_q$ be the disjoint neighborhoods for $\lambda_1, \ldots, \lambda_q$ for which $e_{\lambda_j}(\lambda) = \1_{\lambda \in V_j}$. Then, since all the sets are disjoint every eigenvalue is exactly in one of this sets, so $f(\lambda) := \sum_{j = 1}^{q}e_{\lambda_j}(\lambda) = 1$ for every $\lambda \in \sigma(T)$. Therefore, since $I = 1(T)$, and both $f$ and $1$ are locally constant functions, it follows that $\sum_{j = 1}^{q}e_{\lambda_j}(T) = I$.
-    \end{enumerate}
-\end{proof}
-
-Now, let $\sigma(T) = \{\lambda_1,\ldots, \lambda_q\}$ and let $X_i = E(\lambda_i) X$. From item (b) of the previous theorem, it follows that $X_i\cap X_j = \{0\}$, from item (c) it follows that $E(\lambda_i) X_i = X_i$ and from item (d) it follows that $X = X_1+\cdots + X_q$. Therefore,
-
-\begin{corollary}
-    $X = X_1 \oplus \cdots \oplus X_q $.
 \end{corollary}
-
-On the other hand, note that for every $\lambda \neq \lambda_i \in \sigma(T)$, $\lambda$ is a zero of multiplicity $v(\lambda)$ of the function $e_{\lambda_i}$ and $\lambda_i$ is a zero of order $v(\lambda_i)$ of the function $z \mapsto (\lambda_i - z)^{v(\lambda_i)}$. Thus,
-\[ (\lambda_i I - T)^{v(\lambda_i)} E(\lambda_i) = 0. \]
-
-This relation shows that $(\lambda_i I - T)^{v(\lambda_i)} E(\lambda_i)X = (\lambda_i I - T)^{v(\lambda_i)} X_i = \{0\}$, and thus, since for every $y \in X_i$, $(\lambda_i I - T)^{v(\lambda_i)} y = 0$, it follows that $X_i \subseteq N_{\lambda_i}^{v(\lambda_i)} = A_{\lambda_i}$. The other inclusion is part of the following theorem
-
-\begin{theorem}~\label{ch2t5}
-    For $\lambda \in \sigma(T)$,
-    \[ E(\lambda)X = N_\lambda^{v(\lambda)} = A_\lambda. \]
-\end{theorem}
 
 \begin{proof}
-    In the previous paragraph we proved that $E(\lambda)X \subseteq A_{\lambda}$. Now, in the previous corollary we stated that
-    \[ X = \bigoplus_{\lambda \in \sigma(T)} E(\lambda) X, \]
-    so in order to show the other inclusion, we only need to prove that $A_\lambda \cap A_\mu = \{0\}$ for $\lambda \neq \mu$, $\lambda,\mu \in \sigma(T)$. Suppose for the sake of contradiction that there exists $x \in A_\lambda \cap A_\mu = N_\lambda^{v(\lambda)} \cap N_\mu^{v(\mu)}$ such that $x \neq 0$. Let $\alpha < v(\lambda)$ be a integer that satisfies
-    \[ z := (\lambda I - T)^{\alpha} x \neq 0 ,\quad  (\lambda I - T)^{\alpha+1} x = 0.\]
-    Thus, we have:
-    \begin{itemize}
-        \item First, it is clear that we can conmute the factors to obtain
-        \[ (\lambda I - T)^{v(\mu)} z = (\lambda I - T)^{v(\mu)}(\lambda I - T)^{\alpha} x = (\lambda I - T)^{\alpha}\underbrace{(\lambda I - T)^{v(\mu)} x}_{ x \in A_\mu} = 0.  \]
-        \item On the other hand, since $(\lambda I - T)z = (\lambda I - T)^{\alpha+1} x = 0$, it follows that $Tz = \lambda z$, and thus,
-        \[ (\lambda I - T)^{v(\mu)} z = (\lambda I - \mu I)^{v(\mu)} z = \underbrace{(\lambda - \mu)^{v(\mu)}}_{\neq 0} \underbrace{z}_{\neq 0} \neq 0. \]
-    \end{itemize}
-    This is a contradiction, so $x = 0$.
+    (a) $\iff$ (b) follows from \hyperref[thm:weakly_analytic_implies_analytic]{Theorem~\ref*{thm:weakly_analytic_implies_analytic}}.~(c) $\implies$ (b) follows from the definition:
+    \[ \left\| \frac{A_{\lambda_0}x - A_\lambda x}{\lambda_0 - \lambda} \right\| \leq \left\| \frac{A_{\lambda_0} - A_\lambda}{\lambda_0 - \lambda} \right\| \|x\| \to 0,\quad \lambda\to \lambda_0,\;\forall x \in X. \]
+    Finally, for (a) $\implies$ (c), suppose that $\lambda \mapsto y' A_\lambda x$ is analytic (and thus continuous) for every $x \in X$. Then, since $C$ is a compact set, by the \hyperref[lem:uniform_boundness_principle]{Uniform Boundness Principle} there exists $M_x > 0$ such that 
+    \[ \sup_{\lambda \in C} |A_\lambda x| \leq M_x. \]
+    We need the following theorem to proceed,
+    \begin{lemma}[Banach-Steinhaus theorem]\label{lem:banach_steinhaus}
+        Let $X$ be a Banach space and $Y$ a normed space. Let $F \subset L(X,Y)$ be a family of operators such that
+        \[  \forall x \in X,\; \exists M_x > 0\quad \forall f\in F\; \|f(x)\| \leq M_x. \]
+        Then, there exists $M > 0$ such that
+        \[ \|f\| < M\quad \forall f \in F \]
+        \hfill $\square$
+    \end{lemma}
+    Using this lemma, we obtain $M > 0$ such that
+    \[ \sup_{\lambda \in C} |A_\lambda x| \leq M \|x\|,\quad \forall x\in X. \]
+    Finally, similar to the proof of the previous theorem,
+    \[ \left\| \frac{A_{\lambda_0}x - A_{\lambda} x}{\lambda_0 - \lambda} \right\| \leq \frac{4 |\lambda-\mu|}{r^2} \sup_{\lambda \in C} |A_\lambda x| . \]
+    Thus,
+    \[ \left\| \frac{A_{\lambda_0} - A_{\lambda}}{\lambda_0 - \lambda} \right\| \leq  \frac{4 |\lambda-\mu|}{r^2} M \to 0\quad \lambda,\mu \to \lambda_0.\]
 \end{proof}
 
-As we originally intended to show, the algebraic eigenspaces of $T$ give us a direct sum decomposition of the space $X$, and thus, the sum of the algebraic multiplicities give us the dimension of $X$. We also proved that $E(\lambda)$ is a projection to each eigenspace, so the functions of $T$ can be expressed as follows
-
-\begin{theorem}
-    For $f \in \F(T)$,
-    \[ f(T) = \sum_{\lambda \in \sigma(T)} \sum_{k = 0}^{v(\lambda)-1} \frac{(T-\lambda I)^k}{k!} f^{(k)}(\lambda) E(\lambda). \]
-\end{theorem}
-
-\begin{proof}
-    The function $g \in \F(T)$, $g(z) = \sum_{\lambda \in \sigma(T)} \sum_{k = 0}^{v(\lambda)-1} \frac{(z-\lambda)^k}{k!} f^{(k)}(\lambda) e_\lambda(z)$ interpolates $f$ and its derivatives at each point $\lambda \in \sigma(T)$. In fact, for $\lambda_0 \in \sigma(T)$ and $m = 1,\ldots, v(\lambda) - 1$, 
-    \[ e_\lambda(\lambda_0) = 0,\; \lambda \neq \lambda_0,\quad e_\lambda(\lambda_0) = 1,\; \lambda = \lambda_0,  \]
-    and thus,
-    \[ g^{(m)}(\lambda_0) = \sum_{k = m}^{v(\lambda)-1} \frac{(\lambda_0-\lambda_0)^{k-m}}{(k-m)!} f^{(k)}(\lambda_0) = f^{(m)}(\lambda_0).\]
-    Finally, by Theorem~\ref{ch2t3}, it follows that
-    \[ g(T) = f(T). \]
-\end{proof}
-
-For a fixed $\lambda \in \rho(T)$, by taking $f_\lambda(z) = (\lambda - z)^{-1}$ we obtain that
-\[ (\lambda I - T)^{-1} = f_\lambda(T) = \sum_{j = 1}^{q} \sum_{k = 0}^{v(\lambda)-1} \frac{(T-\lambda_j I)^k }{(\lambda -\lambda_j I)^k} E(\lambda_j). \]
-
-Now, let $\lambda_0 \in \sigma(T)$, and an open ball $V_0$ that contains only $\lambda_0$ with no other eigenvalue of $T$. If $\gamma = \ol{V_0}$, then by the Cauchy Integral Theorem, for $z \in \C \backslash \gamma$
-\[ \ind_\gamma(z) = \frac{1}{2\pi i}\int_\gamma \frac{1}{\lambda - z} d\lambda. \]
-Similar to $e_{\lambda_0}$, the function $\ind_\gamma$ satisfies $\ind_\gamma(T) = E(\lambda_0)$ because $\ind_\gamma(\lambda_0) = 1$ and $\ind_\gamma(\lambda_j) = 0$ for any $\lambda_j \in \sigma(T)\backslash\{\lambda_0\}$. The intended goal is to show that
-\[ E(\lambda_0) = \frac{1}{2\pi i}\int_\gamma R(\lambda; T) d\lambda, \]
-and from that point define the general Cauchy Integral Formula for any function $f$ and  curves. 
-
-\textbf{Note:} For the person reviewing this work, I'm planning to reduce some of the content in this document to leave space for the following theorem and further generalizations to closed operators in infinite dimensional spaces.
-
-\begin{theorem}
-    $f(T) = \frac{1}{2\pi i} \int_{\gamma} f(\lambda) (\lambda I - T)^{-1} d\lambda$.
-\end{theorem}
-
-I ran out of time, and in general, I believe I lost time reviewing topics that may not be as relevant as the topics I left outside of this version. But, I also believe that I'm on the schedule to finish the document. Sorry if this is not what you expected.
